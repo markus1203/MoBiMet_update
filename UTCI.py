@@ -1,5 +1,8 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
+
+# Version 8.7.
+
 import math
 def universal_thermal_climate_index(ta, tr, vel, rh):
     """Calculate Universal Thermal Climate Index (UTCI) using a polynomial approximation.
