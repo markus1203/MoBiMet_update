@@ -1,5 +1,8 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
+
+# Version 8.7.
+
 from StringIO import StringIO
 import csv
 import sys
