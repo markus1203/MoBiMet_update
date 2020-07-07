@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+# Version 8.7.
+
 from rak811 import Mode, Rak811
 import csv
 import sys
