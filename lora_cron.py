@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Version 8.7.
+# Version 9.7.
 
 from rak811 import Mode, Rak811
 import csv
@@ -81,7 +81,7 @@ bg_calib_b=bytes.fromhex('{:04x}'.format(bg_calib))
 print(bg_calib_b)
 
 bg_raw=int(round(float(last_line.split(',')[11])+273.1,1)*10)
-if bg_raw==-97259: bg_calib=9999
+if bg_raw==-97259: bg_raw=9999
 bg_raw_b=bytes.fromhex('{:04x}'.format(bg_raw))
 print(bg_raw_b)
 
