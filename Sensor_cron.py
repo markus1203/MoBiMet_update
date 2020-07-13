@@ -141,7 +141,7 @@ sensor = MLX90614(bus, address=0x5A)
 try:
     mlx_a= sensor.get_ambient()
     mlx_o= sensor.get_object_1()
-    mlx_e=(5.670374419 *(10**(-8)))*((mlx_a + 273.15)**4)
+    mlx_e=(5.670374419 *(10**(-8)))*((mlx_o + 273.15)**4)
 except (IOError):
     mlx_a= -9999
     mlx_o= -9999
