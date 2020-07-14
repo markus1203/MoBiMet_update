@@ -1,6 +1,6 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
-# Version 13.7.
+# Version 15.7.
 import sys
 import os
 import time
@@ -113,7 +113,10 @@ try:
 
     bg_raw = grad_lesen()
     bg_calib = bg_cal_a0+ bg_raw * bg_cal_a1
-    tmrt=-9999 #needed after Thorsson et al 2007: Tg = the globe temperature (°C),Va = the air velocity (ms−1),Ta = the air temperature (°C),D = the globe diameter (mm),ε = the globe emissivity
+    if v >= 0: v_tmrt= 0.1
+    v_tmrt= v
+    tmrt=((((bg_calib+273.15)**4)+((1.1*(10**8)*(v_tmrt**0.6))/0.95*(0.04**0.4))*(bg_calib - dht22_temperature))**(1/4))-273.15
+    #-9999 #needed after Thorsson et al 2007: Tg = the globe temperature (°C),Va = the air velocity (ms−1),Ta = the air temperature (°C),D = the globe diameter (mm),ε = the globe emissivity
 except (IndexError):
     bg_raw = -9999
     bg_calib = -9999
