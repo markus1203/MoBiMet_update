@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-# Version 9.7.
+# Version 23.7.
 
 from rak811 import Mode, Rak811
 import csv
@@ -144,8 +144,8 @@ print("join_otaa")
 lora.dr = 5
 #lora.send(year_b+month_b+day_b+hour_b+minute_b+raspberryid_b+dht22_vp_b+dht22_vp_raw_b+dht22_humidity_b+dht22_humidity_raw_b+dht22_temperature_b+dht22_temperature_raw_b+v_b+bg_calib_b+bg_raw_b+tmrt_b+Light_Level_b+mlx_e_b+mlx_o_b+mlx_a_b)
 #lora.send(year_b+month_b+day_b+hour_b+minute_b+raspberryid_b+dht22_vp_b+dht22_humidity_b+dht22_temperature_b+v_b+bg_calib_b+tmrt_b+Light_Level_b+mlx_e_b)
-lora.send(dht22_vp_b+dht22_temperature_b+v_b+tmrt_b+Light_Level_b+mlx_e_b)
-print(dht22_vp_b+dht22_temperature_b+v_b+tmrt_b+Light_Level_b+mlx_e_b)
+lora.send(dht22_vp_raw_b+dht22_temperature_raw_b+v_b+bg_raw_b+Light_Level_b+mlx_o_b)
+print(dht22_vp_raw_b+dht22_temperature_raw_b+v_b+bg_raw_b+Light_Level_b+mlx_o_b)
 print("send")   
 lora.close()
 print("LoRa Data transmitted")
