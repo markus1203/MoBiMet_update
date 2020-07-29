@@ -157,7 +157,7 @@ bus.close()
 if v==-9999: v_utci= 0.1
 else: v_utci= v * 1.5
 
-if dht22_temperature==-9999:
+if dht22_temperature==-9999 or tmrt= -9999 :
     utci=-9999
     comf=-9999
     sl=-9999
