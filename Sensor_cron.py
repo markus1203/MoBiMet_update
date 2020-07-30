@@ -1,6 +1,6 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
-# Version 28.7.
+# Version 30.7.
 import sys
 import os
 import time
