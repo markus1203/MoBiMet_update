@@ -34,9 +34,11 @@ try:
 finally:
     connection.close()
 
+
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
-raspberryid = f1.read()
+line_id = f1.readlines()[0]
 f1.close()
+raspberryid =  (line_id.split(',')[0])
 
 # check if data ist already transmited to mysql
 
