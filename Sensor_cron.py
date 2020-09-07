@@ -186,10 +186,6 @@ if dht22_temperature==-9999 or tmrt==-9999 :
     sl_pet=-9999
 else:
     # Input data for the PET 
-    Ta=dht22_temperature # Air temperature in [oC]
-    Tmrt=tmrt # Mean radiant temperature in [oC]
-    HR=dht22_humidity # Air relative humidity [%]
-    v=v_pet # Wind velocity [m/s]
     age = 35
     sex = 1 # 1 for men and 2 for women
     pos = 1
@@ -200,7 +196,7 @@ else:
     icl = 0.9 # [clo] Clothing level
 
     # Results 
-    Tstable = resolution(Ta,Tmrt,HR,v,age,sex,ht,mbody,pos,M,icl,T)[0]
+    Tstable = resolution(dht22_temperature,tmrt,dht22_humidity,v_pet,age,sex,ht,mbody,pos,M,icl,T)[0]
     #print("Nodes temperature [T_core, T_skin, T_clo]",Tstable)
     #print('Thermal Balance', Syst(Tstable, Ta, Tmrt, HR, v, age, sex, ht, mbody, pos, M, icl,True)[0])
     #print('PET:', round(PET(age, sex, ht, mbody, pos, M, icl, Tstable, Tmin, Tmax, eps),2))
