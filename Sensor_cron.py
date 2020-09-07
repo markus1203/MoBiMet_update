@@ -19,8 +19,9 @@ computer_time=time.strftime("%Y-%m-%d %H:%M")
 
 
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
-raspberryid = f1.readlines()[0]
+line_id = f1.readlines()[0]
 f1.close()
+raspberryid =  float(line.split(',')[0])
 
 calib_file = "/home/pi/Desktop/calibration_coefficients.csv"
 f1 = open(calib_file, "r")
