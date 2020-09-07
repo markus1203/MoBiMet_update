@@ -82,8 +82,8 @@ else:
 
 #CPU_TEMP
 
-cpu_ta = CPUTemperature()
-    
+cpu = CPUTemperature()
+cpu_ta = cpu.temperature   
 # Wind
 
 logfile_wind="/home/pi/Desktop/wind.csv"
