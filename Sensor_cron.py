@@ -185,10 +185,29 @@ if dht22_temperature==-9999 or tmrt==-9999 :
     comf_pet=-9999
     sl_pet=-9999
 else:
-    pet=universal_thermal_climate_index(dht22_temperature, tmrt, v_utci, dht22_humidity)
-    comf_pet=comfortable(utci)
-    sl_pet=stresslevel(utci)
+    # Input data for the PET 
+    Ta=dht22_temperature # Air temperature in [oC]
+    Tmrt=tmrt # Mean radiant temperature in [oC]
+    HR=dht22_humidity # Air relative humidity [%]
+    v=v_pet # Wind velocity [m/s]
+    age = 35
+    sex = 1 # 1 for men and 2 for women
+    pos = 1
+    mbody = 75 #[kg]
+    ht = 1.80 #[m]
+    p = 1013.25 #[hPa]
+    M = 80 # [W] Metabolic activity level
+    icl = 0.9 # [clo] Clothing level
 
+    # Results 
+    Tstable = resolution(Ta,Tmrt,HR,v,age,sex,ht,mbody,pos,M,icl,T)[0]
+    #print("Nodes temperature [T_core, T_skin, T_clo]",Tstable)
+    #print('Thermal Balance', Syst(Tstable, Ta, Tmrt, HR, v, age, sex, ht, mbody, pos, M, icl,True)[0])
+    #print('PET:', round(PET(age, sex, ht, mbody, pos, M, icl, Tstable, Tmin, Tmax, eps),2))
+
+    pet = round(PET(age, sex, ht, mbody, pos, M, icl, Tstable, Tmin, Tmax, eps),2)
+    sl_pet=stresslevel_PET(pet)
+    comf_pet=comfortable_PET(pet)
 
 logfile_path ="/home/pi/Desktop/Data/"
 logfile =logfile_path+raspberryid+"-"+time.strftime("%Y-%m-%d")+".csv"
