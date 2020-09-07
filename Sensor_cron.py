@@ -1,6 +1,6 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
-# Version 30.7.
+# Version 7.9.2020
 import sys
 import os
 import time
@@ -19,7 +19,7 @@ computer_time=time.strftime("%Y-%m-%d %H:%M")
 
 
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
-raspberryid = f1.read()
+raspberryid = f1.readlines()[0]
 f1.close()
 
 calib_file = "/home/pi/Desktop/calibration_coefficients.csv"
