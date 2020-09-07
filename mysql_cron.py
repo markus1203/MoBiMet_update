@@ -59,8 +59,8 @@ if os.path.exists(logfile_cl):
     with open(logfile_cl) as csvfile:
         sp=csv.DictReader(csvfile)
         for row in sp:
-            sql= "INSERT INTO Data (Rasp_Time,RASP_ID, IP_MOBIMET, RH,RH_raw, VP_hPa,VP_hPa_raw, Ta_C, Ta_C_raw, `v_m/s`, `BlackGlobeT_C`,`BlackGlobeT_C_raw`,`Tmrt_C`,`LightLevel_lux`,`MLX_E_W/m²`,`MLX_O_C`,`MLX_A_C`,UTCI_C,Stress) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s,%s)"
-            cur.execute(sql, (row['Raspi_Time'],row['RaspberryID'], row['IP'],row['Rel_Hum(%)_DHT22_calib'],row['Rel_Hum(%)_DHT22_raw'],row['VP(hPa)_DHT22_calib'],row['VP(hPa)_DHT22_raw'],row['Ta(°C)_DHT22_calib'], row['Ta(°C)_DHT22_raw'],row['Wind(m/s)'],row['BG(°C)_calib'],row['BG(°C)_raw'],row['Tmrt(°C)'],row['Light_Level(lx)'],row['MLX_E(W/m²)'],row['MLX_O(°C)'],row['MLX_A(°C)'],row['UTCI(°C)'], row['Stresslevel']))
+            sql= "INSERT INTO Data (Rasp_Time,RASP_ID, IP_MOBIMET, RH,RH_raw, VP_hPa,VP_hPa_raw, Ta_C, Ta_C_raw, `v_m/s`, `BlackGlobeT_C`,`BlackGlobeT_C_raw`,`Tmrt_C`,`LightLevel_lux`,`MLX_E_W/m²`,`MLX_O_C`,`MLX_A_C`,UTCI_C,Stresslevel_UTCI,PET_C,Stresslevel_PET,CPU_TEMP_C) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s,%s,%s,%s,%s)"
+            cur.execute(sql, (row['Raspi_Time'],row['RaspberryID'], row['IP'],row['Rel_Hum(%)_DHT22_calib'],row['Rel_Hum(%)_DHT22_raw'],row['VP(hPa)_DHT22_calib'],row['VP(hPa)_DHT22_raw'],row['Ta(°C)_DHT22_calib'], row['Ta(°C)_DHT22_raw'],row['Wind(m/s)'],row['BG(°C)_calib'],row['BG(°C)_raw'],row['Tmrt(°C)'],row['Light_Level(lx)'],row['MLX_E(W/m²)'],row['MLX_O(°C)'],row['MLX_A(°C)'],row['UTCI(°C)'], row['Stresslevel_utci'],row['PET(°C)'],row['Stresslevel_pet'], row['CPU_TEMP(°C)']))
     connection.commit() 
     cur.close()
     os.remove(logfile_cl)
@@ -102,18 +102,21 @@ if time > (lastmysqltime[0].strftime('%Y-%m-%d %H:%M')):
     mlx_a=(last_line.split(',')[16])  
     utci=(last_line.split(',')[17])
     #if float(utci)==-9999: utci=None
-    sl=(last_line.split(',')[18])
+    sl_utci=(last_line.split(',')[18])
     #if float(sl)==-9999: sl=None
     #Insert Data to mysql
+    pet=(last_line.split(',')[19])
+    sl_pet=(last_line.split(',')[20])
+    cpu_temp=(last_line.split(',')[21])
     print(time,raspberryid,IP,dht22_humidity,dht22_humidity_raw,dht22_vp,dht22_vp_raw,dht22_temperature,dht22_temperature_raw,v,bg_calib,bg_raw,Tmrt,Light_Level,mlx_e,mlx_o,mlx_a,utci,sl)
 
     
     connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet", cursorclass=pymysql.cursors.DictCursor)
     try:
         with connection.cursor() as cursor:
-            sqlQuery = "INSERT INTO `Data` (`Rasp_Time`,`Rasp_ID`,`IP_MOBIMET`, `RH`, `RH_raw`, `VP_hPa`,`VP_hPa_raw`,`Ta_C`,`Ta_C_raw`, `v_m/s`, `BlackGlobeT_C`,`BlackGlobeT_C_raw`,`Tmrt_C`,`LightLevel_lux`,`MLX_E_W/m²`,`MLX_O_C`,`MLX_A_C`, `UTCI_C`, `Stress`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s,%s)"
+            sqlQuery = "INSERT INTO `Data` (`Rasp_Time`,`Rasp_ID`,`IP_MOBIMET`, `RH`, `RH_raw`, `VP_hPa`,`VP_hPa_raw`,`Ta_C`,`Ta_C_raw`, `v_m/s`, `BlackGlobeT_C`,`BlackGlobeT_C_raw`,`Tmrt_C`,`LightLevel_lux`,`MLX_E_W/m²`,`MLX_O_C`,`MLX_A_C`, `UTCI_C`, `Stresslevel_UTCI`,`PET_C`,`Stresslevel_PET`,`CPU_TEMP_C`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s,%s,%s, %s,%s)"
             #cursor.execute(sqlQuery,(time, raspberryid, IP,"{0:.1f}".format(dht22_humidity),"{0:.1f}".format(dht22_humidity_raw),"{0:.3f}".format(dht22_vp),"{0:.3f}".format(dht22_vp_raw),"{0:.1f}".format(dht22_temperature),"{0:.1f}".format(dht22_temperature_raw),"{0:.1f}".format(v),"{0:.1f}".format(utci), sl))
-            cursor.execute(sqlQuery,(time,raspberryid,IP,dht22_humidity,dht22_humidity_raw,dht22_vp,dht22_vp_raw,dht22_temperature,dht22_temperature_raw,v,bg_calib,bg_raw,Tmrt,Light_Level,mlx_e,mlx_o,mlx_a,utci,sl))
+            cursor.execute(sqlQuery,(time,raspberryid,IP,dht22_humidity,dht22_humidity_raw,dht22_vp,dht22_vp_raw,dht22_temperature,dht22_temperature_raw,v,bg_calib,bg_raw,Tmrt,Light_Level,mlx_e,mlx_o,mlx_a,utci,sl_utci,pet,sl_pet,cpu_temp))
             connection.commit()
             print(connection)            
     finally:
