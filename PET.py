@@ -241,15 +241,13 @@ Tmax = 60
 #Tmrt=30 # Mean radiant temperature in [oC]
 #HR=50 # Air relative humidity [%]
 #v=1 # Wind velocity [m/s]
-#age = 35
-#sex = 1 # 1 for men and 2 for women
-#pos = 1
-#mbody = 75 #[kg]
-#ht = 1.80 #[m]
-#p = 1013.25 #[hPa]
-#M = 80 # [W] Metabolic activity level
-#icl = 0.5 # [clo] Clothing level
-
+age = 35
+sex = 1 # 1 for men and 2 for women
+pos = 1
+mbody = 75 #[kg]
+ht = 1.80 #[m]
+p = 1013.25 #[hPa]
+M = 80 # [W] Metabolic activity level
 # Results 
 #Tstable = resolution(Ta,Tmrt,HR,v,age,sex,ht,mbody,pos,M,icl,T)[0]
 #print("Nodes temperature [T_core, T_skin, T_clo]",Tstable)
