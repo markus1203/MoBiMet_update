@@ -1,7 +1,7 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 
-# Version 8.7.
+# Version 25.9.
 
 from __future__ import division
 
@@ -24,10 +24,12 @@ import traceback
 import RPi.GPIO as GPIO
 
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
-raspberryid = f1.read()
+line_id = f1.readlines()[0]
 f1.close()
+raspberryid =  (line_id.split(',')[0])
     
 font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
+font22 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 22)
 font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 font35 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 35)
 font14 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 14)  
@@ -68,20 +70,22 @@ while True:
         utci=(last_line.split(',')[17])
         comf=comfortable(float(utci))
         
-        LBlackimage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
-        LRedimage= Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
+        HBlackimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126
+        HRedimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126   
 
-        drawblack = ImageDraw.Draw(LBlackimage)
-        drawred = ImageDraw.Draw(LRedimage)
-        drawblack.text((2, 0), ' MoBiMet ' + raspberryid, font = font24, fill = 0)
-        drawblack.text((2,40), R_time, font = font18, fill = 0)
-        drawblack.text((2,70), 'Ta: ' +dht22_temperature+' C', font = font18, fill = 0)
-        drawblack.text((2,100), 'RH: '+dht22_humidity+' %', font = font18, fill = 0)
-        drawblack.text((2,130), 'UTCI: '+utci+' C', font = font18, fill = 0)
-        drawred.text((2,160), comf,font = font18, fill = 0)
-        drawblack.text((2,200), ' I AM COLD ' , font = font24, fill = 0)       
-        drawblack.text((2,250), 'IP: ' +IP, font = font14, fill = 0)
-        epd.display(epd.getbuffer(LBlackimage),epd.getbuffer(LRedimage))
+        drawblack = ImageDraw.Draw(HBlackimage)
+        drawred = ImageDraw.Draw(HRedimage)
+        drawblack.text((5, 5), ' MoBiMet ' + raspberryid, font = font35, fill = 0)
+        drawblack.text((5,55),R_time, font = font22, fill = 0)
+        #draw.text((2,70), 'Ta: ' +"{0:.1f}".format(dht22_temperature)+u' °C', font = font18, fill = 0)
+        #draw.text((2,100), 'RH: '+"{0:.1f} %".format(dht22_humidity), font = font18, fill = 0)
+        #draw.text((2,130), 'UTCI: '+"{0:.1f}".format(utci) + u' °C', font = font18, fill = 0)
+        drawblack.text((5,90), 'Ta: ' +dht22_temperature+u' °C' + '       RH: '+dht22_humidity+' %', font = font22, fill = 0)
+        #drawblack.text((2,100), 'RH: '+dht22_humidity+' %', font = font18, fill = 0)
+        #drawblack.text((2,130), 'UTCI: '+utci+u' °C', font = font18, fill = 0)
+        drawred.text((5,120), comf,font = font22, fill = 0)
+        drawblack.text((5,150), ' I AM COLD ' , font = font24, fill = 0) 
+        epd.display(epd.getbuffer(HBlackimage),epd.getbuffer(HRedimage))
 
                         
         print('Key1 Pressed '+b_time)
@@ -105,20 +109,22 @@ while True:
         comf=comfortable(float(utci))
 
 
-        LBlackimage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
-        LRedimage= Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
+        HBlackimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126
+        HRedimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126   
 
-        drawblack = ImageDraw.Draw(LBlackimage)
-        drawred = ImageDraw.Draw(LRedimage)
-        drawblack.text((2, 0), ' MoBiMet ' + raspberryid, font = font24, fill = 0)
-        drawblack.text((2,40), R_time, font = font18, fill = 0)
-        drawblack.text((2,70), 'Ta: ' +dht22_temperature+' C', font = font18, fill = 0)
-        drawblack.text((2,100), 'RH: '+dht22_humidity+' %', font = font18, fill = 0)
-        drawblack.text((2,130), 'UTCI: '+utci+' C', font = font18, fill = 0)
-        drawred.text((2,160), comf,font = font18, fill = 0)
-        drawblack.text((2,200), ' I AM COMFORTABLE ' , font = font18, fill = 0)       
-        drawblack.text((2,250), 'IP: ' +IP, font = font14, fill = 0)
-        epd.display(epd.getbuffer(LBlackimage),epd.getbuffer(LRedimage))
+        drawblack = ImageDraw.Draw(HBlackimage)
+        drawred = ImageDraw.Draw(HRedimage)
+        drawblack.text((5, 5), ' MoBiMet ' + raspberryid, font = font35, fill = 0)
+        drawblack.text((5,55),R_time, font = font22, fill = 0)
+        #draw.text((2,70), 'Ta: ' +"{0:.1f}".format(dht22_temperature)+u' °C', font = font18, fill = 0)
+        #draw.text((2,100), 'RH: '+"{0:.1f} %".format(dht22_humidity), font = font18, fill = 0)
+        #draw.text((2,130), 'UTCI: '+"{0:.1f}".format(utci) + u' °C', font = font18, fill = 0)
+        drawblack.text((5,90), 'Ta: ' +dht22_temperature+u' °C' + '       RH: '+dht22_humidity+' %', font = font22, fill = 0)
+        #drawblack.text((2,100), 'RH: '+dht22_humidity+' %', font = font18, fill = 0)
+        #drawblack.text((2,130), 'UTCI: '+utci+u' °C', font = font18, fill = 0)
+        drawred.text((5,120), comf,font = font22, fill = 0)
+        drawblack.text((5,150), ' I AM COMFORTABLE ' , font = font24, fill = 0) 
+        epd.display(epd.getbuffer(HBlackimage),epd.getbuffer(HRedimage))   
 
         print('Key2 Pressed '+b_time)
         print("Smiley pinted on EPD")
@@ -143,20 +149,22 @@ while True:
         comf=comfortable(float(utci))
 
 
-        LBlackimage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
-        LRedimage= Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
+        HBlackimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126
+        HRedimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126   
 
-        drawblack = ImageDraw.Draw(LBlackimage)
-        drawred = ImageDraw.Draw(LRedimage)
-        drawblack.text((2, 0), ' MoBiMet ' + raspberryid, font = font24, fill = 0)
-        drawblack.text((2,40), R_time, font = font18, fill = 0)
-        drawblack.text((2,70), 'Ta: ' +dht22_temperature+' C', font = font18, fill = 0)
-        drawblack.text((2,100), 'RH: '+dht22_humidity+' %', font = font18, fill = 0)
-        drawblack.text((2,130), 'UTCI: '+utci+' C', font = font18, fill = 0)
-        drawred.text((2,160), comf,font = font18, fill = 0)
-        drawblack.text((2,200), ' I AM HOT ' , font = font24, fill = 0)       
-        drawblack.text((2,250), 'IP: ' +IP, font = font14, fill = 0)
-        epd.display(epd.getbuffer(LBlackimage),epd.getbuffer(LRedimage))
+        drawblack = ImageDraw.Draw(HBlackimage)
+        drawred = ImageDraw.Draw(HRedimage)
+        drawblack.text((5, 5), ' MoBiMet ' + raspberryid, font = font35, fill = 0)
+        drawblack.text((5,55),R_time, font = font22, fill = 0)
+        #draw.text((2,70), 'Ta: ' +"{0:.1f}".format(dht22_temperature)+u' °C', font = font18, fill = 0)
+        #draw.text((2,100), 'RH: '+"{0:.1f} %".format(dht22_humidity), font = font18, fill = 0)
+        #draw.text((2,130), 'UTCI: '+"{0:.1f}".format(utci) + u' °C', font = font18, fill = 0)
+        drawblack.text((5,90), 'Ta: ' +dht22_temperature+u' °C' + '       RH: '+dht22_humidity+' %', font = font22, fill = 0)
+        #drawblack.text((2,100), 'RH: '+dht22_humidity+' %', font = font18, fill = 0)
+        #drawblack.text((2,130), 'UTCI: '+utci+u' °C', font = font18, fill = 0)
+        drawred.text((5,120), comf,font = font22, fill = 0)
+        drawblack.text((5,150), ' I AM HOT ' , font = font24, fill = 0) 
+        epd.display(epd.getbuffer(HBlackimage),epd.getbuffer(HRedimage))
 
         print('Key3 Pressed '+b_time)
         print("Smiley pinted on EPD")
