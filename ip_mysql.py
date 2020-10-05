@@ -20,13 +20,13 @@ time.sleep(10)
 connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019")
 try:
     with connection.cursor() as cursor:
-        cursor.execute('CREATE DATABASE IF NOT EXISTS mobimet')
+        cursor.execute('CREATE DATABASE IF NOT EXISTS mobimet_data')
         
 finally:
     connection.close()
 
 #Create Database
-connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet", cursorclass=pymysql.cursors.DictCursor)
+connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
 try:
     with connection.cursor() as cursor:
         sqlQuery = "CREATE TABLE IF NOT EXISTS `connection`(`ID` INT(11) NOT NULL AUTO_INCREMENT,`Timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,`Rasp_Time` DATETIME,`RASP_ID` INT,`IP_MOBIMET` TEXT, PRIMARY KEY(`ID`)) AUTO_INCREMENT=1"
@@ -60,7 +60,7 @@ print (IP)
 
 time=time.strftime("%Y-%m-%d %H:%M:%S")
 print(time)
-connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet", cursorclass=pymysql.cursors.DictCursor)
+connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
 try:
         with connection.cursor() as cursor:
             sqlQuery = "INSERT INTO `connection` (`Rasp_Time`,`Rasp_ID`,`IP_MOBIMET`) VALUES (%s, %s, %s)"
