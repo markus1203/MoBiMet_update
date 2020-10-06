@@ -28,7 +28,7 @@ finally:
 #connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet", cursorclass=pymysql.cursors.DictCursor)
 #try:
 #    with connection.cursor() as cursor:
-#        sqlQuery = "CREATE TABLE IF NOT EXISTS `Data`(`ID` INT(11) NOT NULL AUTO_INCREMENT,`Timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,`Rasp_Time` DATETIME,`RASP_ID` INT,`IP_MOBIMET` TEXT, `VP_hPa` DECIMAL(7,3),`VP_hPa_raw` DECIMAL(7,3), `RH` DECIMAL(5,1),`RH_raw` DECIMAL(5,1),`Ta_C` DECIMAL(5,1), `Ta_C_raw` DECIMAL(5,1),`v_m/s` DECIMAL(5,1),`BlackGlobeT_C` DECIMAL(5,1),`BlackGlobeT_C_raw` DECIMAL(5,1),`Tmrt_C` DECIMAL(5,1),`LightLevel_lux` DECIMAL(7,2),`MLX_E_W/m²` DECIMAL(5,1),`MLX_O_C` DECIMAL(5,1),`MLX_A_C` DECIMAL(5,1),`UTCI_C` DECIMAL(5,1), `Stresslevel_UTCI` INT,`PET_C` DECIMAL(5,1), `Stresslevel_PET` INT,`CPU_TEMP_C` DECIMAL(5,1), PRIMARY KEY(`ID`)) AUTO_INCREMENT=1"
+#        sqlQuery = "CREATE TABLE IF NOT EXISTS `Data`(`ID` INT(11) NOT NULL AUTO_INCREMENT,`Timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,`Rasp_Time` DATETIME,`RASP_ID` INT,`IP_MOBIMET` TEXT, `VP_hPa` DECIMAL(5,1),`VP_hPa_raw` DECIMAL(5,1), `RH` DECIMAL(5,1),`RH_raw` DECIMAL(5,1),`Ta_C` DECIMAL(5,1), `Ta_C_raw` DECIMAL(5,1),`v_m/s` DECIMAL(5,1),`BlackGlobeT_C` DECIMAL(5,1),`BlackGlobeT_C_raw` DECIMAL(5,1),`Tmrt_C` DECIMAL(5,1),`LightLevel_lux` DECIMAL(7,2),`MLX_E_W/m²` DECIMAL(5,1),`MLX_O_C` DECIMAL(5,1),`MLX_A_C` DECIMAL(5,1),`UTCI_C` DECIMAL(5,1), `Stresslevel_UTCI` INT,`PET_C` DECIMAL(5,1), `Stresslevel_PET` INT,`CPU_TEMP_C` DECIMAL(5,1), PRIMARY KEY(`ID`)) AUTO_INCREMENT=1"
 #        cursor.execute(sqlQuery)
          #
 #finally:
