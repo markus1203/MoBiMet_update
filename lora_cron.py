@@ -139,7 +139,7 @@ lora.band = 'EU868'
 print("band")
 #lora.set_config(dev_eui='303838365338710C',app_eui='70B3D57ED0030AF7',app_key='07487AD99477A0AEC0D02A75DA25D94F' )
 lora.set_config(app_eui='70B3D57ED0030AF7',
-                app_key='07487AD99477A0AEC0D02A75DA25D94F')
+                app_key='C2C153DEBBF0D7518098E243217ABEA6')
 print("config")
 lora.join_otaa()
 print("join_otaa")
