@@ -21,7 +21,7 @@ from waveshare_epd import epd2in7b
 from PIL import Image,ImageDraw,ImageFont
 import traceback
 
-from PET import *
+#from PET import *
 
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
 line_id = f1.readlines()[0]
@@ -62,8 +62,8 @@ IP=(last_line.split(',')[2])
 time=(last_line.split(',')[0])
 dht22_humidity=(last_line.split(',')[5])
 dht22_temperature=(last_line.split(',')[7])
-PET=(last_line.split(',')[17])
-comf=comfortable_PET(float(PET))
+PET=(last_line.split(',')[19])
+#comf=comfortable_PET(float(PET))
 
 epd.init()
 HBlackimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126
