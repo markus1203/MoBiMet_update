@@ -181,9 +181,9 @@ if lang=='f':
         drawblack.text((130,120), u' léger stress', font = font22, fill = 0)
         drawblack.text((130,145), u' dû au froid', font = font22, fill = 0)
     elif float(PET)>=41:
-        drawblack.text((140,121), ' stress thermique', font = font18, fill = 0)
-        drawblack.text((140,138), ' thermique', font = font18, fill = 0)
-        drawblack.text((140,155), u' extrême', font = font18, fill = 0)
+        drawblack.text((130,125), ' stress thermique', font = font18, fill = 0)
+        #drawblack.text((140,138), ' thermique', font = font18, fill = 0)
+        drawblack.text((140,145), u' extrême', font = font18, fill = 0)
     elif float(PET)>=35:
         drawblack.text((140,125), ' fort stress', font = font20, fill = 0)
         #drawblack.text((140,138), ' stress ', font = font17, fill = 0)
