@@ -61,6 +61,7 @@ while True:
             key3state = GPIO.input(key3)
             
             if key1state == False:
+                print('eins')
                 b_time=time.strftime("%Y-%m-%d %H:%M:%S")
                 smiley=1
                 print('Key1 Pressed '+b_time)
@@ -77,6 +78,7 @@ while True:
                 time.sleep(2)
                 
             if key2state == False:
+                print('zwei')
                 b_time=time.strftime("%Y-%m-%d %H:%M:%S")
                 smiley=2
                 print('Key2 Pressed '+b_time)
@@ -93,6 +95,7 @@ while True:
                 time.sleep(2)
                 
             if key3state == False:
+                print('drei')
                 b_time=time.strftime("%Y-%m-%d %H:%M:%S")
                 smiley=3
                 print('Key3 Pressed '+b_time)
