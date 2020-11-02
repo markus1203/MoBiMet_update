@@ -66,16 +66,16 @@ while True:
         smiley=1
         print('Key1 Pressed '+b_time)
         connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
-            try:
-                with connection.cursor() as cursor:
-                    sqlQuery = "INSERT INTO `smiley` (`Rasp_Time`,`Rasp_ID`,`SMILEY`) VALUES (%s, %s, %s)"
-                    cursor.execute(sqlQuery,(b_time, raspberryid, smiley))
-                    connection.commit()
-                    print(str(smiley))
-                    print(connection)            
-            finally:
-                connection.close()
-            time.sleep(2)
+         try:
+            with connection.cursor() as cursor:
+                sqlQuery = "INSERT INTO `smiley` (`Rasp_Time`,`Rasp_ID`,`SMILEY`) VALUES (%s, %s, %s)"
+                cursor.execute(sqlQuery,(b_time, raspberryid, smiley))
+                connection.commit()
+                print(str(smiley))
+                print(connection)            
+        finally:
+            connection.close()
+        time.sleep(2)
                
     if key2state == False:
         print('zwei')
@@ -83,16 +83,16 @@ while True:
         smiley=2
         print('Key2 Pressed '+b_time)
         connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
-            try:
-                with connection.cursor() as cursor:
-                    sqlQuery = "INSERT INTO `smiley` (`Rasp_Time`,`Rasp_ID`,`SMILEY`) VALUES (%s, %s, %s)"
-                    cursor.execute(sqlQuery,(b_time, raspberryid, smiley))
-                    connection.commit()
-                    print(str(smiley))
-                    print(connection)            
-            finally:
-                    connection.close()
-            time.sleep(2)
+        try:
+             with connection.cursor() as cursor:
+                sqlQuery = "INSERT INTO `smiley` (`Rasp_Time`,`Rasp_ID`,`SMILEY`) VALUES (%s, %s, %s)"
+                cursor.execute(sqlQuery,(b_time, raspberryid, smiley))
+                connection.commit()
+                print(str(smiley))
+                print(connection)            
+        finally:
+            connection.close()
+        time.sleep(2)
                 
     if key3state == False:
         print('drei')
