@@ -1,7 +1,7 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 
-# Version 25.9.
+# Version 02.11.
 
 from __future__ import division
 
@@ -54,20 +54,20 @@ while True:
             key1 = 5
             key2 = 6
             key3 = 13
-            key4 = 19
+            #key4 = 19
             GPIO.setup(key1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
             GPIO.setup(key2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
             GPIO.setup(key3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-            GPIO.setup(key4, GPIO.IN, pull_up_down=GPIO.PUD_UP)   
+            #GPIO.setup(key4, GPIO.IN, pull_up_down=GPIO.PUD_UP)   
             key1state = GPIO.input(key1)
             key2state = GPIO.input(key2)
             key3state = GPIO.input(key3)
-            key4state = GPIO.input(key4)
+            #key4state = GPIO.input(key4)
             if key1state == False:
                 b_time=time.strftime("%Y-%m-%d %H:%M:%S")
                 smiley=1
                 print('Key1 Pressed '+b_time)
-                connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet", cursorclass=pymysql.cursors.DictCursor)
+                connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
                 try:
                     with connection.cursor() as cursor:
                         sqlQuery = "INSERT INTO `smiley` (`Rasp_Time`,`Rasp_ID`,`SMILEY`) VALUES (%s, %s, %s)"
