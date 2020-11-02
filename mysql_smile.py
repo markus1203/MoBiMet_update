@@ -15,7 +15,6 @@ libdir="/home/pi/e-Paper/RaspberryPi&JetsonNano/python/lib"
 #libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
 if os.path.exists(libdir):
     sys.path.append(libdir)
-from UTCI import *
 
 import logging
 from waveshare_epd import epd2in7b
@@ -29,7 +28,7 @@ f1 = open("/home/pi/Desktop/r_id.csv", "r")
 line_id = f1.readlines()[0]
 f1.close()
 raspberryid =  (line_id.split(',')[0])
-
+print(str(raspberryid))
 #Create DATABASE
 connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019")
 try:
@@ -54,15 +53,12 @@ while True:
             key1 = 5
             key2 = 6
             key3 = 13
-            #key4 = 19
             GPIO.setup(key1, GPIO.IN, pull_up_down=GPIO.PUD_UP)
             GPIO.setup(key2, GPIO.IN, pull_up_down=GPIO.PUD_UP)
             GPIO.setup(key3, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-            #GPIO.setup(key4, GPIO.IN, pull_up_down=GPIO.PUD_UP)   
             key1state = GPIO.input(key1)
             key2state = GPIO.input(key2)
             key3state = GPIO.input(key3)
-            #key4state = GPIO.input(key4)
             if key1state == False:
                 b_time=time.strftime("%Y-%m-%d %H:%M:%S")
                 smiley=1
@@ -71,7 +67,6 @@ while True:
                 try:
                     with connection.cursor() as cursor:
                         sqlQuery = "INSERT INTO `smiley` (`Rasp_Time`,`Rasp_ID`,`SMILEY`) VALUES (%s, %s, %s)"
-                        #cursor.execute(sqlQuery,(time, raspberryid, IP,"{0:.1f}".format(dht22_humidity),"{0:.1f}".format(dht22_humidity_raw),"{0:.3f}".format(dht22_vp),"{0:.3f}".format(dht22_vp_raw),"{0:.1f}".format(dht22_temperature),"{0:.1f}".format(dht22_temperature_raw),"{0:.1f}".format(v),"{0:.1f}".format(utci), sl))
                         cursor.execute(sqlQuery,(b_time, raspberryid, smiley))
                         connection.commit()
                         print(str(smiley))
@@ -87,7 +82,6 @@ while True:
                 try:
                     with connection.cursor() as cursor:
                         sqlQuery = "INSERT INTO `smiley` (`Rasp_Time`,`Rasp_ID`,`SMILEY`) VALUES (%s, %s, %s)"
-                        #cursor.execute(sqlQuery,(time, raspberryid, IP,"{0:.1f}".format(dht22_humidity),"{0:.1f}".format(dht22_humidity_raw),"{0:.3f}".format(dht22_vp),"{0:.3f}".format(dht22_vp_raw),"{0:.1f}".format(dht22_temperature),"{0:.1f}".format(dht22_temperature_raw),"{0:.1f}".format(v),"{0:.1f}".format(utci), sl))
                         cursor.execute(sqlQuery,(b_time, raspberryid, smiley))
                         connection.commit()
                         print(str(smiley))
@@ -104,7 +98,6 @@ while True:
                 try:
                     with connection.cursor() as cursor:
                         sqlQuery = "INSERT INTO `smiley` (`Rasp_Time`,`Rasp_ID`,`SMILEY`) VALUES (%s, %s, %s)"
-                        #cursor.execute(sqlQuery,(time, raspberryid, IP,"{0:.1f}".format(dht22_humidity),"{0:.1f}".format(dht22_humidity_raw),"{0:.3f}".format(dht22_vp),"{0:.3f}".format(dht22_vp_raw),"{0:.1f}".format(dht22_temperature),"{0:.1f}".format(dht22_temperature_raw),"{0:.1f}".format(v),"{0:.1f}".format(utci), sl))
                         cursor.execute(sqlQuery,(b_time, raspberryid, smiley))
                         connection.commit()
                         print(str(smiley))
