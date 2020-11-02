@@ -66,7 +66,7 @@ while True:
         smiley=1
         print('Key1 Pressed '+b_time)
         connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
-         try:
+        try:
             with connection.cursor() as cursor:
                 sqlQuery = "INSERT INTO `smiley` (`Rasp_Time`,`Rasp_ID`,`SMILEY`) VALUES (%s, %s, %s)"
                 cursor.execute(sqlQuery,(b_time, raspberryid, smiley))
