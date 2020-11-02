@@ -59,6 +59,7 @@ while True:
             key1state = GPIO.input(key1)
             key2state = GPIO.input(key2)
             key3state = GPIO.input(key3)
+            
             if key1state == False:
                 b_time=time.strftime("%Y-%m-%d %H:%M:%S")
                 smiley=1
@@ -74,9 +75,10 @@ while True:
                 finally:
                     connection.close()
                 time.sleep(2)
+                
             if key2state == False:
-                smiley=2
                 b_time=time.strftime("%Y-%m-%d %H:%M:%S")
+                smiley=2
                 print('Key2 Pressed '+b_time)
                 connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
                 try:
@@ -85,7 +87,7 @@ while True:
                         cursor.execute(sqlQuery,(b_time, raspberryid, smiley))
                         connection.commit()
                         print(str(smiley))
-                        print(connection)
+                        print(connection)            
                 finally:
                     connection.close()
                 time.sleep(2)
