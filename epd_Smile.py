@@ -410,7 +410,7 @@ while True:
             drawred.text((0,30), ' Dampfdruck:',font = font16, fill = 0)
             drawred.text((0,50), ' Wind:',font = font16, fill = 0)
             drawred.text((0,70), ' Black Globe Temperatur:',font = font16, fill = 0)
-            drawred.text((0,92.5), ' Mittlere Strahlungstemperatur:',font = font14, fill = 0)
+            drawred.text((0,92), ' Mittlere Strahlungstemperatur:',font = font14, fill = 0)
             drawred.text((0,110), ' Thermische Strahlung:',font = font16, fill = 0)
             drawred.text((0,130), ' Helligkeit:',font = font16, fill = 0)
             drawred.text((0,150), ' IP:',font = font16, fill = 0)            
