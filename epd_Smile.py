@@ -478,7 +478,7 @@ while True:
             if float(tmrt) ==-9999:
                 drawblack.text((200,90), u' pas de données', font = font16, fill = 0)
             else:
-                drawblack.text((200,90), ' ' +tmrt+u'°C', font = font16, fill = 0)
+                drawblack.text((200,90), ' ' +str(round(float(tmrt),1))+u'°C', font = font16, fill = 0)
            
             if float(IR) ==-9999:
                 drawblack.text((160,110), u' pas de données', font = font16, fill = 0)
