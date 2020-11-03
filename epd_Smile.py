@@ -458,7 +458,7 @@ while True:
             drawred.text((0,30), u' La pression de vapeur:',font = font16, fill = 0)
             drawred.text((0,50), u' Vent:',font = font16, fill = 0)
             drawred.text((0,70), u' Black Globe Température:',font = font16, fill = 0)
-            drawred.text((0,90), u' Tmrt                                        :',font = font16, fill = 0)
+            drawred.text((0,90), u' Tmrt                                            :',font = font16, fill = 0)
             drawred.text((35,94), u' (Température de rayonnement moyenne)',font = font10, fill = 0)
             drawred.text((0,110), u' Radiation thermique:',font = font16, fill = 0)
             drawred.text((0,130), u' Luminosité:',font = font16, fill = 0)
