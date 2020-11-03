@@ -1,6 +1,6 @@
 #!/usr/bin/python
 
-# Version 8.7.
+# Version 03.11.2020
 
 from gpiozero import Button
 import time
