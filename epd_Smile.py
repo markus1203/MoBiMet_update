@@ -432,21 +432,21 @@ while True:
                 drawblack.text((180,70), ' ' +bg+u'°C', font = font16, fill = 0)
                 
             if float(tmrt) ==-9999:
-                drawblack.text((250,90), ' keine Daten', font = font16, fill = 0)
+                drawblack.text((210,90), ' keine Daten', font = font16, fill = 0)
             else:
-                drawblack.text((250,90), ' ' +tmrt+u'°C', font = font16, fill = 0)
+                drawblack.text((210,90), ' ' +tmrt+u'°C', font = font16, fill = 0)
            
             if float(IR) ==-9999:
-                drawblack.text((250,110), ' keine Daten', font = font16, fill = 0)
+                drawblack.text((170,110), ' keine Daten', font = font16, fill = 0)
             else:
-                drawblack.text((250,110), ' ' +IR+u' W/m²', font = font16, fill = 0)
+                drawblack.text((170,110), ' ' +IR+u' W/m²', font = font16, fill = 0)
             
             if float(light) ==-9999:
-                drawblack.text((250,130), ' keine Daten', font = font16, fill = 0)
+                drawblack.text((80,130), ' keine Daten', font = font16, fill = 0)
             else:
-                drawblack.text((250,130), ' ' +light+u' lux', font = font16, fill = 0)
+                drawblack.text((80,130), ' ' +light+u' lux', font = font16, fill = 0)
 
-            drawblack.text((250,150), ' ' +IP, font = font16, fill = 0)  
+            drawblack.text((30,150), ' ' +IP, font = font16, fill = 0)  
 
         if lang=='f':
             drawred.text((0,30), u" Température",font = font16, fill = 0)
