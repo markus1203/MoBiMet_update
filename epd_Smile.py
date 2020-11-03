@@ -410,7 +410,7 @@ while True:
             drawred.text((0,30), ' Dampfdruck:',font = font16, fill = 0)
             drawred.text((0,50), ' Wind:',font = font16, fill = 0)
             drawred.text((0,70), ' Black Globe Temperatur:',font = font16, fill = 0)
-            drawred.text((0,90), ' Mittlere Strahlungstemperatur:',font = font16, fill = 0)
+            drawred.text((0,90), ' Mittlere Strahlungstemperatur:',font = font14, fill = 0)
             drawred.text((0,110), ' Thermische Strahlung:',font = font16, fill = 0)
             drawred.text((0,130), ' Helligkeit:',font = font16, fill = 0)
             drawred.text((0,150), ' IP:',font = font16, fill = 0)            
@@ -432,14 +432,14 @@ while True:
                 drawblack.text((180,70), ' ' +bg+u'°C', font = font16, fill = 0)
                 
             if float(tmrt) ==-9999:
-                drawblack.text((210,90), ' keine Daten', font = font16, fill = 0)
+                drawblack.text((190,90), ' keine Daten', font = font16, fill = 0)
             else:
-                drawblack.text((210,90), ' ' +tmrt+u'°C', font = font16, fill = 0)
+                drawblack.text((190,90), ' ' +tmrt+u'°C', font = font16, fill = 0)
            
             if float(IR) ==-9999:
-                drawblack.text((170,110), ' keine Daten', font = font16, fill = 0)
+                drawblack.text((165,110), ' keine Daten', font = font16, fill = 0)
             else:
-                drawblack.text((170,110), ' ' +IR+u' W/m²', font = font16, fill = 0)
+                drawblack.text((165,110), ' ' +IR+u' W/m²', font = font16, fill = 0)
             
             if float(light) ==-9999:
                 drawblack.text((80,130), ' keine Daten', font = font16, fill = 0)
