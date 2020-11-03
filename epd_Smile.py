@@ -132,7 +132,7 @@ while True:
             drawred.text((0,30), u' Température',font = font16, fill = 0)
             drawred.text((130,30), u' Humidité',font = font16, fill = 0)
             drawred.text((0,105), '   PET',font = font16, fill = 0)
-            drawred.text((130,105), 'Sensation thermique',font = font16, fill = 0)
+            drawred.text((130,100), 'Sensation thermique',font = font16, fill = 0)
 
             if float(dht22_temperature) ==-9999:
                 drawblack.text((0,45), ' pas de', font = font24, fill = 0)
@@ -234,7 +234,7 @@ while True:
             drawred.text((0,30), u' Température',font = font16, fill = 0)
             drawred.text((130,30), u' Humidité',font = font16, fill = 0)
             drawred.text((0,105), '   PET',font = font16, fill = 0)
-            drawred.text((130,105), 'Sensation thermique',font = font16, fill = 0)
+            drawred.text((130,100), 'Sensation thermique',font = font16, fill = 0)
 
             if float(dht22_temperature) ==-9999:
                 drawblack.text((0,45), ' pas de', font = font24, fill = 0)
@@ -337,7 +337,7 @@ while True:
             drawred.text((0,30), u' Température',font = font16, fill = 0)
             drawred.text((130,30), u' Humidité',font = font16, fill = 0)
             drawred.text((0,105), '   PET',font = font16, fill = 0)
-            drawred.text((130,105), 'Sensation thermique',font = font16, fill = 0)
+            drawred.text((130,100), 'Sensation thermique',font = font16, fill = 0)
 
             if float(dht22_temperature) ==-9999:
                 drawblack.text((0,45), ' pas de', font = font24, fill = 0)
