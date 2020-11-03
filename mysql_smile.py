@@ -75,7 +75,7 @@ while True:
                 print(connection)            
         finally:
             connection.close()
-        time.sleep(2)
+        time.sleep(60)
                
     if key2state == False:
         print('zwei')
@@ -92,7 +92,7 @@ while True:
                 print(connection)            
         finally:
             connection.close()
-        time.sleep(2)
+        time.sleep(60)
                 
     if key3state == False:
         print('drei')
@@ -109,7 +109,7 @@ while True:
                 print(connection)            
         finally:
             connection.close()
-        time.sleep(2)
+        time.sleep(60)
 
 
 print("porgram closed")
