@@ -43,7 +43,8 @@ font35 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 35)
 font14 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 14)  
 font16 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 16) 
 font17 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 17) 
-font38 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 38)  
+font38 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 38)
+font10 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 10)  
 
 logfile_path = "/home/pi/Desktop/Data/"
 
@@ -452,41 +453,42 @@ while True:
             drawred.text((0,30), u' La pression de vapeur:',font = font16, fill = 0)
             drawred.text((0,50), u' Vent:',font = font16, fill = 0)
             drawred.text((0,70), u' Black Globe Température:',font = font16, fill = 0)
-            drawred.text((0,92), u' Température de rayonnement moyenne:',font = font14, fill = 0)
+            drawred.text((0,90), u' Tmrt                             :',font = font16, fill = 0)
+            drawred.text((0,93), u' (Température de rayonnement moyenne)',font = font10, fill = 0)
             drawred.text((0,110), u' Radiation thermique:',font = font16, fill = 0)
             drawred.text((0,130), u' Luminosité:',font = font16, fill = 0)
             drawred.text((0,150), ' IP:',font = font16, fill = 0)            
 
 
             if float(vp) ==-9999:
-                drawblack.text((160,30), ' pas de données', font = font16, fill = 0)
+                drawblack.text((165,30), u' pas de données', font = font16, fill = 0)
             else:
-                drawblack.text((160,30), ' ' +vp+u' hPa', font = font16, fill = 0)
+                drawblack.text((165,30), ' ' +vp+u' hPa', font = font16, fill = 0)
 
             if float(v) ==-9999:
-                drawblack.text((50,50), ' pas de données', font = font16, fill = 0)
+                drawblack.text((50,50), u' pas de données', font = font16, fill = 0)
             else:
                 drawblack.text((50,50), ' ' +v+u' m/s', font = font16, fill = 0)
 
             if float(bg) ==-9999:
-                drawblack.text((190,70), ' pas de données', font = font16, fill = 0)
+                drawblack.text((190,70), u' pas de données', font = font16, fill = 0)
             else:
                 drawblack.text((190,70), ' ' +bg+u'°C', font = font16, fill = 0)
                 
             if float(tmrt) ==-9999:
-                drawblack.text((200,90), ' pas de données', font = font16, fill = 0)
+                drawblack.text((200,90), u' pas de données', font = font16, fill = 0)
             else:
                 drawblack.text((200,90), ' ' +tmrt+u'°C', font = font16, fill = 0)
            
             if float(IR) ==-9999:
-                drawblack.text((165,110), ' pas de données', font = font16, fill = 0)
+                drawblack.text((160,110), u' pas de données', font = font16, fill = 0)
             else:
-                drawblack.text((165,110), ' ' +IR+u' W/m²', font = font16, fill = 0)
+                drawblack.text((160,110), ' ' +IR+u' W/m²', font = font16, fill = 0)
             
             if float(light) ==-9999:
-                drawblack.text((80,130), ' pas de données ', font = font16, fill = 0)
+                drawblack.text((90,130), u' pas de données ', font = font16, fill = 0)
             else:
-                drawblack.text((80,130), ' ' +light+u' lux', font = font16, fill = 0)
+                drawblack.text((90,130), ' ' +light+u' lux', font = font16, fill = 0)
 
             drawblack.text((30,150), ' ' +IP, font = font16, fill = 0) 
 
