@@ -129,7 +129,7 @@ while True:
 
 
         if lang=='f':
-            drawred.text((0,30), u" Température",font = font16, fill = 0)
+            drawred.text((0,30), u' Température',font = font16, fill = 0)
             drawred.text((130,30), u' Humidité',font = font16, fill = 0)
             drawred.text((0,105), '   PET',font = font16, fill = 0)
             drawred.text((130,105), ' Sensation thermique',font = font16, fill = 0)
@@ -153,7 +153,7 @@ while True:
                 drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
 
 
-            drawblack.text((130,140), u" j'ai froid", font = font24, fill = 0)
+            drawblack.text((130,140), u' j ai froid', font = font24, fill = 0)
 
 
         drawred.line((0, 99, 265, 99), fill = 0)
@@ -231,7 +231,7 @@ while True:
 
 
         if lang=='f':
-            drawred.text((0,30), u" Température",font = font16, fill = 0)
+            drawred.text((0,30), u' Température',font = font16, fill = 0)
             drawred.text((130,30), u' Humidité',font = font16, fill = 0)
             drawred.text((0,105), '   PET',font = font16, fill = 0)
             drawred.text((130,105), 'Sensation thermique',font = font16, fill = 0)
@@ -334,7 +334,7 @@ while True:
 
 
         if lang=='f':
-            drawred.text((0,30), u" Température",font = font16, fill = 0)
+            drawred.text((0,30), u' Température',font = font16, fill = 0)
             drawred.text((130,30), u' Humidité',font = font16, fill = 0)
             drawred.text((0,105), '   PET',font = font16, fill = 0)
             drawred.text((130,105), ' Sensation thermique',font = font16, fill = 0)
@@ -358,7 +358,7 @@ while True:
                 drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
 
 
-            drawblack.text((130,140), u" J'ai chaud", font = font24, fill = 0)
+            drawblack.text((130,140), u' J ai chaud', font = font24, fill = 0)
 
 
         drawred.line((0, 99, 265, 99), fill = 0)
@@ -484,7 +484,7 @@ while True:
                 drawblack.text((210,90), u' pas de données', font = font16, fill = 0)
             else:
                 tmrt_r=str(round(float(tmrt),1))
-                drawblack.text((210,90), ' ' +tmrt_r+u'°C', font = font16, fill = 0)
+                drawblack.text((210,90), '  ' +tmrt_r+u'°C', font = font16, fill = 0)
            
             if float(IR) ==-9999:
                 drawblack.text((160,110), u' pas de données', font = font16, fill = 0)
