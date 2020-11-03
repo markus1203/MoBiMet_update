@@ -449,31 +449,46 @@ while True:
             drawblack.text((30,150), ' ' +IP, font = font16, fill = 0)  
 
         if lang=='f':
-            drawred.text((0,30), u" Température",font = font16, fill = 0)
-            drawred.text((130,30), u' Humidité',font = font16, fill = 0)
-            drawred.text((0,105), '   PET',font = font16, fill = 0)
-            drawred.text((130,105), ' Sensation thermique',font = font16, fill = 0)
+            drawred.text((0,30), u' La pression de vapeur:',font = font16, fill = 0)
+            drawred.text((0,50), u' Vent:',font = font16, fill = 0)
+            drawred.text((0,70), u' Black Globe Température:',font = font16, fill = 0)
+            drawred.text((0,92), u' Température de rayonnement moyenne:',font = font14, fill = 0)
+            drawred.text((0,110), u' Radiation thermique:',font = font16, fill = 0)
+            drawred.text((0,130), u' Luminosité:',font = font16, fill = 0)
+            drawred.text((0,150), ' IP:',font = font16, fill = 0)            
 
-            if float(dht22_temperature) ==-9999:
-                drawblack.text((0,45), ' pas de', font = font24, fill = 0)
-                drawblack.text((0,70), u' données', font = font24, fill = 0)
+
+            if float(vp) ==-9999:
+                drawblack.text((180,30), ' keine Daten', font = font16, fill = 0)
             else:
-                drawblack.text((0,50), ' ' +dht22_temperature+u'°C', font = font38, fill = 0)
+                drawblack.text((180,30), ' ' +vp+u' hPa', font = font16, fill = 0)
 
-            if float(dht22_humidity) ==-9999:
-                drawblack.text((130,45), ' pas de', font = font24, fill = 0)
-                drawblack.text((130,70), u' données', font = font24, fill = 0)
+            if float(v) ==-9999:
+                drawblack.text((50,50), ' keine Daten', font = font16, fill = 0)
             else:
-                drawblack.text((130,50), ' ' +dht22_humidity+u' %', font = font38, fill = 0)
+                drawblack.text((50,50), ' ' +v+u' m/s', font = font16, fill = 0)
 
-            if float(PET) ==-9999:
-                drawblack.text((0,120), ' pas de', font = font24, fill = 0)
-                drawblack.text((0,145), u' données', font = font24, fill = 0)
+            if float(bg) ==-9999:
+                drawblack.text((190,70), ' keine Daten', font = font16, fill = 0)
             else:
-                drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
+                drawblack.text((190,70), ' ' +bg+u'°C', font = font16, fill = 0)
+                
+            if float(tmrt) ==-9999:
+                drawblack.text((200,90), ' keine Daten', font = font16, fill = 0)
+            else:
+                drawblack.text((200,90), ' ' +tmrt+u'°C', font = font16, fill = 0)
+           
+            if float(IR) ==-9999:
+                drawblack.text((165,110), ' keine Daten', font = font16, fill = 0)
+            else:
+                drawblack.text((165,110), ' ' +IR+u' W/m²', font = font16, fill = 0)
+            
+            if float(light) ==-9999:
+                drawblack.text((80,130), ' keine Daten', font = font16, fill = 0)
+            else:
+                drawblack.text((80,130), ' ' +light+u' lux', font = font16, fill = 0)
 
-
-            drawblack.text((130,140), u" J'ai chaud", font = font24, fill = 0)
+            drawblack.text((30,150), ' ' +IP, font = font16, fill = 0) 
 
 
         epd.display(epd.getbuffer(HBlackimage),epd.getbuffer(HRedimage))
