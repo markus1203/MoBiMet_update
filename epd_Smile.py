@@ -459,32 +459,32 @@ while True:
 
 
             if float(vp) ==-9999:
-                drawblack.text((180,30), ' keine Daten', font = font16, fill = 0)
+                drawblack.text((160,30), ' pas de données', font = font16, fill = 0)
             else:
-                drawblack.text((180,30), ' ' +vp+u' hPa', font = font16, fill = 0)
+                drawblack.text((160,30), ' ' +vp+u' hPa', font = font16, fill = 0)
 
             if float(v) ==-9999:
-                drawblack.text((50,50), ' keine Daten', font = font16, fill = 0)
+                drawblack.text((50,50), ' pas de données', font = font16, fill = 0)
             else:
                 drawblack.text((50,50), ' ' +v+u' m/s', font = font16, fill = 0)
 
             if float(bg) ==-9999:
-                drawblack.text((190,70), ' keine Daten', font = font16, fill = 0)
+                drawblack.text((190,70), ' pas de données', font = font16, fill = 0)
             else:
                 drawblack.text((190,70), ' ' +bg+u'°C', font = font16, fill = 0)
                 
             if float(tmrt) ==-9999:
-                drawblack.text((200,90), ' keine Daten', font = font16, fill = 0)
+                drawblack.text((200,90), ' pas de données', font = font16, fill = 0)
             else:
                 drawblack.text((200,90), ' ' +tmrt+u'°C', font = font16, fill = 0)
            
             if float(IR) ==-9999:
-                drawblack.text((165,110), ' keine Daten', font = font16, fill = 0)
+                drawblack.text((165,110), ' pas de données', font = font16, fill = 0)
             else:
                 drawblack.text((165,110), ' ' +IR+u' W/m²', font = font16, fill = 0)
             
             if float(light) ==-9999:
-                drawblack.text((80,130), ' keine Daten', font = font16, fill = 0)
+                drawblack.text((80,130), ' pas de données ', font = font16, fill = 0)
             else:
                 drawblack.text((80,130), ' ' +light+u' lux', font = font16, fill = 0)
 
