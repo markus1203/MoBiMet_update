@@ -66,6 +66,7 @@ while True:
     key4state = GPIO.input(key4)
     
     if key1state == False:
+        print("key1")
         epd = epd2in7b.EPD()
         epd.init()
         b_time=time.strftime("%Y-%m-%d %H:%M:%S")
@@ -167,6 +168,8 @@ while True:
         print("Smiley pinted on EPD")
 
     if key2state == False:
+        print("key2")
+
         epd = epd2in7b.EPD()
         epd.init()
         b_time=time.strftime("%Y-%m-%d %H:%M:%S")
@@ -267,6 +270,8 @@ while True:
         print("Smiley pinted on EPD")
                 
     if key3state == False:
+        print("key3")
+
         epd = epd2in7b.EPD()
         epd.init()
         b_time=time.strftime("%Y-%m-%d %H:%M:%S")
