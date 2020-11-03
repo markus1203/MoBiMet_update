@@ -226,7 +226,7 @@ while True:
                 drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
 
           
-            drawblack.text((130,130), 'komfortabel', font = font26, fill = 0)
+            drawblack.text((130,130), 'komfortabel', font = font24, fill = 0)
 
 
         if lang=='f':
