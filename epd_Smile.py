@@ -47,6 +47,7 @@ font38 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 38)
 
 logfile_path = "/home/pi/Desktop/Data/"
 
+print("Go!")
 
 while True:
     GPIO.setmode(GPIO.BCM)
@@ -366,6 +367,7 @@ while True:
         print("Smiley pinted on EPD")
            
     if key4state == False:
+        print("key4")
         epd = epd2in7b.EPD()
         epd.init()
         b_time=time.strftime("%Y-%m-%d %H:%M:%S")
@@ -420,15 +422,21 @@ while True:
                 drawblack.text((100,30), ' ' +vp+u'hPa', font = font16, fill = 0)
 
             if float(v) ==-9999:
-                drawblack.text((100,50), ' keine Daten', font = font16, fill = 0)
+                drawblack.text((50,50), ' keine Daten', font = font16, fill = 0)
             else:
-                drawblack.text((100,50), ' ' +v+u' m/s', font = font16, fill = 0)
+                drawblack.text((50,50), ' ' +v+u' m/s', font = font16, fill = 0)
 
             if float(bg) ==-9999:
-                drawblack.text((100,70), ' keine Daten', font = font24, fill = 0)
+                drawblack.text((150,70), ' keine Daten', font = font16, fill = 0)
             else:
-                drawblack.text((100,80), ' ' +bg+u'°C', font = font38, fill = 0)
-
+                drawblack.text((150,70), ' ' +bg+u'°C', font = font16, fill = 0)
+                
+            if float(bg) ==-9999:
+                drawblack.text((150,90), ' keine Daten', font = font24, fill = 0)
+            else:
+                drawblack.text((150,90), ' ' +bg+u'°C', font = font38, fill = 0)
+                
+                
 
         if lang=='f':
             drawred.text((0,30), u" Température",font = font16, fill = 0)
