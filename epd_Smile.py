@@ -124,8 +124,7 @@ while True:
                 drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
 
           
-            drawblack.text((130,120), ' mir ist', font = font24, fill = 0)
-            drawblack.text((130,145), ' kalt', font = font24, fill = 0)
+            drawblack.text((130,130), u" Mir ist kalt!", font = font26, fill = 0)
 
 
         if lang=='f':
@@ -328,9 +327,9 @@ while True:
             else:
                 drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
 
-          
-            drawblack.text((130,120), ' mir ist', font = font24, fill = 0)
-            drawblack.text((130,145), u' heiß', font = font24, fill = 0)
+            drawblack.text((130,130), u" mir ist heiß", font = font26, fill = 0)
+            #drawblack.text((130,120), ' mir ist', font = font24, fill = 0)
+            #drawblack.text((130,145), u' heiß', font = font24, fill = 0)
 
 
         if lang=='f':
