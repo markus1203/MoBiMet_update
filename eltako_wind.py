@@ -22,12 +22,17 @@ def calculate_speed(time_sec):
     speed = dist_m / time_sec
     return speed
 
+
+f1 = open("/home/pi/Desktop/r_id.csv", "r")
+line_id = f1.readlines()[0]
+f1.close()
+raspberryid =  (line_id.split(',')[0])
+
 calib_file = "/home/pi/Desktop/calibration_coefficients.csv"
 f1 = open(calib_file, "r")
 line = f1.readlines()[int(raspberryid)]
 f1.close()
 wind = str(line.split(',')[8])
-
 
 logfile_wind="/home/pi/Desktop/wind.csv"
 
