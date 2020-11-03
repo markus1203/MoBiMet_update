@@ -22,9 +22,16 @@ def calculate_speed(time_sec):
     speed = dist_m / time_sec
     return speed
 
+calib_file = "/home/pi/Desktop/calibration_coefficients.csv"
+f1 = open(calib_file, "r")
+line = f1.readlines()[int(raspberryid)]
+f1.close()
+wind = str(line.split(',')[8])
+
+
 logfile_wind="/home/pi/Desktop/wind.csv"
 
-if os.path.exists(logfile_wind):
+if wind=='y':
    
     wind_count = 0
     radius_m = 0.0625
