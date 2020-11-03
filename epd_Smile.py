@@ -268,7 +268,7 @@ while True:
 
                         
         print('Key2 Pressed '+b_time)
-        print("Smiley pinted on EPD"))
+        print("Smiley pinted on EPD")
                 
     if key3state == False:
         epd = epd2in7b.EPD()
@@ -372,7 +372,7 @@ while True:
 
                         
         print('Key3 Pressed '+b_time)
-        print("Smiley pinted on EPD"))
+        print("Smiley pinted on EPD")
            
 
 
