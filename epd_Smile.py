@@ -150,7 +150,7 @@ while True:
                 drawblack.text((0,120), ' pas de', font = font24, fill = 0)
                 drawblack.text((0,145), u' données', font = font24, fill = 0)
             else:
-                drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
+                drawblack.text((0,125), ' '+PET+u'°C', font = font38, fill = 0)
 
 
             drawblack.text((130,140), u' j ai froid', font = font24, fill = 0)
@@ -255,7 +255,7 @@ while True:
                 drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
 
 
-            drawblack.text((130,140), u' confortable', font = font24, fill = 0)
+            drawblack.text((130,140), u'confortable', font = font24, fill = 0)
 
 
         drawred.line((0, 99, 265, 99), fill = 0)
