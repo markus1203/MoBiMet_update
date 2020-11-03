@@ -45,7 +45,7 @@ font16 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 16)
 font17 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 17) 
 font38 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 38)
 font10 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 10)  
-
+font26 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 26)
 logfile_path = "/home/pi/Desktop/Data/"
 
 print("Go!")
@@ -153,7 +153,7 @@ while True:
                 drawblack.text((0,125), ' '+PET+u'°C', font = font38, fill = 0)
 
 
-            drawblack.text((130,140), u" j'ai froid", font = font24, fill = 0)
+            drawblack.text((130,130), u" j'ai froid", font = font26, fill = 0)
 
 
         drawred.line((0, 99, 265, 99), fill = 0)
@@ -227,7 +227,7 @@ while True:
                 drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
 
           
-            drawblack.text((130,130), 'komfortabel', font = font24, fill = 0)
+            drawblack.text((130,130), 'komfortabel', font = font26, fill = 0)
 
 
         if lang=='f':
@@ -255,7 +255,7 @@ while True:
                 drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
 
 
-            drawblack.text((130,140), u'confortable', font = font24, fill = 0)
+            drawblack.text((130,130), u'confortable', font = font24, fill = 0)
 
 
         drawred.line((0, 99, 265, 99), fill = 0)
@@ -358,7 +358,7 @@ while True:
                 drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
 
 
-            drawblack.text((130,140), u" J'ai chaud", font = font24, fill = 0)
+            drawblack.text((130,130), u" J'ai chaud", font = font26, fill = 0)
 
 
         drawred.line((0, 99, 265, 99), fill = 0)
