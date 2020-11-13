@@ -123,4 +123,5 @@ try:
         print(connection)            
 finally:
      connection.close()
+     print("connection_closed")
 print("newest Data submitted " + time)
