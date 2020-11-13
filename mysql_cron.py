@@ -1,7 +1,7 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 
-# Version 5.10.2020
+# Version 13.11.2020
 
 from StringIO import StringIO
 import csv
@@ -16,13 +16,13 @@ from UTCI import *
 
 
 #Create DATABASE
-connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019")
-try:
-    with connection.cursor() as cursor:
-        cursor.execute('CREATE DATABASE IF NOT EXISTS mobimet')
-        
-finally:
-    connection.close()
+#connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019")
+#try:
+#    with connection.cursor() as cursor:
+#        cursor.execute('CREATE DATABASE IF NOT EXISTS mobimet')
+#        
+#finally:
+#    connection.close()
 
 #Create Database
 #connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet", cursorclass=pymysql.cursors.DictCursor)
@@ -68,7 +68,7 @@ if os.path.exists(logfile_cl):
     os.remove(logfile_cl)
     print("Lost DATA submitted")
 
-time.sleep(30)
+time.sleep(45)
 
 logfile_path= "/home/pi/Desktop/Data/"  
 logfile = logfile_path+raspberryid+"-"+time.strftime("%Y-%m-%d")+".csv"
