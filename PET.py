@@ -257,46 +257,46 @@ M = 80 # [W] Metabolic activity level
 # Matzerakis et al 1999 : Applications of a universal thermal index: physiological equivalent temperature
 
 def stresslevel_PET(u):
-    if u>18 and u<23:
+    if u>=18 and u<=23:
         return(0)
-    elif u < 4:
+    elif u <= 4:
          return(-4)     
-    elif u < 8:
+    elif u <= 8:
          return(-3)   
-    elif u < 13:
+    elif u <= 13:
          return(-2)           
-    elif u < 18:
+    elif u <= 18:
          return(-1)
-    elif u>41:
+    elif u>=41:
          return(4)
-    elif u>35:
+    elif u>=35:
          return(3)
-    elif u>29:
+    elif u>=29:
          return(2) 
-    elif u>23:
+    elif u>=23:
          return(1)
 
 
             
 
 def comfortable_PET(u):
-    if u>18 and u<23:
+    if u>=18 and u<=23:
         return("No thermal stress")
-    elif u < 4:
+    elif u <= 4:
          return("Extreme cold stress")  
-    elif u < 8:
+    elif u <= 8:
          return("Strong cold stress")   
-    elif u < 13:
+    elif u <= 13:
          return("Moderate cold stress")           
-    elif u < 18:
+    elif u <= 18:
          return("Slight cold stress")
-    elif u>41:
+    elif u>=41:
          return("Extreme heat stress")
-    elif u>35:
+    elif u>=35:
          return("Strong heat stress")
-    elif u>29:
+    elif u>=29:
          return("Moderate heat stress") 
-    elif u>23:
+    elif u>=23:
          return("Slight heat stress")
 
 
