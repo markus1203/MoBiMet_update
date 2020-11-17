@@ -288,25 +288,25 @@ def stresslevel(u):
             
 
 def comfortable(u):
-    if u>9 and u<26:
+    if u>=9 and u<=26:
         return("No thermal stress")
-    elif u < -40:
+    elif u <= -40:
          return("extreme cold stress")
-    elif u < -27:
+    elif u <= -27:
          return("very strong cold stress")
-    elif u < -14:
+    elif u <= -14:
          return("strong cold stress")
-    elif u<0:
+    elif u<=0:
          return("moderate cold stress")
-    elif u<9:
+    elif u<=9:
          return("slight cold stress")
-    elif u>46:
+    elif u>=46:
          return("extreme heat stress")
-    elif u>38:
+    elif u>=38:
          return("very strong heat stress")
-    elif u>32:
+    elif u>=32:
          return("strong heat stress")
-    elif u>26:
+    elif u>=26:
          return("moderate heat stress")
     
 def saturated_vapor_pressure_hpa(db_temp):
