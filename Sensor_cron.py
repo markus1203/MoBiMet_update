@@ -165,7 +165,7 @@ bus.close()
     
 
 # UTCI
-if v==-9999: v_utci= 0.1
+if v < 0.1: v_utci= 0.1
 else: v_utci= v * 1.5
 
 if dht22_temperature==-9999 or tmrt==-9999 :
@@ -178,7 +178,7 @@ else:
     sl_utci=stresslevel(utci)
 
 # PET
-if v<=0.1: v_pet= 0.1
+if v < 0.1: v_pet= 0.1
 else: v_pet= v
 
 if dht22_temperature==-9999 or tmrt==-9999 :
