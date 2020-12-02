@@ -144,6 +144,8 @@ try:
     lightLevel=(data[1] + (256 * data[0])) / 1.2
 except (IOError):
     lightLevel=-9999
+    
+bus.close()
 
 
 #if lightLevel==None : lightLevel=-9999
