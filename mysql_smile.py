@@ -110,7 +110,7 @@ while True:
                 print(connection)            
         finally:
             connection.close()
-        time.sleep(60)
+        time.sleep(60):
     if time.time() >= start_time+24*60*60
         break
 print("porgram closed")
