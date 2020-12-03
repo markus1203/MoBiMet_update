@@ -47,6 +47,7 @@ try:
          
 finally:
      connection.close()
+start_time=time.time()
 while True:
     smiley=0
     GPIO.setmode(GPIO.BCM)
@@ -110,6 +111,6 @@ while True:
         finally:
             connection.close()
         time.sleep(60)
-
-
+    if time.time() >= start_time+24*60*60
+        break
 print("porgram closed")
