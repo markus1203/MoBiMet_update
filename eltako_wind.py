@@ -33,6 +33,7 @@ f1 = open(calib_file, "r")
 line = f1.readlines()[int(raspberryid)]
 f1.close()
 wind = str(line.split(',')[8])
+print(wind)
 
 logfile_wind="/home/pi/Desktop/wind.csv"
 
