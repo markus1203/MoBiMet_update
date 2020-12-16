@@ -41,7 +41,7 @@ if wind=='y':
    
     wind_count = 0
     radius_m = 0.0625
-    wind_interval = 60
+    wind_interval = 55
     
     wind_speed_sensor = Button(21)    
     wind_speed_sensor.when_pressed = spin
@@ -49,7 +49,7 @@ if wind=='y':
     time.sleep(wind_interval)    
     v=calculate_speed(wind_interval)
     
-    print( str(v) + " m/s " + " // Windcount in last 60 seconds: " + str(wind_count) +" //  " +time.strftime("%Y-%m-%d %H:%M:%S") )
+    print( str(v) + " m/s " + " // Windcount in last 55 seconds: " + str(wind_count) +" //  " +time.strftime("%Y-%m-%d %H:%M:%S") )
     f0=open(logfile_wind,"w")
     f0.write(str(v))
     f0.close()
