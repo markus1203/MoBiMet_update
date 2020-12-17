@@ -58,6 +58,6 @@ if wind=='y':
 if wind=='n':
     v_na=-9999
     f0=open(logfile_wind,"w")
-    f0.write(v_na)
+    f0.write(str(v_na))
     f0.close()
     print("NA in logfile_wind  "+time.strftime("%Y-%m-%d %H:%M:%S"))
