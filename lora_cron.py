@@ -11,7 +11,7 @@ import time
 from datetime import datetime
 
 
-#time.sleep(60)
+time.sleep(45)
 print("start")
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
 line_id = f1.readlines()[0]
