@@ -10,6 +10,7 @@ import os
 import time
 from datetime import datetime
 
+time.sleep(40)
 print("start")
 print("start LoRa")
 lora = Rak811()
