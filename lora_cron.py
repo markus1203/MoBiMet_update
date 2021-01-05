@@ -10,9 +10,22 @@ import os
 import time
 from datetime import datetime
 
-
-time.sleep(45)
 print("start")
+print("start LoRa")
+lora = Rak811()
+print("rak")
+lora.hard_reset()
+print("reset")
+lora.mode = Mode.LoRaWan
+lora.band = 'EU868'
+print("band")
+#lora.set_config(dev_eui='303838365338710C',app_eui='70B3D57ED0030AF7',app_key='07487AD99477A0AEC0D02A75DA25D94F' )
+lora.set_config(app_eui='70B3D57ED0030AF7',
+                app_key='07487AD99477A0AEC0D02A75DA25D94F')
+
+
+
+
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
 line_id = f1.readlines()[0]
 f1.close()
@@ -129,17 +142,7 @@ print(time_RP,raspberryid,IP,dht22_humidity,dht22_humidity_raw,dht22_vp,dht22_vp
 #print(year_b+month_b+day_b+hour_b+minute_b+raspberryid_b+dht22_vp_b+dht22_vp_raw_b+dht22_humidity_b+dht22_humidity_raw_b+dht22_temperature_b+dht22_temperature_raw_b+v_b+bg_calib_b+bg_raw_b+tmrt_b+Light_Level_b+mlx_e_b+mlx_o_b+mlx_a_b)
 
 
-print("start LoRa")
-lora = Rak811()
-print("rak")
-lora.hard_reset()
-print("reset")
-lora.mode = Mode.LoRaWan
-lora.band = 'EU868'
-print("band")
-#lora.set_config(dev_eui='303838365338710C',app_eui='70B3D57ED0030AF7',app_key='07487AD99477A0AEC0D02A75DA25D94F' )
-lora.set_config(app_eui='70B3D57ED0030AF7',
-                app_key='07487AD99477A0AEC0D02A75DA25D94F')
+
 print("config")
 lora.join_otaa()
 print("join_otaa")
