@@ -10,7 +10,7 @@ from datetime import datetime
 from ttn_secrets import APPS_KEY, DEV_ADDR, NWKS_KEY
 
 
-time.sleep(20)
+time.sleep(15)
 print("start LoRa")
 lora = Rak811()
 print("rak")
