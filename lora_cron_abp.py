@@ -78,13 +78,13 @@ dht22_vp_raw_b=bytes.fromhex('{:04x}'.format(dht22_vp_raw))
 #if dht22_humidity_raw==-99990: dht22_humidity_raw=9999
 #dht22_humidity_raw_b=bytes.fromhex('{:04x}'.format(dht22_humidity_raw))
 
-#dht22_temperature=int(round(float(last_line.split(',')[7])+273.1,1)*10)
+#dht22_temperature=int(round(float(last_line.split(',')[7])+273.15,1)*10)
 #if dht22_temperature==-97259: dht22_temperature=9999
 #print(dht22_temperature)
 #dht22_temperature_b=bytes.fromhex('{:04x}'.format(dht22_temperature))
 #print(dht22_temperature_b)
 
-dht22_temperature_raw=int(round(float(last_line.split(',')[8])+273.1,1)*10)
+dht22_temperature_raw=int(round(float(last_line.split(',')[8])+273.15,1)*10)
 if dht22_temperature_raw==-97259: dht22_temperature_raw=9999
 dht22_temperature_raw_b=bytes.fromhex('{:04x}'.format(dht22_temperature_raw))
 #print(dht22_temperature_raw_b)
@@ -94,17 +94,17 @@ if v==-99990: v=9999
 v_b=bytes.fromhex('{:04x}'.format(v))
 #print(v_b)
 
-#bg_calib=int(round(float(last_line.split(',')[10])+273.1,1)*10)
+#bg_calib=int(round(float(last_line.split(',')[10])+273.15,1)*10)
 #if bg_calib==-97259: bg_calib=9999
 #bg_calib_b=bytes.fromhex('{:04x}'.format(bg_calib))
 #print(bg_calib_b)
 
-bg_raw=int(round(float(last_line.split(',')[11])+273.1,1)*10)
+bg_raw=int(round(float(last_line.split(',')[11])+273.15,1)*10)
 if bg_raw==-97259: bg_raw=9999
 bg_raw_b=bytes.fromhex('{:04x}'.format(bg_raw))
 #print(bg_raw_b)
 
-#tmrt=int(round(float(last_line.split(',')[12])+273.1,1)*10)
+#tmrt=int(round(float(last_line.split(',')[12])+273.15,1)*10)
 #if tmrt==-97259: tmrt=int(9999)
 #print(tmrt)
 #tmrt_b=bytes.fromhex('{:04x}'.format(tmrt))
@@ -124,14 +124,14 @@ Light_Level_b=bytes.fromhex('{:04x}'.format(Light_Level))
 #mlx_e_b=bytes.fromhex('{:04x}'.format(mlx_e))
 #print(mlx_e_b)
 
-mlx_o=int(round(float(last_line.split(',')[15])+273.1,1)*10)
+mlx_o=int(round(float(last_line.split(',')[15])+273.15,1)*10)
 if mlx_o==-97259: mlx_o=9999
 #print(mlx_o)
 mlx_o_b=bytes.fromhex('{:04x}'.format(mlx_o))
 #print(mlx_o_b)
 
 
-#mlx_a=int(round(float(last_line.split(',')[16])+273.1,1)*10)
+#mlx_a=int(round(float(last_line.split(',')[16])+273.15,1)*10)
 #if mlx_a==-97259: mlx_a=9999
 #print("mlx_a: "+str(mlx_a))
 #mlx_a_b=bytes.fromhex('{:04x}'.format(mlx_a))
