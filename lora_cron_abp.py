@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+#10.01.2021
+
 from rak811 import Mode, Rak811
 import csv
 import sys
@@ -8,9 +10,10 @@ import os
 import time
 from datetime import datetime
 from ttn_secrets import APPS_KEY, DEV_ADDR, NWKS_KEY
-
+import random
 
 time.sleep(15)
+time.sleep(random.randint(0,70))
 print("start LoRa")
 lora = Rak811()
 print("rak")
