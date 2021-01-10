@@ -69,7 +69,7 @@ if os.path.exists(logfile_cl):
     os.remove(logfile_cl)
     print("Lost DATA submitted")
 
-time.sleep(30)
+time.sleep(60)
 
 logfile_path= "/home/pi/Desktop/Data/"  
 logfile = logfile_path+raspberryid+"-"+time.strftime("%Y-%m-%d")+".csv"
