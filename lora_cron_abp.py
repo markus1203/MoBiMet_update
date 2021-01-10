@@ -13,7 +13,10 @@ from ttn_secrets import APPS_KEY, DEV_ADDR, NWKS_KEY
 import random
 
 time.sleep(15)
-time.sleep(random.randint(0,70))
+random_sleep=random.randint(0,70))
+time.sleep(random_sleep)
+print("Sleep: "+str(random_sleep))
+
 print("start LoRa")
 lora = Rak811()
 print("rak")
