@@ -14,8 +14,8 @@ import random
 
 time.sleep(15)
 random_sleep=random.randint(0,70)
-time.sleep(random_sleep)
 print("Sleep: "+str(random_sleep))
+time.sleep(random_sleep)
 
 print("start LoRa")
 lora = Rak811()
