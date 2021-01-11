@@ -13,7 +13,7 @@ from ttn_secrets import APPS_KEY, DEV_ADDR, NWKS_KEY
 import random
 
 time.sleep(15)
-random_sleep=random.randint(0,240)
+random_sleep=random.randint(0,200)
 print("Sleep: "+str(random_sleep))
 time.sleep(random_sleep)
 
