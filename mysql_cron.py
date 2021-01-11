@@ -70,7 +70,7 @@ if os.path.exists(logfile_cl):
     os.remove(logfile_cl)
     print("Lost DATA submitted")
 
-random_sleep=random.randint(40,80)
+random_sleep=random.randint(40,260)
 print("Sleep: "+str(random_sleep))
 time.sleep(random_sleep)
 
