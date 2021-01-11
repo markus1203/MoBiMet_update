@@ -71,8 +71,8 @@ if os.path.exists(logfile_cl):
     print("Lost DATA submitted")
 
 random_sleep=random.randint(40,80)
-time.sleep(random_sleep)
 print("Sleep: "+str(random_sleep))
+time.sleep(random_sleep)
 
 logfile_path= "/home/pi/Desktop/Data/"  
 logfile = logfile_path+raspberryid+"-"+time.strftime("%Y-%m-%d")+".csv"
