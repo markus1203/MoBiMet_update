@@ -29,8 +29,16 @@ line_id = f1.readlines()[0]
 f1.close()
 raspberryid =  (line_id.split(',')[0])
 print(str(raspberryid))
+
+f1 = open("/home/pi/Desktop/connection.csv", "r")
+line_id = f1.readlines()[1]
+f1.close()
+ip =  (line_id.split(',')[0])
+name =  (line_id.split(',')[1])
+pw =  (line_id.split(',')[2])
+
 #Create DATABASE
-connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019")
+connection = pymysql.connect (host=ip, user=name, port=3306, password=pw)
 try:
     with connection.cursor() as cursor:
         cursor.execute('CREATE DATABASE IF NOT EXISTS mobimet_data')
@@ -39,7 +47,7 @@ finally:
     connection.close()
 
 #Create Datatable
-connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
+connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
 try:
     with connection.cursor() as cursor:
         sqlQuery = "CREATE TABLE IF NOT EXISTS `smiley`(`ID` INT(11) NOT NULL AUTO_INCREMENT,`Timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,`Rasp_Time` DATETIME,`RASP_ID` INT,`SMILEY` INT, PRIMARY KEY(`ID`)) AUTO_INCREMENT=1"
@@ -47,7 +55,6 @@ try:
          
 finally:
      connection.close()
-start_time=time.time()
 while True:
     smiley=0
     GPIO.setmode(GPIO.BCM)
@@ -66,7 +73,7 @@ while True:
         b_time=time.strftime("%Y-%m-%d %H:%M:%S")
         smiley=1
         print('Key1 Pressed '+b_time)
-        connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
+        connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
         try:
             with connection.cursor() as cursor:
                 sqlQuery = "INSERT INTO `smiley` (`Rasp_Time`,`Rasp_ID`,`SMILEY`) VALUES (%s, %s, %s)"
@@ -83,7 +90,7 @@ while True:
         b_time=time.strftime("%Y-%m-%d %H:%M:%S")
         smiley=2
         print('Key2 Pressed '+b_time)
-        connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
+        connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
         try:
             with connection.cursor() as cursor:
                 sqlQuery = "INSERT INTO `smiley` (`Rasp_Time`,`Rasp_ID`,`SMILEY`) VALUES (%s, %s, %s)"
@@ -100,7 +107,7 @@ while True:
         b_time=time.strftime("%Y-%m-%d %H:%M:%S")
         smiley=3
         print('Key3 Pressed '+b_time)
-        connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
+        connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
         try:
             with connection.cursor() as cursor:
                 sqlQuery = "INSERT INTO `smiley` (`Rasp_Time`,`Rasp_ID`,`SMILEY`) VALUES (%s, %s, %s)"
@@ -111,6 +118,6 @@ while True:
         finally:
             connection.close()
         time.sleep(60)
-    if time.time() >= start_time+24*60*60:
-        break
+
+
 print("porgram closed")

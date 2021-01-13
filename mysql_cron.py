@@ -9,15 +9,13 @@ import sys
 import os
 import time
 import datetime
-import random
 
 import pymysql.cursors
 
 from UTCI import *
 
-
 #Create DATABASE
-#connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019")
+#connection = pymysql.connect (host=ip, user=name, port=3306, password=pw)
 #try:
 #    with connection.cursor() as cursor:
 #        cursor.execute('CREATE DATABASE IF NOT EXISTS mobimet')
@@ -26,7 +24,7 @@ from UTCI import *
 #    connection.close()
 
 #Create Database
-#connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet", cursorclass=pymysql.cursors.DictCursor)
+#connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet", cursorclass=pymysql.cursors.DictCursor)
 #try:
 #    with connection.cursor() as cursor:
 #        sqlQuery = "CREATE TABLE IF NOT EXISTS `Data`(`ID` INT(11) NOT NULL AUTO_INCREMENT,`Timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,`Rasp_Time` DATETIME,`RASP_ID` INT,`IP_MOBIMET` TEXT, `VP_hPa` DECIMAL(5,1),`VP_hPa_raw` DECIMAL(5,1), `RH` DECIMAL(5,1),`RH_raw` DECIMAL(5,1),`Ta_C` DECIMAL(5,1), `Ta_C_raw` DECIMAL(5,1),`v_m/s` DECIMAL(5,1),`BlackGlobeT_C` DECIMAL(5,1),`BlackGlobeT_C_raw` DECIMAL(5,1),`Tmrt_C` DECIMAL(5,1),`LightLevel_lux` DECIMAL(7,2),`MLX_E_W/m²` DECIMAL(5,1),`MLX_O_C` DECIMAL(5,1),`MLX_A_C` DECIMAL(5,1),`UTCI_C` DECIMAL(5,1), `Stresslevel_UTCI` INT,`PET_C` DECIMAL(5,1), `Stresslevel_PET` INT,`CPU_TEMP_C` DECIMAL(5,1), PRIMARY KEY(`ID`)) AUTO_INCREMENT=1"
@@ -41,9 +39,17 @@ line_id = f1.readlines()[0]
 f1.close()
 raspberryid =  (line_id.split(',')[0])
 
+f1 = open("/home/pi/Desktop/connection.csv", "r")
+line_id = f1.readlines()[1]
+f1.close()
+ip =  (line_id.split(',')[0])
+name =  (line_id.split(',')[1])
+pw =  (line_id.split(',')[2])
+
+
 # check if data ist already transmited to mysql
 
-#connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data")
+#connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data")
 #try:
 #    with connection.cursor() as cursor:
 #        cursor.execute(("SELECT `Rasp_Time` FROM `Data` where`RASP_ID` ='%s' AND `Rasp_Time`=(select max(`Rasp_Time`) from `Data`)") % int(raspberryid))
@@ -57,7 +63,7 @@ raspberryid =  (line_id.split(',')[0])
 logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost"+".csv"
 
 if os.path.exists(logfile_cl):
-    connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", charset='utf8')
+    connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", charset='utf8')
     cur=connection.cursor()   
     with open(logfile_cl) as csvfile:
         sp=csv.DictReader(csvfile)
@@ -70,9 +76,7 @@ if os.path.exists(logfile_cl):
     os.remove(logfile_cl)
     print("Lost DATA submitted")
 
-random_sleep=random.randint(40,260)
-print("Sleep: "+str(random_sleep))
-time.sleep(random_sleep)
+time.sleep(30)
 
 logfile_path= "/home/pi/Desktop/Data/"  
 logfile = logfile_path+raspberryid+"-"+time.strftime("%Y-%m-%d")+".csv"
@@ -116,7 +120,7 @@ sl_pet=(last_line.split(',')[20])
 cpu_temp=(last_line.split(',')[21])
 print(time,raspberryid,IP,dht22_humidity,dht22_humidity_raw,dht22_vp,dht22_vp_raw,dht22_temperature,dht22_temperature_raw,v,bg_calib,bg_raw,Tmrt,Light_Level,mlx_e,mlx_o,mlx_a,utci,sl_utci,pet,sl_pet,cpu_temp)
    
-connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
+connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
 try:
     with connection.cursor() as cursor:
         #sqlQuery = "INSERT  `Data` (`Rasp_Time`,`Rasp_ID`,`IP_MOBIMET`, `RH`, `RH_raw`, `VP_hPa`,`VP_hPa_raw`,`Ta_C`,`Ta_C_raw`, `v_m/s`, `BlackGlobeT_C`,`BlackGlobeT_C_raw`,`Tmrt_C`,`LightLevel_lux`,`MLX_E_W/m²`,`MLX_O_C`,`MLX_A_C`, `UTCI_C`, `Stresslevel_UTCI`,`PET_C`,`Stresslevel_PET`,`CPU_TEMP_C`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s,%s,%s, %s,%s)"
