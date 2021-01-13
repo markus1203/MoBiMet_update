@@ -73,8 +73,8 @@ if os.path.exists(logfile_cl):
                            connection.commit() 
                            cur.close()
                            connection.close()
-    os.remove(logfile_cl)
-    print("Lost DATA submitted")
+         os.remove(logfile_cl)
+         print("Lost DATA submitted")
 
 time.sleep(30)
 
