@@ -15,9 +15,16 @@ import pymysql.cursors
 
 time.sleep(10)
 
+f1 = open("/home/pi/Desktop/connection.csv", "r")
+line_id = f1.readlines()[1]
+f1.close()
+ip =  (line_id.split(',')[0])
+name =  (line_id.split(',')[1])
+pw =  (line_id.split(',')[2])
+
 #before: pip install PyMySQL
 #Create DATABASE
-connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019")
+connection = pymysql.connect (host=ip, user=name, port=3306, password=pw)
 try:
     with connection.cursor() as cursor:
         cursor.execute('CREATE DATABASE IF NOT EXISTS mobimet_data')
@@ -26,7 +33,7 @@ finally:
     connection.close()
 
 #Create Database
-connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
+connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
 try:
     with connection.cursor() as cursor:
         sqlQuery = "CREATE TABLE IF NOT EXISTS `connection`(`ID` INT(11) NOT NULL AUTO_INCREMENT,`Timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,`Rasp_Time` DATETIME,`RASP_ID` INT,`IP_MOBIMET` TEXT, PRIMARY KEY(`ID`)) AUTO_INCREMENT=1"
