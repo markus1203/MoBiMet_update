@@ -219,7 +219,7 @@ print(computer_time+","+raspberryid+","+get_ip()+","+"{0:.3f}".format(dht22_vapp
 
 if os.path.exists(logfile):
     f0=open(logfile,"a")
-    f0.write(computer_time+","+raspberryid+","+get_ip()+","+"{0:.3f}".format(dht22_vappress)+","+"{0:.3f}".format(dht22_vappress_raw)+","+"{0:.1f}".format(dht22_humidity)+","+"{0:.1f}".format(dht22_humidity_raw)+","+"{0:.1f}".format(dht22_temperature)+","+"{0:.3f}".format(dht22_temperature_raw)+","+"{0:.2f}".format(v)+","+"{0:.2f}".format(bg_calib)+","+"{0:.2f}".format(bg_raw)+","+"{0:.2f}".format(tmrt)+","+"{0:.2f}".format(lightLevel)+","+"{0:.2f}".format(mlx_e)+","+"{0:.2f}".format(mlx_o)+","+"{0:.2f}".format(mlx_a)+","+"{0:.1f}".format(utci)+","+str(sl_utci)+","+"{0:.1f}".format(pet)+","+str(sl_pet)+","+"{0:.1f}".format(cpu_ta)+"\n")
+    f0.write(computer_time+","+raspberryid+","+get_ip()+","+"{0:.2f}".format(dht22_vappress)+","+"{0:.2f}".format(dht22_vappress_raw)+","+"{0:.1f}".format(dht22_humidity)+","+"{0:.1f}".format(dht22_humidity_raw)+","+"{0:.1f}".format(dht22_temperature)+","+"{0:.1f}".format(dht22_temperature_raw)+","+"{0:.1f}".format(v)+","+"{0:.1f}".format(bg_calib)+","+"{0:.1f}".format(bg_raw)+","+"{0:.1f}".format(tmrt)+","+"{0:.1f}".format(lightLevel)+","+"{0:.1f}".format(mlx_e)+","+"{0:.1f}".format(mlx_o)+","+"{0:.1f}".format(mlx_a)+","+"{0:.1f}".format(utci)+","+str(sl_utci)+","+"{0:.1f}".format(pet)+","+str(sl_pet)+","+"{0:.1f}".format(cpu_ta)+"\n")
     f0.close()
     print("Data in logfile "+time.strftime("%Y-%m-%d %H:%M:%S"))
 else:
@@ -227,7 +227,7 @@ else:
     f0.write("Raspi_Time,RaspberryID,IP,VP(hPa)_DHT22_calib,VP(hPa)_DHT22_raw,Rel_Hum(%)_DHT22_calib,Rel_Hum(%)_DHT22_raw,Ta(°C)_DHT22_calib,Ta(°C)_DHT22_raw,Wind(m/s),BG(°C)_calib,BG(°C)_raw,Tmrt(°C),Light_Level(lx),MLX_E(W/m²),MLX_O(°C),MLX_A(°C),UTCI(°C),Stresslevel_utci,PET(°C),Stresslevel_pet,CPU_TEMP(°C)\n")
     f0.close()
     f0=open(logfile,"a")
-    f0.write(computer_time+","+raspberryid+","+get_ip()+","+"{0:.3f}".format(dht22_vappress)+","+"{0:.3f}".format(dht22_vappress_raw)+","+"{0:.1f}".format(dht22_humidity)+","+"{0:.1f}".format(dht22_humidity_raw)+","+"{0:.1f}".format(dht22_temperature)+","+"{0:.3f}".format(dht22_temperature_raw)+","+"{0:.2f}".format(v)+","+"{0:.2f}".format(bg_calib)+","+"{0:.2f}".format(bg_raw)+","+"{0:.2f}".format(tmrt)+","+"{0:.2f}".format(lightLevel)+","+"{0:.2f}".format(mlx_e)+","+"{0:.2f}".format(mlx_o)+","+"{0:.2f}".format(mlx_a)+","+"{0:.1f}".format(utci)+","+str(sl_utci)+","+"{0:.1f}".format(pet)+","+str(sl_pet)+","+"{0:.1f}".format(cpu_ta)+"\n")
+    f0.write(computer_time+","+raspberryid+","+get_ip()+","+"{0:.2f}".format(dht22_vappress)+","+"{0:.2f}".format(dht22_vappress_raw)+","+"{0:.1f}".format(dht22_humidity)+","+"{0:.1f}".format(dht22_humidity_raw)+","+"{0:.1f}".format(dht22_temperature)+","+"{0:.1f}".format(dht22_temperature_raw)+","+"{0:.1f}".format(v)+","+"{0:.1f}".format(bg_calib)+","+"{0:.1f}".format(bg_raw)+","+"{0:.1f}".format(tmrt)+","+"{0:.1f}".format(lightLevel)+","+"{0:.1f}".format(mlx_e)+","+"{0:.1f}".format(mlx_o)+","+"{0:.1f}".format(mlx_a)+","+"{0:.1f}".format(utci)+","+str(sl_utci)+","+"{0:.1f}".format(pet)+","+str(sl_pet)+","+"{0:.1f}".format(cpu_ta)+"\n")
     f0.close()
     print("Data in logfile "+time.strftime("%Y-%m-%d %H:%M:%S"))
 
@@ -237,14 +237,14 @@ if get_ip()=='127.0.0.1':
     logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost"+".csv"
     if os.path.exists(logfile_cl):
         f0=open(logfile_cl,"a")
-        f0.write(computer_time+","+raspberryid+","+get_ip()+","+"{0:.3f}".format(dht22_vappress)+","+"{0:.3f}".format(dht22_vappress_raw)+","+"{0:.1f}".format(dht22_humidity)+","+"{0:.1f}".format(dht22_humidity_raw)+","+"{0:.1f}".format(dht22_temperature)+","+"{0:.3f}".format(dht22_temperature_raw)+","+"{0:.2f}".format(v)+","+"{0:.2f}".format(bg_calib)+","+"{0:.2f}".format(bg_raw)+","+"{0:.2f}".format(tmrt)+","+"{0:.2f}".format(lightLevel)+","+"{0:.2f}".format(mlx_e)+","+"{0:.2f}".format(mlx_o)+","+"{0:.2f}".format(mlx_a)+","+"{0:.1f}".format(utci)+","+str(sl_utci)+","+"{0:.1f}".format(pet)+","+str(sl_pet)+","+"{0:.1f}".format(cpu_ta)+"\n")
+        f0.write(computer_time+","+raspberryid+","+get_ip()+","+"{0:.2f}".format(dht22_vappress)+","+"{0:.2f}".format(dht22_vappress_raw)+","+"{0:.1f}".format(dht22_humidity)+","+"{0:.1f}".format(dht22_humidity_raw)+","+"{0:.1f}".format(dht22_temperature)+","+"{0:.1f}".format(dht22_temperature_raw)+","+"{0:.1f}".format(v)+","+"{0:.1f}".format(bg_calib)+","+"{0:.1f}".format(bg_raw)+","+"{0:.1f}".format(tmrt)+","+"{0:.1f}".format(lightLevel)+","+"{0:.1f}".format(mlx_e)+","+"{0:.1f}".format(mlx_o)+","+"{0:.1f}".format(mlx_a)+","+"{0:.1f}".format(utci)+","+str(sl_utci)+","+"{0:.1f}".format(pet)+","+str(sl_pet)+","+"{0:.1f}".format(cpu_ta)+"\n")
         f0.close()
     else:
         f0=open(logfile_cl,"w")
         f0.write("Raspi_Time,RaspberryID,IP,VP(hPa)_DHT22_calib,VP(hPa)_DHT22_raw,Rel_Hum(%)_DHT22_calib,Rel_Hum(%)_DHT22_raw,Ta(°C)_DHT22_calib,Ta(°C)_DHT22_raw,Wind(m/s),BG(°C)_calib,BG(°C)_raw,Tmrt(°C),Light_Level(lx),MLX_E(W/m²),MLX_O(°C),MLX_A(°C),UTCI(°C),Stresslevel_utci,PET(°C),Stresslevel_pet,CPU_TEMP(°C)\n")
         f0.close()
         f0=open(logfile_cl,"a")
-        f0.write(computer_time+","+raspberryid+","+get_ip()+","+"{0:.3f}".format(dht22_vappress)+","+"{0:.3f}".format(dht22_vappress_raw)+","+"{0:.1f}".format(dht22_humidity)+","+"{0:.1f}".format(dht22_humidity_raw)+","+"{0:.1f}".format(dht22_temperature)+","+"{0:.3f}".format(dht22_temperature_raw)+","+"{0:.2f}".format(v)+","+"{0:.2f}".format(bg_calib)+","+"{0:.2f}".format(bg_raw)+","+"{0:.2f}".format(tmrt)+","+"{0:.2f}".format(lightLevel)+","+"{0:.2f}".format(mlx_e)+","+"{0:.2f}".format(mlx_o)+","+"{0:.2f}".format(mlx_a)+","+"{0:.1f}".format(utci)+","+str(sl_utci)+","+"{0:.1f}".format(pet)+","+str(sl_pet)+","+"{0:.1f}".format(cpu_ta)+"\n")
+        f0.write(computer_time+","+raspberryid+","+get_ip()+","+"{0:.2f}".format(dht22_vappress)+","+"{0:.2f}".format(dht22_vappress_raw)+","+"{0:.1f}".format(dht22_humidity)+","+"{0:.1f}".format(dht22_humidity_raw)+","+"{0:.1f}".format(dht22_temperature)+","+"{0:.1f}".format(dht22_temperature_raw)+","+"{0:.1f}".format(v)+","+"{0:.1f}".format(bg_calib)+","+"{0:.1f}".format(bg_raw)+","+"{0:.1f}".format(tmrt)+","+"{0:.1f}".format(lightLevel)+","+"{0:.1f}".format(mlx_e)+","+"{0:.1f}".format(mlx_o)+","+"{0:.1f}".format(mlx_a)+","+"{0:.1f}".format(utci)+","+str(sl_utci)+","+"{0:.1f}".format(pet)+","+str(sl_pet)+","+"{0:.1f}".format(cpu_ta)+"\n")
         f0.close()
 else: print("connected")
 
