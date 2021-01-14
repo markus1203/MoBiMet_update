@@ -9,7 +9,7 @@ import sys
 import os
 import time
 import datetime
-
+import random
 import pymysql.cursors
 
 #Create DATABASE
