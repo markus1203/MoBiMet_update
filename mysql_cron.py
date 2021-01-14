@@ -44,7 +44,7 @@ ip =  (line_id.split(',')[0])
 name =  (line_id.split(',')[1])
 pw =  (line_id.split(',')[2])
 
-print(start
+print("start")
 random_sleep=random.randint(40,250)
 print("Sleep: "+str(random_sleep))
 time.sleep(random_sleep)
