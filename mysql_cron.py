@@ -12,8 +12,6 @@ import datetime
 
 import pymysql.cursors
 
-from UTCI import *
-
 #Create DATABASE
 #connection = pymysql.connect (host=ip, user=name, port=3306, password=pw)
 #try:
@@ -46,6 +44,11 @@ ip =  (line_id.split(',')[0])
 name =  (line_id.split(',')[1])
 pw =  (line_id.split(',')[2])
 
+print(start
+random_sleep=random.randint(40,250)
+print("Sleep: "+str(random_sleep))
+time.sleep(random_sleep)
+
 
 # check if data ist already transmited to mysql
 
@@ -59,27 +62,6 @@ pw =  (line_id.split(',')[2])
 
 
 #if lastmysqltime == None : lastmysqltime=(datetime.datetime(1990,1,1,1,1),)
-
-logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost"+".csv"
-
-if os.path.exists(logfile_cl):
-         with open(logfile_cl) as csvfile:
-                  sp=csv.DictReader(csvfile)
-                  for row in sp:
-                           connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", charset='utf8')
-                           try:
-                                    with connection.cursor() as cur:
-                           #cur=connection.cursor()   
-                                             sqlQuery = "UPDATE  `Data` SET `IP_MOBIMET`=%s, `RH`=%s, `RH_raw`=%s, `VP_hPa`=%s,`VP_hPa_raw`=%s,`Ta_C`=%s,`Ta_C_raw`=%s, `v_m/s`=%s, `BlackGlobeT_C`=%s,`BlackGlobeT_C_raw`=%s,`Tmrt_C`=%s,`LightLevel_lux`=%s,`MLX_E_W/m²`=%s,`MLX_O_C`=%s,`MLX_A_C`=%s, `UTCI_C`=%s, `Stresslevel_UTCI`=%s,`PET_C`=%s,`Stresslevel_PET`=%s,`CPU_TEMP_C`=%s WHERE `Rasp_Time`=%s AND `RASP_ID`=%s"
-                                             cur.execute(sqlQuery, (row['IP'],row['Rel_Hum(%)_DHT22_calib'],row['Rel_Hum(%)_DHT22_raw'],row['VP(hPa)_DHT22_calib'],row['VP(hPa)_DHT22_raw'],row['Ta(°C)_DHT22_calib'], row['Ta(°C)_DHT22_raw'],row['Wind(m/s)'],row['BG(°C)_calib'],row['BG(°C)_raw'],row['Tmrt(°C)'],row['Light_Level(lx)'],row['MLX_E(W/m²)'],row['MLX_O(°C)'],row['MLX_A(°C)'],row['UTCI(°C)'], row['Stresslevel_utci'],row['PET(°C)'],row['Stresslevel_pet'], row['CPU_TEMP(°C)'],row['Raspi_Time'],row['RaspberryID']))
-                                             connection.commit() 
-                           finally:
-                                    cur.close()
-                                    connection.close()
-         os.remove(logfile_cl)
-         print("Lost DATA submitted")
-
-time.sleep(30)
 
 logfile_path= "/home/pi/Desktop/Data/"  
 logfile = logfile_path+raspberryid+"-"+time.strftime("%Y-%m-%d")+".csv"
@@ -136,3 +118,22 @@ finally:
      connection.close()
      print("connection_closed")
 print("newest Data submitted " + time)
+
+logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost"+".csv"
+
+if os.path.exists(logfile_cl):
+         with open(logfile_cl) as csvfile:
+                  sp=csv.DictReader(csvfile)
+                  for row in sp:
+                           connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", charset='utf8')
+                           try:
+                                    with connection.cursor() as cur:
+                           #cur=connection.cursor()   
+                                             sqlQuery = "UPDATE  `Data` SET `IP_MOBIMET`=%s, `RH`=%s, `RH_raw`=%s, `VP_hPa`=%s,`VP_hPa_raw`=%s,`Ta_C`=%s,`Ta_C_raw`=%s, `v_m/s`=%s, `BlackGlobeT_C`=%s,`BlackGlobeT_C_raw`=%s,`Tmrt_C`=%s,`LightLevel_lux`=%s,`MLX_E_W/m²`=%s,`MLX_O_C`=%s,`MLX_A_C`=%s, `UTCI_C`=%s, `Stresslevel_UTCI`=%s,`PET_C`=%s,`Stresslevel_PET`=%s,`CPU_TEMP_C`=%s WHERE `Rasp_Time`=%s AND `RASP_ID`=%s"
+                                             cur.execute(sqlQuery, (row['IP'],row['Rel_Hum(%)_DHT22_calib'],row['Rel_Hum(%)_DHT22_raw'],row['VP(hPa)_DHT22_calib'],row['VP(hPa)_DHT22_raw'],row['Ta(°C)_DHT22_calib'], row['Ta(°C)_DHT22_raw'],row['Wind(m/s)'],row['BG(°C)_calib'],row['BG(°C)_raw'],row['Tmrt(°C)'],row['Light_Level(lx)'],row['MLX_E(W/m²)'],row['MLX_O(°C)'],row['MLX_A(°C)'],row['UTCI(°C)'], row['Stresslevel_utci'],row['PET(°C)'],row['Stresslevel_pet'], row['CPU_TEMP(°C)'],row['Raspi_Time'],row['RaspberryID']))
+                                             connection.commit() 
+                           finally:
+                                    cur.close()
+                                    connection.close()
+         os.remove(logfile_cl)
+         print("Lost DATA submitted")
