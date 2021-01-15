@@ -120,7 +120,7 @@ finally:
      print("connection_closed")
 print("newest Data submitted " + time)
 
-logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost"+".csv"
+logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost"+time.strftime("%Y-%m-%d")+".csv"
 
 if os.path.exists(logfile_cl):
          with open(logfile_cl) as csvfile:
