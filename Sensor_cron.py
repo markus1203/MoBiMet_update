@@ -234,7 +234,7 @@ else:
     
 if get_ip()=='127.0.0.1':
     print("connection lost")
-    logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost"+time.strftime("%Y-%m-%d")+".csv"
+    logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost-"+time.strftime("%Y-%m-%d")+".csv"
     if os.path.exists(logfile_cl):
         f0=open(logfile_cl,"a")
         f0.write(computer_time+","+raspberryid+","+get_ip()+","+"{0:.2f}".format(dht22_vappress)+","+"{0:.2f}".format(dht22_vappress_raw)+","+"{0:.1f}".format(dht22_humidity)+","+"{0:.1f}".format(dht22_humidity_raw)+","+"{0:.1f}".format(dht22_temperature)+","+"{0:.1f}".format(dht22_temperature_raw)+","+"{0:.1f}".format(v)+","+"{0:.1f}".format(bg_calib)+","+"{0:.1f}".format(bg_raw)+","+"{0:.1f}".format(tmrt)+","+"{0:.1f}".format(lightLevel)+","+"{0:.1f}".format(mlx_e)+","+"{0:.1f}".format(mlx_o)+","+"{0:.1f}".format(mlx_a)+","+"{0:.1f}".format(utci)+","+str(sl_utci)+","+"{0:.1f}".format(pet)+","+str(sl_pet)+","+"{0:.1f}".format(cpu_ta)+"\n")
