@@ -45,7 +45,7 @@ name =  (line_id.split(',')[1])
 pw =  (line_id.split(',')[2])
 
 print("start")
-random_sleep=random.randint(20,220)
+random_sleep=random.randint(20,200)
 print("Sleep: "+str(random_sleep))
 time.sleep(random_sleep)
 
