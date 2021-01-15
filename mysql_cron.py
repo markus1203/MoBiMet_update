@@ -38,11 +38,12 @@ f1.close()
 raspberryid =  (line_id.split(',')[0])
 
 f1 = open("/home/pi/Desktop/connection.csv", "r")
-line_id = f1.readlines()[1]
+line_con = f1.readlines()[int(raspberryid)]
 f1.close()
-ip =  (line_id.split(',')[0])
-name =  (line_id.split(',')[1])
-pw =  (line_id.split(',')[2])
+ip =  (line_con.split(',')[0])
+name =  (line_con.split(',')[1])
+pw =  (line_con.split(',')[2])
+
 
 print("start")
 random_sleep=random.randint(20,200)
