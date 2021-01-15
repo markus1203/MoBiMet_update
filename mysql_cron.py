@@ -72,7 +72,7 @@ last_line = f1.readlines()[-1]
 f1.close()
 
 IP=(last_line.split(',')[2])
-time=(last_line.split(',')[0])
+time_RP=(last_line.split(',')[0])
 
 #if time > (lastmysqltime[0].strftime('%Y-%m-%d %H:%M')):
 dht22_vp=(last_line.split(',')[3])
@@ -104,7 +104,7 @@ sl_utci=(last_line.split(',')[18])
 pet=(last_line.split(',')[19])
 sl_pet=(last_line.split(',')[20])
 cpu_temp=(last_line.split(',')[21])
-print(time,raspberryid,IP,dht22_humidity,dht22_humidity_raw,dht22_vp,dht22_vp_raw,dht22_temperature,dht22_temperature_raw,v,bg_calib,bg_raw,Tmrt,Light_Level,mlx_e,mlx_o,mlx_a,utci,sl_utci,pet,sl_pet,cpu_temp)
+print(time_RP,raspberryid,IP,dht22_humidity,dht22_humidity_raw,dht22_vp,dht22_vp_raw,dht22_temperature,dht22_temperature_raw,v,bg_calib,bg_raw,Tmrt,Light_Level,mlx_e,mlx_o,mlx_a,utci,sl_utci,pet,sl_pet,cpu_temp)
    
 connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
 try:
@@ -112,14 +112,15 @@ try:
         #sqlQuery = "INSERT  `Data` (`Rasp_Time`,`Rasp_ID`,`IP_MOBIMET`, `RH`, `RH_raw`, `VP_hPa`,`VP_hPa_raw`,`Ta_C`,`Ta_C_raw`, `v_m/s`, `BlackGlobeT_C`,`BlackGlobeT_C_raw`,`Tmrt_C`,`LightLevel_lux`,`MLX_E_W/m²`,`MLX_O_C`,`MLX_A_C`, `UTCI_C`, `Stresslevel_UTCI`,`PET_C`,`Stresslevel_PET`,`CPU_TEMP_C`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s,%s, %s, %s, %s, %s, %s,%s,%s, %s,%s)"
         #cursor.execute(sqlQuery,(time, raspberryid, IP,"{0:.1f}".format(dht22_humidity),"{0:.1f}".format(dht22_humidity_raw),"{0:.3f}".format(dht22_vp),"{0:.3f}".format(dht22_vp_raw),"{0:.1f}".format(dht22_temperature),"{0:.1f}".format(dht22_temperature_raw),"{0:.1f}".format(v),"{0:.1f}".format(utci), sl))
         sqlQuery = "UPDATE  `Data` SET `IP_MOBIMET`=%s, `RH`=%s, `RH_raw`=%s, `VP_hPa`=%s,`VP_hPa_raw`=%s,`Ta_C`=%s,`Ta_C_raw`=%s, `v_m/s`=%s, `BlackGlobeT_C`=%s,`BlackGlobeT_C_raw`=%s,`Tmrt_C`=%s,`LightLevel_lux`=%s,`MLX_E_W/m²`=%s,`MLX_O_C`=%s,`MLX_A_C`=%s, `UTCI_C`=%s, `Stresslevel_UTCI`=%s,`PET_C`=%s,`Stresslevel_PET`=%s,`CPU_TEMP_C`=%s WHERE `Rasp_Time`=%s AND `RASP_ID`=%s ORDER BY Rasp_Time DESC LIMIT 2"
-        cursor.execute(sqlQuery,(IP,dht22_humidity,dht22_humidity_raw,dht22_vp,dht22_vp_raw,dht22_temperature,dht22_temperature_raw,v,bg_calib,bg_raw,Tmrt,Light_Level,mlx_e,mlx_o,mlx_a,utci,sl_utci,pet,sl_pet,cpu_temp,time,raspberryid))
+        cursor.execute(sqlQuery,(IP,dht22_humidity,dht22_humidity_raw,dht22_vp,dht22_vp_raw,dht22_temperature,dht22_temperature_raw,v,bg_calib,bg_raw,Tmrt,Light_Level,mlx_e,mlx_o,mlx_a,utci,sl_utci,pet,sl_pet,cpu_temp,time_RP,raspberryid))
         connection.commit()
         print(connection)            
 finally:
      connection.close()
      print("connection_closed")
-print("newest Data submitted " + time)
+print("newest Data submitted " + time_RP)
 
+logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost-"+time.strftime("%Y-%m-%d")+".csv"
 logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost-"+time.strftime("%Y-%m-%d")+".csv"
 if os.path.exists(logfile_cl):
          with open(logfile_cl) as csvfile:
