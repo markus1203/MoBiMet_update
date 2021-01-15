@@ -8,7 +8,7 @@ import csv
 import sys
 import os
 import time
-import datetime
+#import datetime
 import random
 import pymysql.cursors
 
