@@ -3,7 +3,7 @@
 # Version 7.9.2020
 import sys
 import os
-import time
+from datetime import datetime
 import Adafruit_DHT
 import numpy
 import socket
@@ -17,8 +17,11 @@ from gpiozero import CPUTemperature
 from UTCI import *
 from PET import *
 
-computer_time=time.strftime("%Y-%m-%d %H:%M") 
-computer_day=time.strftime("%Y-%m-%d") 
+
+now = datetime.now() # current date and time
+
+computer_time=now.strftime("%Y-%m-%d %H:%M") 
+computer_day=now.strftime("%Y-%m-%d") 
 
 
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
