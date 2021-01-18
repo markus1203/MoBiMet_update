@@ -15,6 +15,14 @@ import pymysql.cursors
 
 time.sleep(10)
 
+f1 = open("/home/pi/Desktop/r_id.csv", "r")
+line_id = f1.readlines()[0]
+f1.close()
+raspberryid =  (line_id.split(',')[0])
+
+print(raspberryid)
+
+
 f1 = open("/home/pi/Desktop/connection.csv", "r")
 line_con = f1.readlines()[int(raspberryid)]
 f1.close()
@@ -41,13 +49,6 @@ try:
          
 finally:
     connection.close()
-
-f1 = open("/home/pi/Desktop/r_id.csv", "r")
-line_id = f1.readlines()[0]
-f1.close()
-raspberryid =  (line_id.split(',')[0])
-
-print(raspberryid)
 
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
