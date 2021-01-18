@@ -15,11 +15,15 @@ def spin():
 
 def calculate_speed(time_sec):
     global wind_count
-    circumference_m = (2*math.pi)*radius_m
-    rotations = wind_count / 2.0
+    if windcount>0:
+        speed=0.485451+windcount*0.005361
+    else:
+        speed=0
+    #circumference_m = (2*math.pi)*radius_m
+    #rotations = wind_count / 2.0
         
-    dist_m = circumference_m * rotations
-    speed = dist_m / time_sec
+    #dist_m = circumference_m * rotations
+    #speed = dist_m / time_sec
     return speed
 
 
@@ -40,8 +44,8 @@ logfile_wind="/home/pi/Desktop/wind.csv"
 if wind=='y':
    
     wind_count = 0
-    radius_m = 0.0625
-    wind_interval = 55
+    #radius_m = 0.0625
+    #wind_interval = 57
     
     wind_speed_sensor = Button(21)    
     wind_speed_sensor.when_pressed = spin
