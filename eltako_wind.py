@@ -45,7 +45,7 @@ if wind=='y':
    
     wind_count = 0
     #radius_m = 0.0625
-    #wind_interval = 57
+    wind_interval = 57
     
     wind_speed_sensor = Button(21)    
     wind_speed_sensor.when_pressed = spin
