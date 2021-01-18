@@ -15,7 +15,7 @@ def spin():
 
 def calculate_speed(time_sec):
     global wind_count
-    if windcount>0:
+    if wind_count>0:
         speed=0.485451+windcount*0.005361
     else:
         speed=0
