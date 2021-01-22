@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-#10.01.2021
+#22.01.2021
 
 from rak811 import Mode, Rak811
 import csv
