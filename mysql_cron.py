@@ -4,17 +4,18 @@
 # Version 25.01.2021
 import time
 import random
-print("start")
 random_sleep=random.randint(20,200)
 print("Sleep: "+str(random_sleep))
 time.sleep(random_sleep)
 
+print("import")
 from StringIO import StringIO
 import csv
 import sys
 import os
 import pymysql.cursors
 
+print("start")
 
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
 line_id = f1.readlines()[0]
