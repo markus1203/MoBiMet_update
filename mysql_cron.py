@@ -1,15 +1,18 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
 
-# Version 14.01.2021
+# Version 25.01.2021
+import time
+import random
+print("start")
+random_sleep=random.randint(20,200)
+print("Sleep: "+str(random_sleep))
+time.sleep(random_sleep)
 
 from StringIO import StringIO
 import csv
 import sys
 import os
-import time
-#import datetime
-import random
 import pymysql.cursors
 
 
@@ -26,11 +29,6 @@ name =  (line_con.split(',')[1])
 pw =  (line_con.split(',')[2])
 
 day=time.strftime("%Y-%m-%d")
-
-print("start")
-random_sleep=random.randint(20,200)
-print("Sleep: "+str(random_sleep))
-time.sleep(random_sleep)
 
 logfile_path= "/home/pi/Desktop/Data/"  
 logfile = logfile_path+raspberryid+"-"+day+".csv"
