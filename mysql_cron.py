@@ -12,25 +12,6 @@ import time
 import random
 import pymysql.cursors
 
-#Create DATABASE
-#connection = pymysql.connect (host=ip, user=name, port=3306, password=pw)
-#try:
-#    with connection.cursor() as cursor:
-#        cursor.execute('CREATE DATABASE IF NOT EXISTS mobimet')
-#        
-#finally:
-#    connection.close()
-
-#Create Database
-#connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet", cursorclass=pymysql.cursors.DictCursor)
-#try:
-#    with connection.cursor() as cursor:
-#        sqlQuery = "CREATE TABLE IF NOT EXISTS `Data`(`ID` INT(11) NOT NULL AUTO_INCREMENT,`Timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,`Rasp_Time` DATETIME,`RASP_ID` INT,`IP_MOBIMET` TEXT, `VP_hPa` DECIMAL(5,1),`VP_hPa_raw` DECIMAL(5,1), `RH` DECIMAL(5,1),`RH_raw` DECIMAL(5,1),`Ta_C` DECIMAL(5,1), `Ta_C_raw` DECIMAL(5,1),`v_m/s` DECIMAL(5,1),`BlackGlobeT_C` DECIMAL(5,1),`BlackGlobeT_C_raw` DECIMAL(5,1),`Tmrt_C` DECIMAL(5,1),`LightLevel_lux` DECIMAL(7,2),`MLX_E_W/m²` DECIMAL(5,1),`MLX_O_C` DECIMAL(5,1),`MLX_A_C` DECIMAL(5,1),`UTCI_C` DECIMAL(5,1), `Stresslevel_UTCI` INT,`PET_C` DECIMAL(5,1), `Stresslevel_PET` INT,`CPU_TEMP_C` DECIMAL(5,1), PRIMARY KEY(`ID`)) AUTO_INCREMENT=1"
-#        cursor.execute(sqlQuery)
-         #
-#finally:
-#    connection.close()
-
 
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
 line_id = f1.readlines()[0]
@@ -44,28 +25,15 @@ ip =  (line_con.split(',')[0])
 name =  (line_con.split(',')[1])
 pw =  (line_con.split(',')[2])
 
+day=time.strftime("%Y-%m-%d")
 
 print("start")
 random_sleep=random.randint(20,200)
 print("Sleep: "+str(random_sleep))
 time.sleep(random_sleep)
 
-
-# check if data ist already transmited to mysql
-
-#connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data")
-#try:
-#    with connection.cursor() as cursor:
-#        cursor.execute(("SELECT `Rasp_Time` FROM `Data` where`RASP_ID` ='%s' AND `Rasp_Time`=(select max(`Rasp_Time`) from `Data`)") % int(raspberryid))
-#        lastmysqltime = cursor.fetchone()
-#finally:
-#    connection.close()
-
-
-#if lastmysqltime == None : lastmysqltime=(datetime.datetime(1990,1,1,1,1),)
-
 logfile_path= "/home/pi/Desktop/Data/"  
-logfile = logfile_path+raspberryid+"-"+time.strftime("%Y-%m-%d")+".csv"
+logfile = logfile_path+raspberryid+"-"+day+".csv"
 
 f1 = open(logfile, "r")
 last_line = f1.readlines()[-1]
@@ -120,8 +88,7 @@ finally:
      print("connection_closed")
 print("newest Data submitted " + time_RP)
 
-logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost-"+time.strftime("%Y-%m-%d")+".csv"
-logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost-"+time.strftime("%Y-%m-%d")+".csv"
+logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost-"+day+".csv"
 if os.path.exists(logfile_cl):
          with open(logfile_cl) as csvfile:
                   sp=csv.DictReader(csvfile)
