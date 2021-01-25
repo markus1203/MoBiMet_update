@@ -2,10 +2,9 @@
 # -*- coding: utf-8 -*-
 
 # Version 26.10.2020
+from __future__ import division
 import time
 time.sleep(50)
-
-from __future__ import division
 
 from StringIO import StringIO
 import csv
