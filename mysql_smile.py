@@ -24,6 +24,8 @@ import RPi.GPIO as GPIO
 
 import pymysql.cursors
 
+day=time.strftime("%d")
+
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
 line_id = f1.readlines()[0]
 f1.close()
@@ -37,25 +39,7 @@ ip =  (line_id.split(',')[0])
 name =  (line_id.split(',')[1])
 pw =  (line_id.split(',')[2])
 
-#Create DATABASE
-connection = pymysql.connect (host=ip, user=name, port=3306, password=pw)
-try:
-    with connection.cursor() as cursor:
-        cursor.execute('CREATE DATABASE IF NOT EXISTS mobimet_data')
-        
-finally:
-    connection.close()
-
-#Create Datatable
-connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
-try:
-    with connection.cursor() as cursor:
-        sqlQuery = "CREATE TABLE IF NOT EXISTS `smiley`(`ID` INT(11) NOT NULL AUTO_INCREMENT,`Timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,`Rasp_Time` DATETIME,`RASP_ID` INT,`SMILEY` INT, PRIMARY KEY(`ID`)) AUTO_INCREMENT=1"
-        cursor.execute(sqlQuery)
-         
-finally:
-     connection.close()
-while True:
+while day=time.strftime("%d"):
     smiley=0
     GPIO.setmode(GPIO.BCM)
     key1 = 5
@@ -118,6 +102,5 @@ while True:
         finally:
             connection.close()
         time.sleep(60)
-
 
 print("porgram closed")
