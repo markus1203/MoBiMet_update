@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 # Version 26.10.2020
+import time
+time.sleep(50)
 
 from __future__ import division
 
@@ -9,7 +11,6 @@ from StringIO import StringIO
 import csv
 import sys
 import os
-import time
 picdir="/home/pi/e-Paper/RaspberryPi&JetsonNano/python/pic"
 libdir="/home/pi/e-Paper/RaspberryPi&JetsonNano/python/lib"
 #libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
@@ -20,9 +21,6 @@ import logging
 from waveshare_epd import epd2in7b
 from PIL import Image,ImageDraw,ImageFont
 import traceback
-
-time.sleep(50)
-#from PET import *
 
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
 line_id = f1.readlines()[0]
