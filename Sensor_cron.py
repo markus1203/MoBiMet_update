@@ -1,6 +1,6 @@
 #! /usr/bin/python
 # -*- coding: utf-8 -*-
-# Version 7.9.2020
+# Version 25.01.2021
 import sys
 import os
 from datetime import datetime
@@ -85,11 +85,10 @@ else:
     dht22_humidity_raw=-9999
 
 #CPU_TEMP
-
 cpu = CPUTemperature()
 cpu_ta = cpu.temperature   
-# Wind
 
+# Wind
 logfile_wind="/home/pi/Desktop/wind.csv"
 
 if os.path.exists(logfile_wind):
@@ -131,14 +130,12 @@ try:
       #  tmrt=((((bg_calib+273.15)**4)+((1.1*(10**8)*(v_tmrt**0.6))/(0.95*(0.04**0.4)))*(bg_calib - dht22_temperature))**0.25)-273.15
     except (ValueError):
         tmrt=-9999
-    #-9999 #needed after Thorsson et al 2007: Tg = the globe temperature (°C),Va = the air velocity (ms−1),Ta = the air temperature (°C),D = the globe diameter (mm),ε = the globe emissivity
 except (IndexError):
     bg_raw = -9999
     bg_calib = -9999
     tmrt= -9999 
 
 # Light Sensor BH1750
-
 bus = SMBus(1)
 
 try:
@@ -151,11 +148,7 @@ except (IOError):
     
 bus.close()
 
-
-#if lightLevel==None : lightLevel=-9999
-
 # mlx
-
 bus = SMBus(1)
 sensor = MLX90614(bus, address=0x5A)
 try:
@@ -215,10 +208,6 @@ else:
 logfile_path ="/home/pi/Desktop/Data/"
 logfile =logfile_path+raspberryid+"-"+computer_day+".csv"
 
-
-#print("{0:.2f}".format(mlx_e)+","+"{0:.2f}".format(mlx_o)+","+"{0:.2f}".format(mlx_a)+","+str(lightLevel))
-#print(mlx_e,mlx_a,mlx_o,  computer_time,raspberryid,"{0:.2f} hPa".format(dht22_vappress),"{0:.1f} %".format(dht22_humidity),"{0:.1f} C".format(dht22_temperature),"{0:.1f} m/s".format(v),"{0:.1f} C".format(utci), "{0:.2f} lx".format(lightLevel), sl_utci)   
-
 print(computer_time+","+raspberryid+","+get_ip()+","+"{0:.3f}".format(dht22_vappress)+","+"{0:.3f}".format(dht22_vappress_raw)+","+"{0:.1f}".format(dht22_humidity)+","+"{0:.1f}".format(dht22_humidity_raw)+","+"{0:.1f}".format(dht22_temperature)+","+"{0:.3f}".format(dht22_temperature_raw)+","+"{0:.2f}".format(v)+","+"{0:.2f}".format(bg_calib)+","+"{0:.2f}".format(bg_raw)+","+"{0:.2f}".format(tmrt)+","+"{0:.2f}".format(lightLevel)+","+"{0:.2f}".format(mlx_e)+","+"{0:.2f}".format(mlx_o)+","+"{0:.2f}".format(mlx_a)+","+"{0:.1f}".format(utci)+","+str(sl_utci)+","+str(cpu_ta)+"\n")
 
 if os.path.exists(logfile):
@@ -235,7 +224,6 @@ else:
     f0.close()
     print("Data in logfile "+computer_time)
 
-    
 if get_ip()=='127.0.0.1':
     print("connection lost")
     logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost-"+computer_day+".csv"
@@ -252,5 +240,3 @@ if get_ip()=='127.0.0.1':
         f0.close()
 else: print("connected")
 exit(0)
-
-
