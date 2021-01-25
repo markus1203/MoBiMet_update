@@ -139,4 +139,6 @@ if os.path.exists(logfile_cl):
                                     connection.close()
                                     time.sleep(5)
 
-         os.remove(logfile_cl)
+         os.remove(logfile_cl)         
+exit(0)
+
