@@ -21,7 +21,7 @@ from waveshare_epd import epd2in7b
 from PIL import Image,ImageDraw,ImageFont
 import traceback
 
-time.sleep(85)
+time.sleep(90)
 #from PET import *
 
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
