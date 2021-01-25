@@ -39,7 +39,7 @@ ip =  (line_id.split(',')[0])
 name =  (line_id.split(',')[1])
 pw =  (line_id.split(',')[2])
 
-while day=time.strftime("%d"):
+while day==time.strftime("%d"):
     smiley=0
     GPIO.setmode(GPIO.BCM)
     key1 = 5
