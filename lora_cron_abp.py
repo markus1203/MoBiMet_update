@@ -5,7 +5,7 @@
 import time
 import random
 
-random_sleep=random.randint(30,170)
+random_sleep=random.randint(40,170)
 print("Sleep: "+str(random_sleep))
 time.sleep(random_sleep)
 
