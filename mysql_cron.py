@@ -82,6 +82,9 @@ try:
         cursor.execute(sqlQuery,(IP,dht22_humidity,dht22_humidity_raw,dht22_vp,dht22_vp_raw,dht22_temperature,dht22_temperature_raw,v,bg_calib,bg_raw,Tmrt,Light_Level,mlx_e,mlx_o,mlx_a,utci,sl_utci,pet,sl_pet,cpu_temp,time_RP,raspberryid))
         connection.commit()
         print(connection)            
+    except pymysql.InternalError as e:
+        print("Mysql InternalError")
+
 finally:
      connection.close()
      print("connection_closed")
@@ -100,6 +103,8 @@ if os.path.exists(logfile_cl):
                                              cur.execute(sqlQuery, (row['IP'],row['Rel_Hum(%)_DHT22_calib'],row['Rel_Hum(%)_DHT22_raw'],row['VP(hPa)_DHT22_calib'],row['VP(hPa)_DHT22_raw'],row['Ta(°C)_DHT22_calib'], row['Ta(°C)_DHT22_raw'],row['Wind(m/s)'],row['BG(°C)_calib'],row['BG(°C)_raw'],row['Tmrt(°C)'],row['Light_Level(lx)'],row['MLX_E(W/m²)'],row['MLX_O(°C)'],row['MLX_A(°C)'],row['UTCI(°C)'], row['Stresslevel_utci'],row['PET(°C)'],row['Stresslevel_pet'], row['CPU_TEMP(°C)'],row['Raspi_Time'],row['RaspberryID']))
                                              connection.commit()
                                              print("Lost DATA submitted")
+                           except pymysql.InternalError as e:
+                              print("Mysql InternalError Lost Data")
                            finally:
                                     cur.close()
                                     connection.close()
