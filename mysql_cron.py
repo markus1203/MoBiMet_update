@@ -81,9 +81,13 @@ try:
         sqlQuery = "UPDATE  `Data` SET `IP_MOBIMET`=%s, `RH`=%s, `RH_raw`=%s, `VP_hPa`=%s,`VP_hPa_raw`=%s,`Ta_C`=%s,`Ta_C_raw`=%s, `v_m/s`=%s, `BlackGlobeT_C`=%s,`BlackGlobeT_C_raw`=%s,`Tmrt_C`=%s,`LightLevel_lux`=%s,`MLX_E_W/m²`=%s,`MLX_O_C`=%s,`MLX_A_C`=%s, `UTCI_C`=%s, `Stresslevel_UTCI`=%s,`PET_C`=%s,`Stresslevel_PET`=%s,`CPU_TEMP_C`=%s WHERE `Rasp_Time`=%s AND `RASP_ID`=%s ORDER BY Rasp_Time DESC LIMIT 2"
         cursor.execute(sqlQuery,(IP,dht22_humidity,dht22_humidity_raw,dht22_vp,dht22_vp_raw,dht22_temperature,dht22_temperature_raw,v,bg_calib,bg_raw,Tmrt,Light_Level,mlx_e,mlx_o,mlx_a,utci,sl_utci,pet,sl_pet,cpu_temp,time_RP,raspberryid))
         connection.commit()
-        print(connection)            
-    except pymysql.InternalError as e:
-        print("Mysql InternalError")
+        print(connection)
+
+except pymysql.err.InternalError as e:
+    code, msg = e.args
+    if code == 1292:
+        print('false format')
+
 
 finally:
      connection.close()
@@ -103,8 +107,10 @@ if os.path.exists(logfile_cl):
                                              cur.execute(sqlQuery, (row['IP'],row['Rel_Hum(%)_DHT22_calib'],row['Rel_Hum(%)_DHT22_raw'],row['VP(hPa)_DHT22_calib'],row['VP(hPa)_DHT22_raw'],row['Ta(°C)_DHT22_calib'], row['Ta(°C)_DHT22_raw'],row['Wind(m/s)'],row['BG(°C)_calib'],row['BG(°C)_raw'],row['Tmrt(°C)'],row['Light_Level(lx)'],row['MLX_E(W/m²)'],row['MLX_O(°C)'],row['MLX_A(°C)'],row['UTCI(°C)'], row['Stresslevel_utci'],row['PET(°C)'],row['Stresslevel_pet'], row['CPU_TEMP(°C)'],row['Raspi_Time'],row['RaspberryID']))
                                              connection.commit()
                                              print("Lost DATA submitted")
-                           except pymysql.InternalError as e:
-                              print("Mysql InternalError Lost Data")
+                           except pymysql.err.InternalError as e:
+                              code, msg = e.args
+                              if code == 1292:
+                                 print('false format')
                            finally:
                                     cur.close()
                                     connection.close()
