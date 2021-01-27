@@ -71,7 +71,7 @@ drawblack = ImageDraw.Draw(HBlackimage)
 drawred = ImageDraw.Draw(HRedimage)
 drawblack.text((0, 2), ' MoBiMet ' + raspberryid, font = font17, fill = 0)
 if IP=='127.0.0.1':
-    drawblack.text((210,2), '     NO WIFI', font = font17, fill = 0)     
+    drawblack.text((160,2), '     NO WIFI', font = font17, fill = 0)     
 else:
     drawblack.text((130,2), ' ' +time, font = font17, fill = 0) 
 
