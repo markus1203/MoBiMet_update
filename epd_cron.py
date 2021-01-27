@@ -70,7 +70,10 @@ HRedimage = Image.new('1', (epd.height, epd.width), 255)  # 298*126
 drawblack = ImageDraw.Draw(HBlackimage)
 drawred = ImageDraw.Draw(HRedimage)
 drawblack.text((0, 2), ' MoBiMet ' + raspberryid, font = font17, fill = 0)
-drawblack.text((130,2), ' ' +time, font = font17, fill = 0) 
+if IP=='127.0.0.1':
+    drawblack.text((130,2), ' NO WIFI', font = font17, fill = 0)     
+else:
+    drawblack.text((130,2), ' ' +time, font = font17, fill = 0) 
 
 drawred.line((0, 24, 265, 24), fill = 0)
 drawred.line((0, 25, 265, 25), fill = 0)
