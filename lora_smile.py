@@ -22,9 +22,10 @@ from ttn_secrets_2 import APPS_KEY, DEV_ADDR, NWKS_KEY
 # import traceback
 import RPi.GPIO as GPIO
 
+day=time.strftime("%d")
 print("GO")
 
-while True:
+while day==time.strftime("%d"):
     smiley=0
     GPIO.setmode(GPIO.BCM)
     key1 = 5
