@@ -188,7 +188,7 @@ else:
     # Input data for the PET 
     age = 35
     sex = 1 # 1 for men and 2 for women
-    pos = 1
+    pos = 2 #1 for standing 2 for sitting 
     mbody = 75 #[kg]
     ht = 1.80 #[m]
     p = 1013.25 #[hPa]
