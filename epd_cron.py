@@ -114,7 +114,7 @@ if lang=='g':
     elif float(PET)>18 and float(PET)<23:
         drawblack.text((130,120), ' keine', font = font24, fill = 0)
         drawblack.text((130,145), ' Belastung', font = font24, fill = 0)
-    elif float(PET) <= 4 and float(PET)<-9999:
+    elif float(PET) <= 4 and float(PET)>-9999:
         drawblack.text((130,120), ' extreme', font = font19, fill = 0)
         drawblack.text((130,145), u' Kältebelastung', font = font19, fill = 0)
     elif float(PET) <= 8:
