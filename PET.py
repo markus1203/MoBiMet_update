@@ -202,7 +202,11 @@ def resolution(Ta, Tmrt, HR, v, age, sex, ht, mbody, pos, M, icl, Tx):
     return (Tn, 1)
 
 # PET calculation with dichotomy method 
-def PET (age, sex, ht, mbody, pos, M, icl, Tstable,a,b,eps):
+def PET (age, sex, ht, mbody, pos, M, icl, Tstable,a,b,
+	
+	
+	
+	):
     # Definition of a function with the input variables of the PET reference situation
     def f(Tx):
         return Syst(Tstable, Tx, Tx, 50, 0.1, age, sex, ht, mbody, pos, M, 0.9,False)
@@ -243,7 +247,7 @@ Tmax = 60
 #v=1 # Wind velocity [m/s]
 age = 35
 sex = 1 # 1 for men and 2 for women
-pos = 1
+pos = 2
 mbody = 75 #[kg]
 ht = 1.80 #[m]
 p = 1013.25 #[hPa]
