@@ -202,11 +202,7 @@ def resolution(Ta, Tmrt, HR, v, age, sex, ht, mbody, pos, M, icl, Tx):
     return (Tn, 1)
 
 # PET calculation with dichotomy method 
-def PET (age, sex, ht, mbody, pos, M, icl, Tstable,a,b,
-	
-	
-	
-	):
+def PET (age, sex, ht, mbody, pos, M, icl, Tstable,a,b,eps):
     # Definition of a function with the input variables of the PET reference situation
     def f(Tx):
         return Syst(Tstable, Tx, Tx, 50, 0.1, age, sex, ht, mbody, pos, M, 0.9,False)
