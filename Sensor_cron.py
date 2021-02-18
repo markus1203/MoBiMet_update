@@ -200,7 +200,7 @@ else:
     #print("Nodes temperature [T_core, T_skin, T_clo]",Tstable)
     #print('Thermal Balance', Syst(Tstable, Ta, Tmrt, HR, v, age, sex, ht, mbody, pos, M, icl,True)[0])
     #print('PET:', round(PET(age, sex, ht, mbody, pos, M, icl, Tstable, Tmin, Tmax, eps),2))
-    pet = round(PET(age, sex, ht, mbody, pos, M, icl, Tstable, Tmin, Tmax, eps),2)
+    pet = round(PET(age, sex, ht, mbody, pos, M, icl, Tstable, Tmin, Tmax, eps),1)
     sl_pet=stresslevel_PET(pet)
     comf_pet=comfortable_PET(pet)
 
