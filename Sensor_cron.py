@@ -68,8 +68,8 @@ if dht22_humidity is not None and dht22_temperature is not None:
     saturation_vappress_calib = 6.113 * numpy.exp((2501000.0/461.5)*((1.0/273.15)-(1.0/(dht22_temperature_calib+273.15))))
     #saturation_vappress_ucalib= 6.1078 * numpy.exp((17.08085*dht22_temperature_raw)/(234.175+dht22_temperature_raw))      # Ansatz für VPmax in der Psychrometertafel
     #saturation_vappress_calib= 6.1078 * numpy.exp((17.08085*dht22_temperature_calib)/(234.175+dht22_temperature_calib))
-    #dht22_vappress=(dht22_humidity/100.0)*saturation_vappress_ucalib
-    dht22_vappress=(dht22_humidity/100.0)*saturation_vappress_calib
+    dht22_vappress=(dht22_humidity/100.0)*saturation_vappress_ucalib
+    #dht22_vappress=(dht22_humidity/100.0)*saturation_vappress_calib
     dht22_vappress_raw=round(dht22_vappress,3)
     dht22_vappress_calib=round(dht22_vappress * vappress_cal_a1 + vappress_cal_a0,3)
     dht22_vappress = dht22_vappress_calib
