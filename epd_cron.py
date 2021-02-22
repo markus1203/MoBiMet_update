@@ -130,13 +130,13 @@ if lang=='g':
         drawblack.text((130,120), 'extreme', font = font20, fill = 0)
         drawblack.text((130,145), u'Hitzebelastung', font = font20, fill = 0)
     elif float(PET)>=35:
-        drawblack.text((130,120), 'starker', font = font20, fill = 0)
+        drawblack.text((130,120), 'starke', font = font20, fill = 0)
         drawblack.text((130,145), u'Hitzebelastung', font = font20, fill = 0)
     elif float(PET)>=29:
-        drawblack.text((130,120), 'moderater', font = font20, fill = 0)
+        drawblack.text((130,120), 'moderate', font = font20, fill = 0)
         drawblack.text((130,145), u'Hitzebelastung', font = font20, fill = 0)
     elif float(PET)>=23:
-        drawblack.text((130,120), 'leichter', font = font20, fill = 0)
+        drawblack.text((130,120), 'leichte', font = font20, fill = 0)
         drawblack.text((130,145), u'Hitzebelastung', font = font20, fill = 0)
         
 if lang=='f':
