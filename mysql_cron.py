@@ -96,7 +96,7 @@ finally:
      print("connection_closed")
 print("newest Data submitted " + time_RP)
 
-logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost-"+day+"_"+hour+".csv"
+logfile_cl = "/home/pi/Desktop/connection_lost/"+raspberryid+"-connection-lost-"+day+"_"+hour+".csv"
 if os.path.exists(logfile_cl):
          with open(logfile_cl) as csvfile:
                   sp=csv.DictReader(csvfile)
