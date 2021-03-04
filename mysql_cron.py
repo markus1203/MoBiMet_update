@@ -30,6 +30,8 @@ name =  (line_con.split(',')[1])
 pw =  (line_con.split(',')[2])
 
 day=time.strftime("%Y-%m-%d")
+hour=time.strftime("%H")
+
 
 logfile_path= "/home/pi/Desktop/Data/"  
 logfile = logfile_path+raspberryid+"-"+day+".csv"
@@ -94,7 +96,7 @@ finally:
      print("connection_closed")
 print("newest Data submitted " + time_RP)
 
-logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost-"+day+".csv"
+logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost-"+day+"_"+hour+".csv"
 if os.path.exists(logfile_cl):
          with open(logfile_cl) as csvfile:
                   sp=csv.DictReader(csvfile)
