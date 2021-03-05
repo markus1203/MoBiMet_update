@@ -100,7 +100,7 @@ finally:
 print("newest Data submitted " + time_RP)
 
 logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost-"+day+"_"+hour+".csv"
-if os.path.exists(logfile_cl) and minute==55:
+if os.path.exists(logfile_cl) and minute=="55":
          with open(logfile_cl) as csvfile:
                   sp=csv.DictReader(csvfile)
                   for row in sp:
