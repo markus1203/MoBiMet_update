@@ -4,6 +4,10 @@
 # Version 25.01.2021
 import time
 import random
+day=time.strftime("%Y-%m-%d")
+hour=time.strftime("%H")
+minute=time.strftime("%M")
+
 random_sleep=random.randint(40,200)
 print("Sleep: "+str(random_sleep))
 time.sleep(random_sleep)
@@ -29,8 +33,7 @@ ip =  (line_con.split(',')[0])
 name =  (line_con.split(',')[1])
 pw =  (line_con.split(',')[2])
 
-day=time.strftime("%Y-%m-%d")
-hour=time.strftime("%H")
+
 
 
 logfile_path= "/home/pi/Desktop/Data/"  
@@ -97,7 +100,7 @@ finally:
 print("newest Data submitted " + time_RP)
 
 logfile_cl = "/home/pi/Desktop/"+raspberryid+"-connection-lost-"+day+"_"+hour+".csv"
-if os.path.exists(logfile_cl):
+if os.path.exists(logfile_cl) and minute==55:
          with open(logfile_cl) as csvfile:
                   sp=csv.DictReader(csvfile)
                   for row in sp:
