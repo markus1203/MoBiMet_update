@@ -128,16 +128,16 @@ if lang=='g':
         drawblack.text((130,145), u'Kältebelastung', font = font20, fill = 0)
     elif float(PET)>=41:
         drawblack.text((130,120), 'extreme', font = font20, fill = 0)
-        drawblack.text((130,145), u'Hitzebelastung', font = font20, fill = 0)
+        drawblack.text((130,145), u'Wärmebelastung', font = font20, fill = 0)
     elif float(PET)>=35:
         drawblack.text((130,120), 'starke', font = font20, fill = 0)
-        drawblack.text((130,145), u'Hitzebelastung', font = font20, fill = 0)
+        drawblack.text((130,145), u'Wärmebelastung', font = font20, fill = 0)
     elif float(PET)>=29:
         drawblack.text((130,120), 'moderate', font = font20, fill = 0)
-        drawblack.text((130,145), u'Hitzebelastung', font = font20, fill = 0)
+        drawblack.text((130,145), u'Wärmebelastung', font = font20, fill = 0)
     elif float(PET)>=23:
         drawblack.text((130,120), 'leichte', font = font20, fill = 0)
-        drawblack.text((130,145), u'Hitzebelastung', font = font20, fill = 0)
+        drawblack.text((130,145), u'Wärmebelastung', font = font20, fill = 0)
         
 if lang=='f':
     drawred.text((0,30), u" Température",font = font16, fill = 0)
