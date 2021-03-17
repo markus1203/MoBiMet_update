@@ -17,7 +17,7 @@ from datetime import datetime
 from ttn_secrets import APPS_KEY, DEV_ADDR, NWKS_KEY
 
 print("start LoRa")
-lora = Rak811()
+lora = Rak811v2()
 print("rak")
 lora.hard_reset()
 print("reset")
