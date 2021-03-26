@@ -68,7 +68,7 @@ print (IP)
 
 time=time.strftime("%Y-%m-%d %H:%M:%S")
 print(time)
-connection = pymysql.connect (host="132.230.102.174", user="mobimet_RP", port=3306, password="mobimet2019", db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
+connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
 try:
         with connection.cursor() as cursor:
             sqlQuery = "INSERT INTO `connection` (`Rasp_Time`,`Rasp_ID`,`IP_MOBIMET`) VALUES (%s, %s, %s)"
