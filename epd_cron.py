@@ -6,8 +6,10 @@ from __future__ import division
 import time
 time.sleep(50)
 
-from StringIO import StringIO
-import csv
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIOimport csv
 import sys
 import os
 picdir="/home/pi/e-Paper/RaspberryPi&JetsonNano/python/pic"
