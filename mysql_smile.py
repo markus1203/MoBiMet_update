@@ -5,8 +5,10 @@
 
 from __future__ import division
 
-from StringIO import StringIO
-import csv
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIOimport csv
 import sys
 import os
 import time
