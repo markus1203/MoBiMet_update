@@ -16,7 +16,8 @@ print("import")
 try:
     from StringIO import StringIO
 except ImportError:
-    from io import StringIOimport csv
+    from io import StringIO
+import csv
 import sys
 import os
 import pymysql.cursors
