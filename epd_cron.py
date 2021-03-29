@@ -9,8 +9,8 @@ time.sleep(50)
 try:
     from StringIO import StringIO
 except ImportError:
-    from io import StringIOimport csv
-    
+    from io import StringIO
+import csv
 import sys
 import os
 picdir="/home/pi/e-Paper/RaspberryPi&JetsonNano/python/pic"
