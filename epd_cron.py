@@ -10,6 +10,7 @@ try:
     from StringIO import StringIO
 except ImportError:
     from io import StringIOimport csv
+
 import sys
 import os
 picdir="/home/pi/e-Paper/RaspberryPi&JetsonNano/python/pic"
