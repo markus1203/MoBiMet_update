@@ -13,8 +13,10 @@ print("Sleep: "+str(random_sleep))
 time.sleep(random_sleep)
 
 print("import")
-from StringIO import StringIO
-import csv
+try:
+    from StringIO import StringIO
+except ImportError:
+    from io import StringIOimport csv
 import sys
 import os
 import pymysql.cursors
