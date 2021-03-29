@@ -8,7 +8,8 @@ from __future__ import division
 try:
     from StringIO import StringIO
 except ImportError:
-    from io import StringIOimport csv
+    from io import StringIO
+import csv
 import sys
 import os
 import time
