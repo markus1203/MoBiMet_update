@@ -9,35 +9,63 @@ random_sleep=random.randint(40,170)
 print("Sleep: "+str(random_sleep))
 time.sleep(random_sleep)
 
-from rak811 import Mode, Rak811
+from rak811v2 import Rak811v2
 import csv
 import sys
 import os
 from datetime import datetime
 from ttn_secrets import APPS_KEY, DEV_ADDR, NWKS_KEY
+joinmode = 'ABP'
 
 print("start LoRa")
-lora = Rak811()
+lora = Rak811v2()
 print("rak")
 lora.hard_reset()
 print("reset")
-lora.mode = Mode.LoRaWan
-lora.band = 'EU868'
-print("band")
+
+lora.set_config('lora:region:EU868')
+print('Set loRa region')
+
+if joinmode == 'OTA':
+    print('Set join mode to OTA and configure appropriate keys')
+    lora.set_config('lora:join_mode:0')
+    lora.set_config('lora:app_eui:XXXXXXXXXXXXXX')
+    lora.set_config('lora:app_key:XXXXXXXXXXXXXX')
+else:
+    print('Set join mode to ABP and set appropriate keys')
+    lora.set_config('lora:join_mode:1')
+    lora.set_config('lora:dev_addr:XXXXXXXXXXXXXX')
+    lora.set_config('lora:nwks_key:XXXXXXXXXXXXXX')
+    lora.set_config('lora:apps_key:XXXXXXXXXXXXXX')
+
+print('Set data rate to 5')
+lora.set_config('lora:dr:5')
+
+print('Join to LoRa network')
+status = lora.join()
+
+print('Set LoRa to confirmation mode')
+lora.set_config('lora:confirm:1')
+
 #lora.set_config(dev_eui='303838365338710C',app_eui='70B3D57ED0030AF7',app_key='07487AD99477A0AEC0D02A75DA25D94F' )
 #lora.set_config(app_eui='70B3D57ED0030AF7',
 #                app_key='07487AD99477A0AEC0D02A75DA25D94F')
 
+
 print("DEV_ADDR: "+DEV_ADDR+" | NWKS_KEY: "+NWKS_KEY+" | APPS_KEY: "+APPS_KEY)
+dev="lora:dev_addr:"+DEV_ADDR
+nwk="lora:nwks_key:"+NWKS_KEY
+apps="lora:apps_key:"+APPS_KEY
+print(dev+" "+nwk+" "+apps)
 lora.set_config(dev_addr=DEV_ADDR,
                 apps_key=APPS_KEY,
                 nwks_key=NWKS_KEY)
 
-print("config")
-lora.join_abp()
-print("join_abp")
-lora.dr = 1
-print("lora.dr")
+#print("config")
+#lora.join_abp()
+#print("join_abp")
+#lora.dr = 1
+#print("lora.dr")
 
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
 line_id = f1.readlines()[0]
@@ -147,13 +175,23 @@ mlx_o_b=bytes.fromhex('{:04x}'.format(mlx_o))
 #sl=(last_line.split(',')[18])
 #if float(sl)==-9999: sl=None
 #Insert Data to mysql
-print(time_RP,raspberryid,IP,dht22_vp_raw,dht22_temperature_raw,v,bg_raw,Light_Level,mlx_o)
 
 #lora.send(year_b+month_b+day_b+hour_b+minute_b+raspberryid_b+dht22_vp_b+dht22_vp_raw_b+dht22_humidity_b+dht22_humidity_raw_b+dht22_temperature_b+dht22_temperature_raw_b+v_b+bg_calib_b+bg_raw_b+tmrt_b+Light_Level_b+mlx_e_b+mlx_o_b+mlx_a_b)
 #lora.send(year_b+month_b+day_b+hour_b+minute_b+raspberryid_b+dht22_vp_b+dht22_humidity_b+dht22_temperature_b+v_b+bg_calib_b+tmrt_b+Light_Level_b+mlx_e_b)
-lora.send(dht22_vp_raw_b+dht22_temperature_raw_b+v_b+bg_raw_b+Light_Level_b+mlx_o_b)
+#lora.send(dht22_vp_raw_b+dht22_temperature_raw_b+v_b+bg_raw_b+Light_Level_b+mlx_o_b)
+
+#print("LoRa Data transmitted")      
+#lora.close()
+#print("close")
+#exit(0)
+
+print(time_RP,raspberryid,IP,dht22_vp_raw,dht22_temperature_raw,v,bg_raw,Light_Level,mlx_o)
 print(dht22_vp_raw_b+dht22_temperature_raw_b+v_b+bg_raw_b+Light_Level_b+mlx_o_b)
-print("LoRa Data transmitted")      
+status = lora.send_lora(dht22_vp_raw_b+dht22_temperature_raw_b+v_b+bg_raw_b+Light_Level_b+mlx_o_b, port=5)
+print('Wait for and display confirmation response')
+events=lora.get_events(timeout=10)
+for x in events:
+    print('\t',x)
+
+print('Close connection to module')
 lora.close()
-print("close")
-exit(0)
