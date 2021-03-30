@@ -26,6 +26,27 @@ print("reset")
 lora.set_config('lora:region:EU868')
 print('Set loRa region')
 
+#if joinmode == 'OTA':
+#    print('Set join mode to OTA and configure appropriate keys')
+#    lora.set_config('lora:join_mode:0')
+#   lora.set_config('lora:app_eui:XXXXXXXXXXXXXX')
+#    lora.set_config('lora:app_key:XXXXXXXXXXXXXX')
+#else:
+#    print('Set join mode to ABP and set appropriate keys')
+#    lora.set_config('lora:join_mode:1')
+#    lora.set_config('lora:dev_addr:XXXXXXXXXXXXXX')
+#    lora.set_config('lora:nwks_key:XXXXXXXXXXXXXX')
+#    lora.set_config('lora:apps_key:XXXXXXXXXXXXXX')
+
+print("DEV_ADDR: "+DEV_ADDR+" | NWKS_KEY: "+NWKS_KEY+" | APPS_KEY: "+APPS_KEY)
+dev="lora:dev_addr:"+DEV_ADDR
+nwk="lora:nwks_key:"+NWKS_KEY
+apps="lora:apps_key:"+APPS_KEY
+print(dev+" "+nwk+" "+apps)
+lora.set_config(dev_addr=DEV_ADDR,
+                apps_key=APPS_KEY,
+                nwks_key=NWKS_KEY)
+
 if joinmode == 'OTA':
     print('Set join mode to OTA and configure appropriate keys')
     lora.set_config('lora:join_mode:0')
@@ -34,10 +55,10 @@ if joinmode == 'OTA':
 else:
     print('Set join mode to ABP and set appropriate keys')
     lora.set_config('lora:join_mode:1')
-    lora.set_config('lora:dev_addr:XXXXXXXXXXXXXX')
-    lora.set_config('lora:nwks_key:XXXXXXXXXXXXXX')
-    lora.set_config('lora:apps_key:XXXXXXXXXXXXXX')
-
+    lora.set_config(dev)
+    lora.set_config(nwk)
+    lora.set_config(aps)    
+    
 print('Set data rate to 5')
 lora.set_config('lora:dr:5')
 
@@ -52,14 +73,7 @@ lora.set_config('lora:confirm:1')
 #                app_key='07487AD99477A0AEC0D02A75DA25D94F')
 
 
-print("DEV_ADDR: "+DEV_ADDR+" | NWKS_KEY: "+NWKS_KEY+" | APPS_KEY: "+APPS_KEY)
-dev="lora:dev_addr:"+DEV_ADDR
-nwk="lora:nwks_key:"+NWKS_KEY
-apps="lora:apps_key:"+APPS_KEY
-print(dev+" "+nwk+" "+apps)
-lora.set_config(dev_addr=DEV_ADDR,
-                apps_key=APPS_KEY,
-                nwks_key=NWKS_KEY)
+
 
 #print("config")
 #lora.join_abp()
