@@ -57,7 +57,7 @@ else:
     lora.set_config('lora:join_mode:1')
     lora.set_config(dev)
     lora.set_config(nwk)
-    lora.set_config(aps)    
+    lora.set_config(apps)    
     
 print('Set data rate to 5')
 lora.set_config('lora:dr:5')
