@@ -13,8 +13,8 @@ import csv
 import sys
 import os
 import time
-picdir="/home/pi/e-Paper/RaspberryPi&JetsonNano/python/pic"
-libdir="/home/pi/e-Paper/RaspberryPi&JetsonNano/python/lib"
+picdir="/home/pi/e-Paper/RaspberryPi_JetsonNano/python/pic"
+libdir="/home/pi/e-Paper/RaspberryPi_JetsonNano/python/lib"
 #libdir = os.path.join(os.path.dirname(os.path.dirname(os.path.realpath(__file__))), 'lib')
 if os.path.exists(libdir):
     sys.path.append(libdir)
