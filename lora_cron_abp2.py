@@ -43,10 +43,10 @@ dev="lora:dev_addr:"+DEV_ADDR
 nwk="lora:nwks_key:"+NWKS_KEY
 apps="lora:apps_key:"+APPS_KEY
 print(dev+" "+nwk+" "+apps)
-lora.set_config(dev_addr=DEV_ADDR,
-                apps_key=APPS_KEY,
-                nwks_key=NWKS_KEY)
-
+#lora.set_config(dev_addr=DEV_ADDR,
+#                apps_key=APPS_KEY,
+#                nwks_key=NWKS_KEY)
+#
 if joinmode == 'OTA':
     print('Set join mode to OTA and configure appropriate keys')
     lora.set_config('lora:join_mode:0')
