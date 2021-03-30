@@ -7,7 +7,7 @@ import random
 
 random_sleep=random.randint(40,170)
 print("Sleep: "+str(random_sleep))
-#time.sleep(random_sleep)
+time.sleep(random_sleep)
 
 from rak811v2 import Rak811v2
 import csv
