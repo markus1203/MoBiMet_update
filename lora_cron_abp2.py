@@ -201,7 +201,7 @@ mlx_o_b=bytes.fromhex('{:04x}'.format(mlx_o))
 
 print(time_RP,raspberryid,IP,dht22_vp_raw,dht22_temperature_raw,v,bg_raw,Light_Level,mlx_o)
 print(dht22_vp_raw_b+dht22_temperature_raw_b+v_b+bg_raw_b+Light_Level_b+mlx_o_b)
-status = lora.send_lora(dht22_vp_raw_b+dht22_temperature_raw_b+v_b+bg_raw_b+Light_Level_b+mlx_o_b, port=5)
+lora.send_lora(dht22_vp_raw_b+dht22_temperature_raw_b+v_b+bg_raw_b+Light_Level_b+mlx_o_b, port=5)
 #print('Wait for and display confirmation response')
 #events=lora.get_events(timeout=10)
 #for x in events:
