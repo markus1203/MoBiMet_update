@@ -80,13 +80,13 @@ while day==time.strftime("%d"):
         status = lora.join()
 
         print('Set LoRa to confirmation mode')
-        #lora.set_config('lora:confirm:1')
+        lora.set_config('lora:confirm:1')
         eins=bytes.fromhex('{:04x}'.format(1))
         lora.send_lora(eins)
-#print('Wait for and display confirmation response')
-#events=lora.get_events(timeout=10)
-#for x in events:
-#    print('\t',x)
+        print('Wait for and display confirmation response')
+        events=lora.get_events(timeout=10)
+        for x in events:
+            print('\t',x)
 #
         print('Close connection to module')
         lora.close()
