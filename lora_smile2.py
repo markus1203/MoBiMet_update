@@ -135,7 +135,7 @@ while day==time.strftime("%d"):
 
         print('Set LoRa to confirmation mode')
         lora.set_config('lora:confirm:0')
-        zwei=bytes.fromhex('{:04x}'.format(3))
+        zwei=bytes.fromhex('{:04x}'.format(2))
         lora.send_lora(zwei,port=1)
         #print('Wait for and display confirmation response')
         #events=lora.get_events(timeout=10)
