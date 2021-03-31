@@ -92,74 +92,114 @@ while day==time.strftime("%d"):
         lora.close()
 
         time.sleep(60)
-               
+        print('GO')
+       
     if key2state == False:
         print('zwei')
         b_time=time.strftime("%Y-%m-%d %H:%M:%S")
         print('Key2 Pressed '+b_time)
         print("start LoRa")
-        lora = Rak811()
+        lora = Rak811v2()
         print("rak")
         lora.hard_reset()
         print("reset")
-        lora.mode = Mode.LoRaWan
-        lora.band = 'EU868'
-        print("band")
-        #lora.set_config(dev_eui='303838365338710C',app_eui='70B3D57ED0030AF7',app_key='07487AD99477A0AEC0D02A75DA25D94F' )
-        #lora.set_config(app_eui='70B3D57ED0030AF7',
-        #                app_key='07487AD99477A0AEC0D02A75DA25D94F')
 
+        lora.set_config('lora:region:EU868')
+        print('Set loRa region')
         print("DEV_ADDR: "+DEV_ADDR+" | NWKS_KEY: "+NWKS_KEY+" | APPS_KEY: "+APPS_KEY)
-        lora.set_config(dev_addr=DEV_ADDR,
-                        apps_key=APPS_KEY,
-                        nwks_key=NWKS_KEY)
+        dev="lora:dev_addr:"+DEV_ADDR
+        nwk="lora:nwks_key:"+NWKS_KEY
+        apps="lora:apps_key:"+APPS_KEY
+        print(dev+" "+nwk+" "+apps)
+        #lora.set_config(dev_addr=DEV_ADDR,
+        #                apps_key=APPS_KEY,
+        #                nwks_key=NWKS_KEY)
+        #
+        if joinmode == 'OTA':
+            print('Set join mode to OTA and configure appropriate keys')
+            lora.set_config('lora:join_mode:0')
+            lora.set_config('lora:app_eui:XXXXXXXXXXXXXX')
+            lora.set_config('lora:app_key:XXXXXXXXXXXXXX')
+        else:
+            print('Set join mode to ABP and set appropriate keys')
+            lora.set_config('lora:join_mode:1')
+            lora.set_config(dev)
+            lora.set_config(nwk)
+            lora.set_config(apps)    
+    
+        print('Set data rate to 1')
+        lora.set_config('lora:dr:1')
 
-        print("config")
-        lora.join_abp()
-        print("join_abp")
-        lora.dr = 1
-        print("lora.dr")
-        zwei=bytes.fromhex('{:04x}'.format(2))
-        lora.send(zwei)
-        print("LoRa Data transmitted")      
+        print('Join to LoRa network')
+        status = lora.join()
+
+        print('Set LoRa to confirmation mode')
+        lora.set_config('lora:confirm:0')
+        zwei=bytes.fromhex('{:04x}'.format(3))
+        lora.send_lora(zwei,port=1)
+        #print('Wait for and display confirmation response')
+        #events=lora.get_events(timeout=10)
+        #for x in events:
+        #    print('\t',x)
+##
+        print('Close connection to module')
         lora.close()
-        print("close")
 
         time.sleep(60)
+        print('GO')
                 
     if key3state == False:
         print('drei')
         b_time=time.strftime("%Y-%m-%d %H:%M:%S")
         print('Key3 Pressed '+b_time)
         print("start LoRa")
-        lora = Rak811()
+                lora = Rak811v2()
         print("rak")
         lora.hard_reset()
         print("reset")
-        lora.mode = Mode.LoRaWan
-        lora.band = 'EU868'
-        print("band")
-        #lora.set_config(dev_eui='303838365338710C',app_eui='70B3D57ED0030AF7',app_key='07487AD99477A0AEC0D02A75DA25D94F' )
-        #lora.set_config(app_eui='70B3D57ED0030AF7',
-        #                app_key='07487AD99477A0AEC0D02A75DA25D94F')
 
+        lora.set_config('lora:region:EU868')
+        print('Set loRa region')
         print("DEV_ADDR: "+DEV_ADDR+" | NWKS_KEY: "+NWKS_KEY+" | APPS_KEY: "+APPS_KEY)
-        lora.set_config(dev_addr=DEV_ADDR,
-                        apps_key=APPS_KEY,
-                        nwks_key=NWKS_KEY)
+        dev="lora:dev_addr:"+DEV_ADDR
+        nwk="lora:nwks_key:"+NWKS_KEY
+        apps="lora:apps_key:"+APPS_KEY
+        print(dev+" "+nwk+" "+apps)
+        #lora.set_config(dev_addr=DEV_ADDR,
+        #                apps_key=APPS_KEY,
+        #                nwks_key=NWKS_KEY)
+        #
+        if joinmode == 'OTA':
+            print('Set join mode to OTA and configure appropriate keys')
+            lora.set_config('lora:join_mode:0')
+            lora.set_config('lora:app_eui:XXXXXXXXXXXXXX')
+            lora.set_config('lora:app_key:XXXXXXXXXXXXXX')
+        else:
+            print('Set join mode to ABP and set appropriate keys')
+            lora.set_config('lora:join_mode:1')
+            lora.set_config(dev)
+            lora.set_config(nwk)
+            lora.set_config(apps)    
+    
+        print('Set data rate to 1')
+        lora.set_config('lora:dr:1')
 
-        print("config")
-        lora.join_abp()
-        print("join_abp")
-        lora.dr = 1
-        print("lora.dr")
+        print('Join to LoRa network')
+        status = lora.join()
+
+        print('Set LoRa to confirmation mode')
+        lora.set_config('lora:confirm:0')
         drei=bytes.fromhex('{:04x}'.format(3))
-        lora.send(drei)
-        print("LoRa Data transmitted")      
+        lora.send_lora(drei,port=1)
+        #print('Wait for and display confirmation response')
+        #events=lora.get_events(timeout=10)
+        #for x in events:
+        #    print('\t',x)
+##
+        print('Close connection to module')
         lora.close()
-        print("close")
 
         time.sleep(60)
-
+        print('GO')
 
 print("porgram closed")
