@@ -153,7 +153,7 @@ while day==time.strftime("%d"):
         b_time=time.strftime("%Y-%m-%d %H:%M:%S")
         print('Key3 Pressed '+b_time)
         print("start LoRa")
-                lora = Rak811v2()
+        lora = Rak811v2()
         print("rak")
         lora.hard_reset()
         print("reset")
