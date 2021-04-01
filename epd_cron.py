@@ -203,7 +203,7 @@ if lang=='f':
         drawblack.text((130,145), u' thermique', font = font20, fill = 0)
 
                 
-if lang=='g':
+if lang=='e':
     drawred.text((0,30), ' Air Temperature',font = font16, fill = 0)
     drawred.text((130,30), ' Humidity',font = font16, fill = 0)
     drawred.text((0,105), '   PET',font = font16, fill = 0)
