@@ -623,9 +623,9 @@ while True:
                 drawblack.text((210,90), '  ' +tmrt_r+u'°C', font = font16, fill = 0)
            
             if float(IR) ==-9999:
-                drawblack.text((160,110), u'  no data', font = font16, fill = 0)
+                drawblack.text((140,110), u'  no data', font = font16, fill = 0)
             else:
-                drawblack.text((160,110), ' ' +IR+u' W/m²', font = font16, fill = 0)
+                drawblack.text((140,110), ' ' +IR+u' W/m²', font = font16, fill = 0)
             
             if float(light) ==-9999:
                 drawblack.text((120,130), u'  no data ', font = font16, fill = 0)
