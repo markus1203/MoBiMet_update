@@ -317,7 +317,7 @@ while True:
 
           
 
-            drawblack.text((130,130), u" comfortable", font = font26, fill = 0)
+            drawblack.text((130,130), u" comfortable", font = font24, fill = 0)
 
         drawred.line((0, 99, 265, 99), fill = 0)
         drawred.line((0, 100, 265, 100), fill = 0)
