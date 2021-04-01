@@ -201,6 +201,63 @@ if lang=='f':
         drawblack.text((130,125), u' léger stress ', font = font20, fill = 0)
         #drawblack.text((140,138), ' stress ', font = font18, fill = 0)
         drawblack.text((130,145), u' thermique', font = font20, fill = 0)
+
+                
+if lang=='g':
+    drawred.text((0,30), ' Air Temperature',font = font16, fill = 0)
+    drawred.text((130,30), ' Humidity',font = font16, fill = 0)
+    drawred.text((0,105), '   PET',font = font16, fill = 0)
+    drawred.text((120,105), 'Thermal stress',font = font14, fill = 0)
+    
+    if float(dht22_temperature) ==-9999:
+        drawblack.text((0,50), ' no', font = font24, fill = 0)
+        drawblack.text((0,70), ' data', font = font24, fill = 0)
+    else:
+        drawblack.text((0,50), ' ' +dht22_temperature+u'°C', font = font38, fill = 0)
+
+    if float(dht22_humidity) ==-9999:
+        drawblack.text((130,50), ' no', font = font24, fill = 0)
+        drawblack.text((130,70), ' data', font = font24, fill = 0)
+    else:
+        drawblack.text((130,50), ' ' +dht22_humidity+u' %', font = font38, fill = 0)
+
+    if float(PET) ==-9999:
+        drawblack.text((0,120), ' no', font = font24, fill = 0)
+        drawblack.text((0,145), ' data', font = font24, fill = 0)
+    else:
+        drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
+    
+    
+    if float(PET)==-9999:
+        drawblack.text((130,120), ' no', font = font24, fill = 0)
+        drawblack.text((130,145), ' data', font = font24, fill = 0)
+    elif float(PET)>=18 and float(PET)<=23:
+        drawblack.text((130,120), ' no thermal', font = font24, fill = 0)
+        drawblack.text((130,145), ' stress', font = font24, fill = 0)
+    elif float(PET) <= 4 and float(PET)>-9999:
+        drawblack.text((130,120), ' extreme', font = font19, fill = 0)
+        drawblack.text((130,145), u' cold stress', font = font19, fill = 0)
+    elif float(PET) <= 8:
+        drawblack.text((130,120), 'strong', font = font20, fill = 0)
+        drawblack.text((130,145), u'cold stress', font = font20, fill = 0)
+    elif float(PET) <= 13:
+        drawblack.text((130,120), 'moderate', font = font20, fill = 0)
+        drawblack.text((130,145), u'cold stress', font = font20, fill = 0)
+    elif float(PET) <= 18:
+        drawblack.text((130,120), 'light', font = font20, fill = 0)
+        drawblack.text((130,145), u'cold stress', font = font20, fill = 0)
+    elif float(PET)>=41:
+        drawblack.text((130,120), 'extreme', font = font20, fill = 0)
+        drawblack.text((130,145), u'heat stress', font = font17, fill = 0)
+    elif float(PET)>=35:
+        drawblack.text((130,120), 'strong', font = font20, fill = 0)
+        drawblack.text((130,145), u'heat stress', font = font17, fill = 0)
+    elif float(PET)>=29:
+        drawblack.text((130,120), 'moderate', font = font20, fill = 0)
+        drawblack.text((130,145), u'heat stress', font = font17, fill = 0)
+    elif float(PET)>=23:
+        drawblack.text((130,120), 'light', font = font20, fill = 0)
+        drawblack.text((130,145), u'heat stress', font = font17, fill = 0)
         
 drawred.line((0, 99, 265, 99), fill = 0)
 drawred.line((0, 100, 265, 100), fill = 0)
