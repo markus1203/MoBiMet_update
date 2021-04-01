@@ -49,6 +49,7 @@ font17 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 17)
 font38 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 38)
 font10 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 10)  
 font26 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 26)
+font13 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 13)
 logfile_path = "/home/pi/Desktop/Data/"
 
 print("Go!")
@@ -595,16 +596,16 @@ while True:
             drawred.text((0,50), u' Wind:',font = font16, fill = 0)
             drawred.text((0,70), u' Black Globe Temperature:',font = font16, fill = 0)
             drawred.text((0,90), u' Tmrt                                            :',font = font16, fill = 0)
-            drawred.text((35,94), u' (Mean Radiant Temperature)',font = font14, fill = 0)
+            drawred.text((35,94), u' (Mean Radiant Temperature)',font = font13, fill = 0)
             drawred.text((0,110), u' Thermal radiation:',font = font16, fill = 0)
             drawred.text((0,130), u' Light intensity:',font = font16, fill = 0)
             drawred.text((0,150), ' IP:',font = font16, fill = 0)            
 
 
             if float(vp) ==-9999:
-                drawblack.text((100,30), u' no data', font = font16, fill = 0)
+                drawblack.text((120,30), u' no data', font = font16, fill = 0)
             else:
-                drawblack.text((100,30), ' ' +vp+u' hPa', font = font16, fill = 0)
+                drawblack.text((120,30), ' ' +vp+u' hPa', font = font16, fill = 0)
 
             if float(v) ==-9999:
                 drawblack.text((50,50), u' no data', font = font16, fill = 0)
@@ -628,9 +629,9 @@ while True:
                 drawblack.text((140,110), ' ' +IR+u' W/m²', font = font16, fill = 0)
             
             if float(light) ==-9999:
-                drawblack.text((120,130), u'  no data ', font = font16, fill = 0)
+                drawblack.text((110,130), u'  no data ', font = font16, fill = 0)
             else:
-                drawblack.text((120,130), ' ' +light+u' lux', font = font16, fill = 0)
+                drawblack.text((110,130), ' ' +light+u' lux', font = font16, fill = 0)
 
             drawblack.text((30,150), ' ' +IP, font = font16, fill = 0) 
 
