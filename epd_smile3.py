@@ -157,9 +157,34 @@ while True:
                 drawblack.text((0,145), u' données', font = font24, fill = 0)
             else:
                 drawblack.text((0,125), ' '+PET+u'°C', font = font38, fill = 0)
+                
+        if lang=='e':
+            drawred.text((0,30), ' Air temperature',font = font16, fill = 0)
+            drawred.text((130,30), ' HUmidity',font = font16, fill = 0)
+            drawred.text((0,105), '   PET',font = font16, fill = 0)
+            drawred.text((110,105), 'Thermal comfort',font = font14, fill = 0)
 
+            if float(dht22_temperature) ==-9999:
+                drawblack.text((0,50), ' no', font = font24, fill = 0)
+                drawblack.text((0,70), ' data', font = font24, fill = 0)
+            else:
+                drawblack.text((0,50), ' ' +dht22_temperature+u'°C', font = font38, fill = 0)
 
-            drawblack.text((130,130), u" j'ai froid", font = font26, fill = 0)
+            if float(dht22_humidity) ==-9999:
+                drawblack.text((130,50), ' no', font = font24, fill = 0)
+                drawblack.text((130,70), ' data', font = font24, fill = 0)
+            else:
+                drawblack.text((130,50), ' ' +dht22_humidity+u' %', font = font38, fill = 0)
+
+            if float(PET) ==-9999:
+                drawblack.text((0,120), ' no', font = font24, fill = 0)
+                drawblack.text((0,145), ' data', font = font24, fill = 0)
+            else:
+                drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
+
+          
+
+            drawblack.text((130,130), u" I'm cold", font = font26, fill = 0)
 
 
         drawred.line((0, 99, 265, 99), fill = 0)
@@ -265,7 +290,34 @@ while True:
 
 
             drawblack.text((130,130), u'confortable', font = font24, fill = 0)
+  
+        if lang=='e':
+            drawred.text((0,30), ' Air temperature',font = font16, fill = 0)
+            drawred.text((130,30), ' HUmidity',font = font16, fill = 0)
+            drawred.text((0,105), '   PET',font = font16, fill = 0)
+            drawred.text((110,105), 'Thermal comfort',font = font14, fill = 0)
 
+            if float(dht22_temperature) ==-9999:
+                drawblack.text((0,50), ' no', font = font24, fill = 0)
+                drawblack.text((0,70), ' data', font = font24, fill = 0)
+            else:
+                drawblack.text((0,50), ' ' +dht22_temperature+u'°C', font = font38, fill = 0)
+
+            if float(dht22_humidity) ==-9999:
+                drawblack.text((130,50), ' no', font = font24, fill = 0)
+                drawblack.text((130,70), ' data', font = font24, fill = 0)
+            else:
+                drawblack.text((130,50), ' ' +dht22_humidity+u' %', font = font38, fill = 0)
+
+            if float(PET) ==-9999:
+                drawblack.text((0,120), ' no', font = font24, fill = 0)
+                drawblack.text((0,145), ' data', font = font24, fill = 0)
+            else:
+                drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
+
+          
+
+            drawblack.text((130,130), u" comfortable", font = font26, fill = 0)
 
         drawred.line((0, 99, 265, 99), fill = 0)
         drawred.line((0, 100, 265, 100), fill = 0)
@@ -370,7 +422,35 @@ while True:
 
 
             drawblack.text((130,130), u" J'ai chaud", font = font26, fill = 0)
+        
+        if lang=='e':
+            drawred.text((0,30), ' Air temperature',font = font16, fill = 0)
+            drawred.text((130,30), ' HUmidity',font = font16, fill = 0)
+            drawred.text((0,105), '   PET',font = font16, fill = 0)
+            drawred.text((110,105), 'Thermal comfort',font = font14, fill = 0)
 
+            if float(dht22_temperature) ==-9999:
+                drawblack.text((0,50), ' no', font = font24, fill = 0)
+                drawblack.text((0,70), ' data', font = font24, fill = 0)
+            else:
+                drawblack.text((0,50), ' ' +dht22_temperature+u'°C', font = font38, fill = 0)
+
+            if float(dht22_humidity) ==-9999:
+                drawblack.text((130,50), ' no', font = font24, fill = 0)
+                drawblack.text((130,70), ' data', font = font24, fill = 0)
+            else:
+                drawblack.text((130,50), ' ' +dht22_humidity+u' %', font = font38, fill = 0)
+
+            if float(PET) ==-9999:
+                drawblack.text((0,120), ' no', font = font24, fill = 0)
+                drawblack.text((0,145), ' data', font = font24, fill = 0)
+            else:
+                drawblack.text((0,125), ' ' +PET+u'°C', font = font38, fill = 0)
+
+          
+
+            drawblack.text((130,130), u" I'm hot", font = font26, fill = 0)
+            
 
         drawred.line((0, 99, 265, 99), fill = 0)
         drawred.line((0, 100, 265, 100), fill = 0)
@@ -506,6 +586,49 @@ while True:
             
             if float(light) ==-9999:
                 drawblack.text((90,130), u' pas de données ', font = font16, fill = 0)
+            else:
+                drawblack.text((90,130), ' ' +light+u' lux', font = font16, fill = 0)
+
+            drawblack.text((30,150), ' ' +IP, font = font16, fill = 0) 
+ if lang=='e':
+            drawred.text((0,30), u' vapor pressure:',font = font16, fill = 0)
+            drawred.text((0,50), u' Wind:',font = font16, fill = 0)
+            drawred.text((0,70), u' Black Globe Temperature:',font = font16, fill = 0)
+            drawred.text((0,90), u' Tmrt                                            :',font = font16, fill = 0)
+            drawred.text((35,94), u' (Mean Radiant Temperature)',font = font10, fill = 0)
+            drawred.text((0,110), u' Thermal radiation:',font = font16, fill = 0)
+            drawred.text((0,130), u' Light intensity:',font = font16, fill = 0)
+            drawred.text((0,150), ' IP:',font = font16, fill = 0)            
+
+
+            if float(vp) ==-9999:
+                drawblack.text((165,30), u' no data', font = font16, fill = 0)
+            else:
+                drawblack.text((165,30), ' ' +vp+u' hPa', font = font16, fill = 0)
+
+            if float(v) ==-9999:
+                drawblack.text((50,50), u' no data', font = font16, fill = 0)
+            else:
+                drawblack.text((50,50), ' ' +v+u' m/s', font = font16, fill = 0)
+
+            if float(bg) ==-9999:
+                drawblack.text((190,70), u' no data', font = font16, fill = 0)
+            else:
+                drawblack.text((190,70), ' ' +bg+u'°C', font = font16, fill = 0)
+                
+            if float(tmrt) ==-9999:
+                drawblack.text((210,90), u'  no data', font = font16, fill = 0)
+            else:
+                tmrt_r=str(round(float(tmrt),1))
+                drawblack.text((210,90), '  ' +tmrt_r+u'°C', font = font16, fill = 0)
+           
+            if float(IR) ==-9999:
+                drawblack.text((160,110), u'  no data', font = font16, fill = 0)
+            else:
+                drawblack.text((160,110), ' ' +IR+u' W/m²', font = font16, fill = 0)
+            
+            if float(light) ==-9999:
+                drawblack.text((90,130), u'  no data ', font = font16, fill = 0)
             else:
                 drawblack.text((90,130), ' ' +light+u' lux', font = font16, fill = 0)
 
