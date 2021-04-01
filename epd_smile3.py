@@ -595,16 +595,16 @@ while True:
             drawred.text((0,50), u' Wind:',font = font16, fill = 0)
             drawred.text((0,70), u' Black Globe Temperature:',font = font16, fill = 0)
             drawred.text((0,90), u' Tmrt                                            :',font = font16, fill = 0)
-            drawred.text((35,94), u' (Mean Radiant Temperature)',font = font16, fill = 0)
+            drawred.text((35,94), u' (Mean Radiant Temperature)',font = font14, fill = 0)
             drawred.text((0,110), u' Thermal radiation:',font = font16, fill = 0)
             drawred.text((0,130), u' Light intensity:',font = font16, fill = 0)
             drawred.text((0,150), ' IP:',font = font16, fill = 0)            
 
 
             if float(vp) ==-9999:
-                drawblack.text((80,30), u' no data', font = font16, fill = 0)
+                drawblack.text((100,30), u' no data', font = font16, fill = 0)
             else:
-                drawblack.text((80,30), ' ' +vp+u' hPa', font = font16, fill = 0)
+                drawblack.text((100,30), ' ' +vp+u' hPa', font = font16, fill = 0)
 
             if float(v) ==-9999:
                 drawblack.text((50,50), u' no data', font = font16, fill = 0)
@@ -628,9 +628,9 @@ while True:
                 drawblack.text((160,110), ' ' +IR+u' W/m²', font = font16, fill = 0)
             
             if float(light) ==-9999:
-                drawblack.text((90,130), u'  no data ', font = font16, fill = 0)
+                drawblack.text((120,130), u'  no data ', font = font16, fill = 0)
             else:
-                drawblack.text((90,130), ' ' +light+u' lux', font = font16, fill = 0)
+                drawblack.text((120,130), ' ' +light+u' lux', font = font16, fill = 0)
 
             drawblack.text((30,150), ' ' +IP, font = font16, fill = 0) 
 
