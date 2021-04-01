@@ -590,7 +590,7 @@ while True:
                 drawblack.text((90,130), ' ' +light+u' lux', font = font16, fill = 0)
 
             drawblack.text((30,150), ' ' +IP, font = font16, fill = 0) 
- if lang=='e':
+        if lang=='e':
             drawred.text((0,30), u' vapor pressure:',font = font16, fill = 0)
             drawred.text((0,50), u' Wind:',font = font16, fill = 0)
             drawred.text((0,70), u' Black Globe Temperature:',font = font16, fill = 0)
