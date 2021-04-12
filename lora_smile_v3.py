@@ -48,6 +48,7 @@ while day==time.strftime("%d"):
         # Most of the setup should happen only once...
         print('Setup')
         # Ensure we are in LoRaWan mode
+        lora = Rak811()
         lora.set_config('lora:work_mode:0')
         # Select ABP
         lora.set_config('lora:join_mode:1')
@@ -93,6 +94,7 @@ while day==time.strftime("%d"):
         # Most of the setup should happen only once...
         print('Setup')
         # Ensure we are in LoRaWan mode
+        lora = Rak811()
         lora.set_config('lora:work_mode:0')
         # Select ABP
         lora.set_config('lora:join_mode:1')
@@ -138,6 +140,7 @@ while day==time.strftime("%d"):
 
         # Most of the setup should happen only once...
         print('Setup')
+        lora = Rak811()
         # Ensure we are in LoRaWan mode
         lora.set_config('lora:work_mode:0')
         # Select ABP
