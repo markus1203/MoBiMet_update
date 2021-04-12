@@ -3,7 +3,6 @@
 
 #22.01.2021
 
-from rak811v2 import Rak811v2
 import csv
 import sys
 import os
