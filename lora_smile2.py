@@ -26,6 +26,7 @@ day=time.strftime("%d")
 print("GO")
 
 while day==time.strftime("%d"):
+    joinmode = 'ABP'
     smiley=0
     GPIO.setmode(GPIO.BCM)
     key1 = 5
