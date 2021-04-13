@@ -59,14 +59,14 @@ else:
     lora.set_config(nwk)
     lora.set_config(apps)    
     
-print('Set data rate to 5')
-lora.set_config('lora:dr:5')
+print('Set data rate to 1')
+lora.set_config('lora:dr:1')
 
 print('Join to LoRa network')
 status = lora.join()
 
 print('Set LoRa to confirmation mode')
-lora.set_config('lora:confirm:1')
+lora.set_config('lora:confirm:0')
 
 #lora.set_config(dev_eui='303838365338710C',app_eui='70B3D57ED0030AF7',app_key='07487AD99477A0AEC0D02A75DA25D94F' )
 #lora.set_config(app_eui='70B3D57ED0030AF7',
