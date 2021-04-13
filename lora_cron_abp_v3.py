@@ -18,8 +18,8 @@ import random
 
 random_sleep=random.randint(40,170)
 print("Sleep: "+str(random_sleep))
-#time.sleep(random_sleep)
-#import logging
+time.sleep(random_sleep)
+import logging
 import csv
 import sys
 import os
@@ -27,7 +27,7 @@ from datetime import datetime
 
 from rak811.rak811_v3 import Rak811
 from ttn_secrets import APPS_KEY, DEV_ADDR, NWKS_KEY
-#logging.basicConfig(level=logging.DEBUG)
+logging.basicConfig(level=logging.DEBUG)
 lora = Rak811()
 
 
