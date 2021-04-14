@@ -44,7 +44,6 @@ while day==time.strftime("%d"):
         b_time=time.strftime("%Y-%m-%d %H:%M:%S")
         print('Key1 Pressed '+b_time)
         print("start LoRa")
-        joinmode = 'ABP'
 
         lora = Rak811v2()
         print("rak")
@@ -80,15 +79,15 @@ while day==time.strftime("%d"):
         print('Join to LoRa network')
         status = lora.join()
 
-        #print('Set LoRa to confirmation mode')
-        #lora.set_config('lora:confirm:0')
+        print('Set LoRa to confirmation mode')
+        lora.set_config('lora:confirm:0')
         eins=bytes.fromhex('{:04x}'.format(1))
         lora.send_lora(eins,port=1)
         #print('Wait for and display confirmation response')
         #events=lora.get_events(timeout=10)
         #for x in events:
         #    print('\t',x)
-##
+        ##
         print('Close connection to module')
         lora.close()
 
@@ -142,7 +141,7 @@ while day==time.strftime("%d"):
         #events=lora.get_events(timeout=10)
         #for x in events:
         #    print('\t',x)
-##
+        ##
         print('Close connection to module')
         lora.close()
 
@@ -180,7 +179,7 @@ while day==time.strftime("%d"):
             lora.set_config('lora:join_mode:1')
             lora.set_config(dev)
             lora.set_config(nwk)
-            lora.set_config(apps)    
+            lora.set_config(apps)
     
         print('Set data rate to 1')
         lora.set_config('lora:dr:1')
@@ -196,7 +195,7 @@ while day==time.strftime("%d"):
         #events=lora.get_events(timeout=10)
         #for x in events:
         #    print('\t',x)
-##
+        ##
         print('Close connection to module')
         lora.close()
 
