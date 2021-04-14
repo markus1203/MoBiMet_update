@@ -80,8 +80,8 @@ while day==time.strftime("%d"):
         print('Join to LoRa network')
         status = lora.join()
 
-        print('Set LoRa to confirmation mode')
-        lora.set_config('lora:confirm:0')
+        #print('Set LoRa to confirmation mode')
+        #lora.set_config('lora:confirm:0')
         eins=bytes.fromhex('{:04x}'.format(1))
         lora.send_lora(eins,port=1)
         #print('Wait for and display confirmation response')
