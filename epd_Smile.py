@@ -109,10 +109,10 @@ while True:
         #drawred.line((132, 0, 132, 200), fill = 0)
 
         if lang=='g':
-            drawred.text((0,30), ' Lufttemperatur',font = font16, fill = 0)
-            drawred.text((130,30), ' Luftfeuchte',font = font16, fill = 0)
-            drawred.text((0,105), '   PET',font = font16, fill = 0)
-            drawred.text((110,105), 'Thermisches Empfinden',font = font14, fill = 0)
+            drawblack.text((0,30), ' Lufttemperatur',font = font16, fill = 0)
+            drawblack.text((130,30), ' Luftfeuchte',font = font16, fill = 0)
+            drawblack.text((0,105), '   PET',font = font16, fill = 0)
+            drawblack.text((110,105), 'Thermisches Empfinden',font = font14, fill = 0)
 
             if float(dht22_temperature) ==-9999:
                 drawblack.text((0,50), ' keine', font = font24, fill = 0)
@@ -137,10 +137,10 @@ while True:
 
 
         if lang=='f':
-            drawred.text((0,30), u' Température',font = font16, fill = 0)
-            drawred.text((130,30), u' Humidité',font = font16, fill = 0)
-            drawred.text((0,105), '   PET',font = font16, fill = 0)
-            drawred.text((115,105), 'Sensation thermique',font = font16, fill = 0)
+            drawblack.text((0,30), u' Température',font = font16, fill = 0)
+            drawblack.text((130,30), u' Humidité',font = font16, fill = 0)
+            drawblack.text((0,105), '   PET',font = font16, fill = 0)
+            drawblack.text((115,105), 'Sensation thermique',font = font16, fill = 0)
 
             if float(dht22_temperature) ==-9999:
                 drawblack.text((0,45), ' pas de', font = font24, fill = 0)
@@ -161,10 +161,10 @@ while True:
                 drawblack.text((0,125), ' '+PET+u'°C', font = font38, fill = 0)
                 
         if lang=='e':
-            drawred.text((0,30), ' Air temperature',font = font16, fill = 0)
-            drawred.text((130,30), ' HUmidity',font = font16, fill = 0)
-            drawred.text((0,105), '   PET',font = font16, fill = 0)
-            drawred.text((110,105), 'Thermal comfort',font = font14, fill = 0)
+            drawblack.text((0,30), ' Air temperature',font = font16, fill = 0)
+            drawblack.text((130,30), ' Humidity',font = font16, fill = 0)
+            drawblack.text((0,105), '   PET',font = font16, fill = 0)
+            drawblack.text((110,105), 'Thermal comfort',font = font14, fill = 0)
 
             if float(dht22_temperature) ==-9999:
                 drawblack.text((0,50), ' no', font = font24, fill = 0)
@@ -239,10 +239,10 @@ while True:
         #drawred.line((132, 0, 132, 200), fill = 0)
 
         if lang=='g':
-            drawred.text((0,30), ' Lufttemperatur',font = font16, fill = 0)
-            drawred.text((130,30), ' Luftfeuchte',font = font16, fill = 0)
-            drawred.text((0,105), '   PET',font = font16, fill = 0)
-            drawred.text((110,105), 'Thermisches Empfinden',font = font14, fill = 0)
+            drawblack.text((0,30), ' Lufttemperatur',font = font16, fill = 0)
+            drawblack.text((130,30), ' Luftfeuchte',font = font16, fill = 0)
+            drawblack.text((0,105), '   PET',font = font16, fill = 0)
+            drawblack.text((110,105), 'Thermisches Empfinden',font = font14, fill = 0)
 
             if float(dht22_temperature) ==-9999:
                 drawblack.text((0,50), ' keine', font = font24, fill = 0)
@@ -267,10 +267,10 @@ while True:
 
 
         if lang=='f':
-            drawred.text((0,30), u' Température',font = font16, fill = 0)
-            drawred.text((130,30), u' Humidité',font = font16, fill = 0)
-            drawred.text((0,105), '   PET',font = font16, fill = 0)
-            drawred.text((115,105), 'Sensation thermique',font = font16, fill = 0)
+            drawblack.text((0,30), u' Température',font = font16, fill = 0)
+            drawblack.text((130,30), u' Humidité',font = font16, fill = 0)
+            drawblack.text((0,105), '   PET',font = font16, fill = 0)
+            drawblack.text((115,105), 'Sensation thermique',font = font16, fill = 0)
 
             if float(dht22_temperature) ==-9999:
                 drawblack.text((0,45), ' pas de', font = font24, fill = 0)
@@ -294,10 +294,10 @@ while True:
             drawblack.text((130,130), u'confortable', font = font24, fill = 0)
   
         if lang=='e':
-            drawred.text((0,30), ' Air temperature',font = font16, fill = 0)
-            drawred.text((130,30), ' HUmidity',font = font16, fill = 0)
-            drawred.text((0,105), '   PET',font = font16, fill = 0)
-            drawred.text((110,105), 'Thermal comfort',font = font14, fill = 0)
+            drawblack.text((0,30), ' Air temperature',font = font16, fill = 0)
+            drawblack.text((130,30), ' Humidity',font = font16, fill = 0)
+            drawblack.text((0,105), '   PET',font = font16, fill = 0)
+            drawblack.text((110,105), 'Thermal comfort',font = font14, fill = 0)
 
             if float(dht22_temperature) ==-9999:
                 drawblack.text((0,50), ' no', font = font24, fill = 0)
@@ -370,10 +370,10 @@ while True:
         #drawred.line((132, 0, 132, 200), fill = 0)
 
         if lang=='g':
-            drawred.text((0,30), ' Lufttemperatur',font = font16, fill = 0)
-            drawred.text((130,30), ' Luftfeuchte',font = font16, fill = 0)
-            drawred.text((0,105), '   PET',font = font16, fill = 0)
-            drawred.text((110,105), 'Thermisches Empfinden',font = font14, fill = 0)
+            drawblack.text((0,30), ' Lufttemperatur',font = font16, fill = 0)
+            drawblack.text((130,30), ' Luftfeuchte',font = font16, fill = 0)
+            drawblack.text((0,105), '   PET',font = font16, fill = 0)
+            drawblack.text((110,105), 'Thermisches Empfinden',font = font14, fill = 0)
 
             if float(dht22_temperature) ==-9999:
                 drawblack.text((0,50), ' keine', font = font24, fill = 0)
@@ -399,10 +399,10 @@ while True:
 
 
         if lang=='f':
-            drawred.text((0,30), u' Température',font = font16, fill = 0)
-            drawred.text((130,30), u' Humidité',font = font16, fill = 0)
-            drawred.text((0,105), '   PET',font = font16, fill = 0)
-            drawred.text((115,105), 'Sensation thermique',font = font16, fill = 0)
+            drawblack.text((0,30), u' Température',font = font16, fill = 0)
+            drawblack.text((130,30), u' Humidité',font = font16, fill = 0)
+            drawblack.text((0,105), '   PET',font = font16, fill = 0)
+            drawblack.text((115,105), 'Sensation thermique',font = font16, fill = 0)
 
             if float(dht22_temperature) ==-9999:
                 drawblack.text((0,45), ' pas de', font = font24, fill = 0)
@@ -426,10 +426,10 @@ while True:
             drawblack.text((130,130), u" J'ai chaud", font = font26, fill = 0)
         
         if lang=='e':
-            drawred.text((0,30), ' Air temperature',font = font16, fill = 0)
-            drawred.text((130,30), ' HUmidity',font = font16, fill = 0)
-            drawred.text((0,105), '   PET',font = font16, fill = 0)
-            drawred.text((110,105), 'Thermal comfort',font = font14, fill = 0)
+            drawblack.text((0,30), ' Air temperature',font = font16, fill = 0)
+            drawblack.text((130,30), ' Humidity',font = font16, fill = 0)
+            drawblack.text((0,105), '   PET',font = font16, fill = 0)
+            drawblack.text((110,105), 'Thermal comfort',font = font14, fill = 0)
 
             if float(dht22_temperature) ==-9999:
                 drawblack.text((0,50), ' no', font = font24, fill = 0)
