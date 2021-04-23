@@ -508,13 +508,13 @@ while True:
         #drawred.line((132, 0, 132, 200), fill = 0)
 
         if lang=='g':
-            drawred.text((0,30), ' Dampfdruck:',font = font16, fill = 0)
-            drawred.text((0,50), ' Wind:',font = font16, fill = 0)
-            drawred.text((0,70), ' Black Globe Temperatur:',font = font16, fill = 0)
-            drawred.text((0,92), ' Mittlere Strahlungstemperatur:',font = font14, fill = 0)
-            drawred.text((0,110), ' Thermische Strahlung:',font = font16, fill = 0)
-            drawred.text((0,130), ' Helligkeit:',font = font16, fill = 0)
-            drawred.text((0,150), ' IP:',font = font16, fill = 0)            
+            drawblack.text((0,30), ' Dampfdruck:',font = font16, fill = 0)
+            drawblack.text((0,50), ' Wind:',font = font16, fill = 0)
+            drawblack.text((0,70), ' Black Globe Temperatur:',font = font16, fill = 0)
+            drawblack.text((0,92), ' Mittlere Strahlungstemperatur:',font = font14, fill = 0)
+            drawblack.text((0,110), ' Thermische Strahlung:',font = font16, fill = 0)
+            drawblack.text((0,130), ' Helligkeit:',font = font16, fill = 0)
+            drawblack.text((0,150), ' IP:',font = font16, fill = 0)            
 
 
             if float(vp) ==-9999:
@@ -550,14 +550,14 @@ while True:
             drawblack.text((30,150), ' ' +IP, font = font16, fill = 0)  
 
         if lang=='f':
-            drawred.text((0,30), u' La pression de vapeur:',font = font16, fill = 0)
-            drawred.text((0,50), u' Vent:',font = font16, fill = 0)
-            drawred.text((0,70), u' Black Globe Température:',font = font16, fill = 0)
-            drawred.text((0,90), u' Tmrt                                            :',font = font16, fill = 0)
-            drawred.text((35,94), u' (Température de rayonnement moyenne)',font = font10, fill = 0)
-            drawred.text((0,110), u' Radiation thermique:',font = font16, fill = 0)
-            drawred.text((0,130), u' Luminosité:',font = font16, fill = 0)
-            drawred.text((0,150), ' IP:',font = font16, fill = 0)            
+            drawblack.text((0,30), u' La pression de vapeur:',font = font16, fill = 0)
+            drawblack.text((0,50), u' Vent:',font = font16, fill = 0)
+            drawblack.text((0,70), u' Black Globe Température:',font = font16, fill = 0)
+            drawblack.text((0,90), u' Tmrt                                            :',font = font16, fill = 0)
+            drawblack.text((35,94), u' (Température de rayonnement moyenne)',font = font10, fill = 0)
+            drawblack.text((0,110), u' Radiation thermique:',font = font16, fill = 0)
+            drawblack.text((0,130), u' Luminosité:',font = font16, fill = 0)
+            drawblack.text((0,150), ' IP:',font = font16, fill = 0)            
 
 
             if float(vp) ==-9999:
@@ -593,14 +593,14 @@ while True:
 
             drawblack.text((30,150), ' ' +IP, font = font16, fill = 0) 
         if lang=='e':
-            drawred.text((0,30), u' vapor pressure:',font = font16, fill = 0)
-            drawred.text((0,50), u' Wind:',font = font16, fill = 0)
-            drawred.text((0,70), u' Black Globe Temperature:',font = font16, fill = 0)
-            drawred.text((0,90), u' Tmrt                                            :',font = font16, fill = 0)
-            drawred.text((35,94), u' (Mean Radiant Temperature)',font = font13, fill = 0)
-            drawred.text((0,110), u' Thermal radiation:',font = font16, fill = 0)
-            drawred.text((0,130), u' Light intensity:',font = font16, fill = 0)
-            drawred.text((0,150), ' IP:',font = font16, fill = 0)            
+            drawblack.text((0,30), u' vapor pressure:',font = font16, fill = 0)
+            drawblack.text((0,50), u' Wind:',font = font16, fill = 0)
+            drawblack.text((0,70), u' Black Globe Temperature:',font = font16, fill = 0)
+            drawblack.text((0,90), u' Tmrt                                            :',font = font16, fill = 0)
+            drawblack.text((35,94), u' (Mean Radiant Temperature)',font = font13, fill = 0)
+            drawblack.text((0,110), u' Thermal radiation:',font = font16, fill = 0)
+            drawblack.text((0,130), u' Light intensity:',font = font16, fill = 0)
+            drawblack.text((0,150), ' IP:',font = font16, fill = 0)            
 
 
             if float(vp) ==-9999:
