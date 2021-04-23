@@ -87,10 +87,10 @@ drawred.line((0, 26, 265, 26), fill = 0)
 #drawred.line((132, 0, 132, 200), fill = 0)
 
 if lang=='g':
-    drawred.text((0,30), ' Lufttemperatur',font = font16, fill = 0)
-    drawred.text((130,30), ' Luftfeuchte',font = font16, fill = 0)
-    drawred.text((0,105), '   PET',font = font16, fill = 0)
-    drawred.text((120,105), 'Thermische Belastung',font = font14, fill = 0)
+    drawblack.text((0,30), ' Lufttemperatur',font = font16, fill = 0)
+    drawblack.text((130,30), ' Luftfeuchte',font = font16, fill = 0)
+    drawblack.text((0,105), '   PET',font = font16, fill = 0)
+    drawblack.text((120,105), 'Thermische Belastung',font = font14, fill = 0)
     
     if float(dht22_temperature) ==-9999:
         drawblack.text((0,50), ' keine', font = font24, fill = 0)
@@ -143,10 +143,10 @@ if lang=='g':
         drawblack.text((130,145), u'Wärmebelastung', font = font17, fill = 0)
         
 if lang=='f':
-    drawred.text((0,30), u" Température",font = font16, fill = 0)
-    drawred.text((130,30), u' Humidité',font = font16, fill = 0)
-    drawred.text((0,105), '   PET',font = font16, fill = 0)
-    drawred.text((130,105), ' Charge thermique',font = font16, fill = 0)
+    drawblack.text((0,30), u" Température",font = font16, fill = 0)
+    drawblack.text((130,30), u' Humidité',font = font16, fill = 0)
+    drawblack.text((0,105), '   PET',font = font16, fill = 0)
+    drawblack.text((130,105), ' Charge thermique',font = font16, fill = 0)
     
     if float(dht22_temperature) ==-9999:
         drawblack.text((0,45), ' pas de', font = font24, fill = 0)
@@ -203,10 +203,10 @@ if lang=='f':
         drawblack.text((130,145), u' thermique', font = font20, fill = 0)
 
 if lang=='e':
-    drawred.text((0,30), ' Air Temperature',font = font16, fill = 0)
-    drawred.text((130,30), ' Humidity',font = font16, fill = 0)
-    drawred.text((0,105), '   PET',font = font16, fill = 0)
-    drawred.text((120,105), 'Thermal stress',font = font14, fill = 0)
+    drawblack.text((0,30), ' Air Temperature',font = font16, fill = 0)
+    drawblack.text((130,30), ' Humidity',font = font16, fill = 0)
+    drawblack.text((0,105), '   PET',font = font16, fill = 0)
+    drawblack.text((120,105), 'Thermal stress',font = font14, fill = 0)
     
     if float(dht22_temperature) ==-9999:
         drawblack.text((0,50), ' no', font = font24, fill = 0)
