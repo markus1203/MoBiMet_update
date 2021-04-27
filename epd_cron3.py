@@ -90,7 +90,7 @@ if lang=='g':
     drawblack.text((0,30), ' Lufttemperatur',font = font16, fill = 0)
     drawblack.text((130,30), ' Luftfeuchte',font = font16, fill = 0)
     drawblack.text((0,105), '   PET',font = font16, fill = 0)
-    drawblack.text((120,105), 'Thermische Belastung',font = font14, fill = 0)
+    drawblack.text((115,105), 'Thermische Belastung',font = font14, fill = 0)
     
     if float(dht22_temperature) ==-9999:
         drawblack.text((0,50), ' keine', font = font24, fill = 0)
