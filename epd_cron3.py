@@ -4,7 +4,7 @@
 # Version 26.10.2020
 from __future__ import division
 import time
-time.sleep(50)
+#time.sleep(50)
 
 try:
     from StringIO import StringIO
@@ -90,7 +90,7 @@ if lang=='g':
     drawblack.text((0,30), ' Lufttemperatur',font = font16, fill = 0)
     drawblack.text((130,30), ' Luftfeuchte',font = font16, fill = 0)
     drawblack.text((0,105), '   PET',font = font16, fill = 0)
-    drawblack.text((115,105), 'Thermische Belastung',font = font14, fill = 0)
+    drawblack.text((115,105), 'Thermische Belastung',font = font16, fill = 0)
     
     if float(dht22_temperature) ==-9999:
         drawblack.text((0,50), ' keine', font = font24, fill = 0)
