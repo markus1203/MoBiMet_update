@@ -4,7 +4,7 @@
 # Version 26.10.2020
 from __future__ import division
 import time
-#time.sleep(50)
+time.sleep(50)
 
 try:
     from StringIO import StringIO
