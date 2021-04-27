@@ -48,7 +48,8 @@ font22 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 22)
 font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
 font19 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 19)
 font35 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 35)
-font14 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 14)  
+font14 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 14)
+font15 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 15)
 font16 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 16) 
 font17 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 17) 
 font38 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 38) 
@@ -90,7 +91,7 @@ if lang=='g':
     drawblack.text((0,30), ' Lufttemperatur',font = font16, fill = 0)
     drawblack.text((130,30), ' Luftfeuchte',font = font16, fill = 0)
     drawblack.text((0,105), '   PET',font = font16, fill = 0)
-    drawblack.text((115,105), 'Thermische Belastung',font = font16, fill = 0)
+    drawblack.text((115,105), 'Thermische Belastung',font = font15, fill = 0)
     
     if float(dht22_temperature) ==-9999:
         drawblack.text((0,50), ' keine', font = font24, fill = 0)
