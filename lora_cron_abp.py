@@ -36,7 +36,7 @@ lora.set_config(dev_addr=DEV_ADDR,
 print("config")
 lora.join_abp()
 print("join_abp")
-lora.dr = 1
+lora.dr = 5
 print("lora.dr")
 
 f1 = open("/home/pi/Desktop/r_id.csv", "r")
