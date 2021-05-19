@@ -59,7 +59,7 @@ else:
     lora.set_config(nwk)
     lora.set_config(apps)    
     
-print('Set data rate to 1')
+print('Set data rate to 5 (old version 1)')
 lora.set_config('lora:dr:5')
 
 print('Join to LoRa network')
