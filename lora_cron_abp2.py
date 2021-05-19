@@ -60,7 +60,7 @@ else:
     lora.set_config(apps)    
     
 print('Set data rate to 1')
-lora.set_config('lora:dr:1')
+lora.set_config('lora:dr:5')
 
 print('Join to LoRa network')
 status = lora.join()
