@@ -73,8 +73,8 @@ while day==time.strftime("%d"):
             lora.set_config(nwk)
             lora.set_config(apps)    
     
-        print('Set data rate to 1')
-        lora.set_config('lora:dr:1')
+        print('Set data rate to 5')
+        lora.set_config('lora:dr:5')
 
         print('Join to LoRa network')
         status = lora.join()
@@ -127,8 +127,8 @@ while day==time.strftime("%d"):
             lora.set_config(nwk)
             lora.set_config(apps)    
     
-        print('Set data rate to 1')
-        lora.set_config('lora:dr:1')
+        print('Set data rate to 5')
+        lora.set_config('lora:dr:5')
 
         print('Join to LoRa network')
         status = lora.join()
@@ -181,8 +181,8 @@ while day==time.strftime("%d"):
             lora.set_config(nwk)
             lora.set_config(apps)
     
-        print('Set data rate to 1')
-        lora.set_config('lora:dr:1')
+        print('Set data rate to 5')
+        lora.set_config('lora:dr:5')
 
         print('Join to LoRa network')
         status = lora.join()
