@@ -35,23 +35,23 @@ pw =  (line_con.split(',')[2])
 
 #before: pip install PyMySQL
 #Create DATABASE
-connection = pymysql.connect (host=ip, user=name, port=3306, password=pw)
-try:
-    with connection.cursor() as cursor:
-        cursor.execute('CREATE DATABASE IF NOT EXISTS mobimet_data')
-        
-finally:
-    connection.close()
-
-#Create Database
-connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
-try:
-    with connection.cursor() as cursor:
-        sqlQuery = "CREATE TABLE IF NOT EXISTS `connection`(`ID` INT(11) NOT NULL AUTO_INCREMENT,`Timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,`Rasp_Time` DATETIME,`RASP_ID` INT,`IP_MOBIMET` TEXT, PRIMARY KEY(`ID`)) AUTO_INCREMENT=1"
-        cursor.execute(sqlQuery)
+#connection = pymysql.connect (host=ip, user=name, port=3306, password=pw)
+#try:
+#    with connection.cursor() as cursor:
+#        cursor.execute('CREATE DATABASE IF NOT EXISTS mobimet_data')
+#        
+#finally:
+#    connection.close()
+#
+##Create Database
+#connection = pymysql.connect (host=ip, user=name, port=3306, password=pw, db ="mobimet_data", cursorclass=pymysql.cursors.DictCursor)
+#try:
+#    with connection.cursor() as cursor:
+#        sqlQuery = "CREATE TABLE IF NOT EXISTS `connection`(`ID` INT(11) NOT NULL AUTO_INCREMENT,`Timestamp` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,`Rasp_Time` DATETIME,`RASP_ID` INT,`IP_MOBIMET` TEXT, PRIMARY KEY(`ID`)) AUTO_INCREMENT=1"
+#        cursor.execute(sqlQuery)
          
-finally:
-    connection.close()
+#finally:
+#    connection.close()
 
 def get_ip():
     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
