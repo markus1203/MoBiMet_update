@@ -159,6 +159,8 @@ while True:
             else:
                 drawblack.text((0,125), ' '+PET+u'°C', font = font38, fill = 0)
                 
+            drawblack.text((130,130), u" J'ai froid", font = font26, fill = 0)
+                
         if lang=='e':
             drawblack.text((0,30), ' Air temperature',font = font16, fill = 0)
             drawblack.text((130,30), ' Humidity',font = font16, fill = 0)
