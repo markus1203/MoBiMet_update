@@ -61,7 +61,7 @@ if wind=='y':
 		time.sleep(1)
 	v=sum/num
 
-  print( str(v) + " m/s " + " // "  +time.strftime("%Y-%m-%d %H:%M:%S"))
+  	print( str(v) + " m/s " + " // "  +time.strftime("%Y-%m-%d %H:%M:%S"))
    	f0=open(logfile_wind,"w")
     	f0.write(str(v))
     	f0.close()
