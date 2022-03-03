@@ -244,7 +244,7 @@ if lang=='e':
         drawblack.text((130,120), ' moderate', font = font20, fill = 0)
         drawblack.text((130,145), u' cold stress', font = font20, fill = 0)
     elif float(PET) <= 18:
-        drawblack.text((130,120), ' light', font = font20, fill = 0)
+        drawblack.text((130,120), ' slight', font = font20, fill = 0)
         drawblack.text((130,145), u' cold stress', font = font20, fill = 0)
     elif float(PET)>=41:
         drawblack.text((130,120), ' extreme', font = font20, fill = 0)
@@ -256,7 +256,7 @@ if lang=='e':
         drawblack.text((130,120), ' moderate', font = font20, fill = 0)
         drawblack.text((130,145), u' heat stress', font = font20, fill = 0)
     elif float(PET)>=23:
-        drawblack.text((130,120), ' light', font = font20, fill = 0)
+        drawblack.text((130,120), ' slight', font = font20, fill = 0)
         drawblack.text((130,145), u' heat stress', font = font20, fill = 0)
         
 drawred.line((0, 99, 265, 99), fill = 0)
