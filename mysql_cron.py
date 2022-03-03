@@ -47,8 +47,8 @@ last_line = f1.readlines()[-1]
 f1.close()
 
 IP=(last_line.split(',')[2])
-time_RP=(last_line.split(',')[0])
-
+#time_RP=(last_line.split(',')[0])
+time_RP=time.strftime("%Y-%m-%d %H:%M")
 #if time > (lastmysqltime[0].strftime('%Y-%m-%d %H:%M')):
 dht22_vp=(last_line.split(',')[3])
 #if float(dht22_vp)==-9999: dht22_vp=None
