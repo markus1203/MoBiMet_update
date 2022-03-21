@@ -80,7 +80,7 @@ sl_utci=(last_line.split(',')[18])
 pet=(last_line.split(',')[19])
 sl_pet=(last_line.split(',')[20])
 cpu_temp=(last_line.split(',')[21])
-if len(last_line.split(','))==25 :
+if len(last_line.split(','))==26 :
     htu_rh=((last_line.split(',')[25]))
     htu_ta=((last_line.split(',')[24]))
     htu_rh_raw=((last_line.split(',')[23]))
