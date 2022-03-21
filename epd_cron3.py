@@ -64,7 +64,7 @@ f1.close()
 IP=(last_line.split(',')[2])
 time=(last_line.split(',')[0])
 #dht22_humidity=(last_line.split(',')[5])
-if (last_line.split(',')[25])  is not None:
+if len(last_line.split(','))==25 :
     dht22_humidity=str(float(last_line.split(',')[25]))
 else:
     dht22_humidity=(last_line.split(',')[5])
