@@ -63,7 +63,10 @@ f1.close()
 IP=(last_line.split(',')[2])
 time=(last_line.split(',')[0])
 dht22_humidity=(last_line.split(',')[5])
-dht22_temperature=(last_line.split(',')[7])
+if (last_line.split(',')[27])  is not None:
+    dht22_temperature=(last_line.split(',')[27])
+else:
+    dht22_temperature=(last_line.split(',')[7])
 PET=(last_line.split(',')[19])
 #comf=comfortable_PET(float(PET))
 
