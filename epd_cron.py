@@ -65,7 +65,7 @@ time=(last_line.split(',')[0])
 #dht22_humidity=(last_line.split(',')[5])
 dht22_temperature=(last_line.split(',')[7])
 if (last_line.split(',')[25])  is not None:
-    dht22_humidity=float(last_line.split(',')[25])
+    dht22_humidity=str(float(last_line.split(',')[25]))
 else:
     dht22_humidity=(last_line.split(',')[5])
 PET=(last_line.split(',')[19])
