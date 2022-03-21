@@ -161,10 +161,10 @@ try:
        obj = HTU21D()
        print "Temp:", obj.read_tmperature(), "C"
        print "Humid:", obj.read_humidity(), "% rH"
-       htu_temp=round(obj.read_tmperature(),2)
-       htu_rh=round(obj.read_humidity(),2)
-       htu_temp_calib=round(HTU_Ta_a0+htu_temp*HTU_Ta_a1,2)
-       htu_rh_calib=round(HTU_RH_a0+htu_rh*HTU_RH_a1,2)
+       htu_temp=round(obj.read_tmperature(),1)
+       htu_rh=round(obj.read_humidity(),1)
+       htu_temp_calib=round(HTU_Ta_a0+htu_temp*HTU_Ta_a1,1)
+       htu_rh_calib=round(HTU_RH_a0+htu_rh*HTU_RH_a1,1)
        
 except IOError:
        htu_temp=-9999
