@@ -81,10 +81,10 @@ pet=(last_line.split(',')[19])
 sl_pet=(last_line.split(',')[20])
 cpu_temp=(last_line.split(',')[21])
 if len(last_line.split(','))==25 :
-    htu_rh=str(float(last_line.split(',')[25]))
-    htu_ta=str(float(last_line.split(',')[24]))
-    htu_rh_raw=str(float(last_line.split(',')[23]))
-    htu_ta_raw=str(float(last_line.split(',')[22]))
+    htu_rh=((last_line.split(',')[25]))
+    htu_ta=((last_line.split(',')[24]))
+    htu_rh_raw=((last_line.split(',')[23]))
+    htu_ta_raw=((last_line.split(',')[22]))
 else:
     htu_rh=None
     htu_ta=None
