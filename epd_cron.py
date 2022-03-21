@@ -4,7 +4,7 @@
 # Version 26.10.2020
 from __future__ import division
 import time
-time.sleep(50)
+#time.sleep(50)
 
 try:
     from StringIO import StringIO
@@ -64,7 +64,7 @@ IP=(last_line.split(',')[2])
 time=(last_line.split(',')[0])
 #dht22_humidity=(last_line.split(',')[5])
 dht22_temperature=(last_line.split(',')[7])
-if (last_line.split(',')[25])  is not None:
+if len(last_line.split(','))==25 :
     dht22_humidity=str(float(last_line.split(',')[25]))
 else:
     dht22_humidity=(last_line.split(',')[5])
