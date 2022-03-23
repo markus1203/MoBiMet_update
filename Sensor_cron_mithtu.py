@@ -289,7 +289,10 @@ if dht22_temperature==-9999 or tmrt==-9999 :
     comf_utci=-9999
     sl_utci=-9999
 else:
-    utci=universal_thermal_climate_index(dht22_temperature, tmrt, v_utci, dht22_humidity)
+    if htu_rh_calib==-9999:
+        utci=universal_thermal_climate_index(dht22_temperature, tmrt, v_utci, dht22_humidity)
+    else:
+        utci=universal_thermal_climate_index(dht22_temperature, tmrt, v_utci, htu_rh_calib)
     comf_utci=comfortable(utci)
     sl_utci=stresslevel(utci)
 
