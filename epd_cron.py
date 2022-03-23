@@ -64,7 +64,7 @@ IP=(last_line.split(',')[2])
 time=(last_line.split(',')[0])
 #dht22_humidity=(last_line.split(',')[5])
 dht22_temperature=(last_line.split(',')[7])
-if len(last_line.split(','))==26 and str(float(last_line.split(',')[25])!=-9999 :
+if len(last_line.split(','))==26 and (float(last_line.split(',')[25]))!=-9999 :
     dht22_humidity=str(float(last_line.split(',')[25]))
 else:
     dht22_humidity=(last_line.split(',')[5])
