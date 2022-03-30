@@ -202,8 +202,11 @@ else:
     dht22_humidity_raw=-9999
 
 #CPU_TEMP
-cpu = CPUTemperature()
-cpu_ta = cpu.temperature   
+try:
+    cpu = CPUTemperature()
+    cpu_ta = cpu.temperature   
+except (LookupError):
+    cpu_ta=-9999
 
 # Wind
 logfile_wind="/home/pi/Desktop/wind.csv"
