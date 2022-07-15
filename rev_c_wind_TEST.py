@@ -52,11 +52,11 @@ if wind=='y':
     		try:
         		WindSpeed_MPH =  pow(((Wind_Volts - zeroWind_volts) /.2300) , 2.7265)
         		W = float(WindSpeed_MPH*0.44704)
-    		except: W = None
+	   		sum=sum+W
+		except: W = None
 
     		print(W)
     		print(TMP_ADunits," | ", Wind_ADunits, " | ", Wind_Volts )
-   		sum=sum+W
 		num=num+1
 		time.sleep(1)
 	v=sum/num
