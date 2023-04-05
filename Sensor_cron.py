@@ -83,7 +83,7 @@ if dht22_humidity is not None and dht22_temperature is not None:
     dht22_vappress = dht22_vappress_calib
     dht22_humidity_raw=round(dht22_humidity,5)
     dht22_humidity = round(100 * (dht22_vappress_calib / saturation_vappress_calib),5)
-    dht22_humidity=round(rh_cal_a1*dht22_humidity+rh_cal_a0)
+    dht22_humidity=round((rh_cal_a1*dht22_humidity+rh_cal_a0),5)
     if dht22_humidity >100:dht22_humidity=100
 else:
     dht22_temperature_raw=-9999
