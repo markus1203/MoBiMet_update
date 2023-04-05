@@ -36,8 +36,16 @@ f1.close()
 
 temperature_cal_a1 = float(line.split(',')[2]) # enter the calibration coefficient slope for temperature
 temperature_cal_a0 =  float(line.split(',')[1]) # enter the calibration coefficient offset for temperature
-vappress_cal_a1 =  float(line.split(',')[4]) # enter the calibration coefficient slope for vapour pressure
-vappress_cal_a0 =  float(line.split(',')[3]) # enter the calibration coefficient offset for vapour pressure
+if float(line.split(',')[13]) < 2023:
+    vappress_cal_a1 =  float(line.split(',')[4]) # enter the calibration coefficient slope for vapour pressure
+    vappress_cal_a0 =  float(line.split(',')[3]) # enter the calibration coefficient offset for vapour pressure
+    rh_cal_a1=1 
+    rh_cal_a0=0
+else:    
+    rh_cal_a1 =  float(line.split(',')[4]) # enter the calibration coefficient slope for vapour pressure
+    rh_cal_a0 =  float(line.split(',')[3]) # enter the calibration coefficient offset for vapour pressure
+    vappress_cal_a1=1
+    vappress_cal_a0=0
 bg_cal_a1 =  float(line.split(',')[6]) 
 bg_cal_a0 =  float(line.split(',')[5]) 
 HTU_RH_a0 =  float(line.split(',')[9]) 
@@ -192,6 +200,7 @@ if dht22_humidity is not None and dht22_temperature is not None:
     dht22_vappress = dht22_vappress_calib
     dht22_humidity_raw=round(dht22_humidity,5)
     dht22_humidity = round(100 * (dht22_vappress_calib / saturation_vappress_calib),5)
+    dht22_humidity=round((rh_cal_a1*dht22_humidity+rh_cal_a0),5)
     if dht22_humidity >100:dht22_humidity=100
 else:
     dht22_temperature_raw=-9999
