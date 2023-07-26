@@ -256,8 +256,12 @@ try:
     if v < 0.1: v_tmrt= 0.1
     else: v_tmrt= v
     try:
-        tmrt=((((bg_calib+273.15)**4)+((1.54023939374378*(10**8)*(v_tmrt**0.462186526822537))/(0.95*(0.05**0.4)))*(bg_calib - dht22_temperature))**0.25)-273.15
-      #  tmrt=((((bg_calib+273.15)**4)+((1.1*(10**8)*(v_tmrt**0.6))/(0.95*(0.04**0.4)))*(bg_calib - dht22_temperature))**0.25)-273.15
+        if dht22_temperature==-9999:
+            tmrt=((((bg_calib+273.15)**4)+((1.54023939374378*(10**8)*(v_tmrt**0.462186526822537))/(0.95*(0.05**0.4)))*(bg_calib - htu_temp_calib))**0.25)-273.15
+        else:
+            tmrt=((((bg_calib+273.15)**4)+((1.54023939374378*(10**8)*(v_tmrt**0.462186526822537))/(0.95*(0.05**0.4)))*(bg_calib - dht22_temperature))**0.25)-273.15
+
+    #  tmrt=((((bg_calib+273.15)**4)+((1.1*(10**8)*(v_tmrt**0.6))/(0.95*(0.04**0.4)))*(bg_calib - dht22_temperature))**0.25)-273.15
     except (ValueError):
         tmrt=-9999
 except (IndexError):
