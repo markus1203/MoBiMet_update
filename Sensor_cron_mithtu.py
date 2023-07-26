@@ -331,6 +331,8 @@ else:
     # Results 
     if htu_rh_calib==-9999:
          Tstable = resolution(dht22_temperature,tmrt,dht22_humidity,v_pet,age,sex,ht,mbody,pos,M,icl,T)[0]
+    elif dht22_temperature==-9999:
+         Tstable = resolution(htu_temp_calib,tmrt,htu_rh_calib,v_pet,age,sex,ht,mbody,pos,M,icl,T)[0]
     else:        
         Tstable = resolution(dht22_temperature,tmrt,htu_rh_calib,v_pet,age,sex,ht,mbody,pos,M,icl,T)[0]
     #print("Nodes temperature [T_core, T_skin, T_clo]",Tstable)
