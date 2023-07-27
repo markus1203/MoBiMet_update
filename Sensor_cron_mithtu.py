@@ -317,7 +317,7 @@ else:
 if v < 0.1: v_pet= 0.1
 else: v_pet= v
 
-if dht22_temperature==-9999 or tmrt==-9999 :
+if dht22_temperature==-9999 and htu_temp_calib==-9999 or tmrt==-9999 :
     pet=-9999
     comf_pet=-9999
     sl_pet=-9999
